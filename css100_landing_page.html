@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS:100 - Computational Thinking & Technical Writing</title>
+    
+    <!-- Import Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Import Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Configure Tailwind theme to use Inter font -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom smooth scrolling and basic utility enhancements */
+        html { scroll-behavior: smooth; }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-2">
+                    <!-- Corporate Building Icon -->
+                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                    <span class="font-bold text-xl tracking-tight text-slate-900">CSS:100 <span class="text-blue-600 font-light">Inc.</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#instructor" class="text-slate-600 hover:text-blue-600 transition font-medium">Leadership</a>
+                    <a href="#about" class="text-slate-600 hover:text-blue-600 transition font-medium">Company Culture</a>
+                    <a href="#careers" class="text-slate-600 hover:text-blue-600 transition font-medium">Career Paths</a>
+                    <a href="#onboarding" class="text-slate-600 hover:text-blue-600 transition font-medium">Onboarding Task</a>
+                    <a href="#directory" class="text-slate-600 hover:text-blue-600 transition font-medium">Company Directory</a>
+                </div>
+                <a href="#onboarding" class="md:hidden bg-blue-600 text-white px-4 py-2 rounded-lg font-medium text-sm">Start Onboarding</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="gradient-bg text-white py-20 lg:py-32 px-4 relative overflow-hidden">
+        <!-- Decorative background elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
+            <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full border-4 border-white border-opacity-20"></div>
+            <div class="absolute bottom-10 right-10 w-64 h-64 rounded-full border-4 border-white border-opacity-20"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto relative z-10 text-center">
+            <span class="inline-block py-1 px-3 rounded-full bg-blue-800 bg-opacity-50 border border-blue-400 text-blue-100 text-sm font-semibold mb-6 uppercase tracking-wider">
+                Corporate Simulation | Fall Cohort
+            </span>
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+                Welcome to CSS:100 Inc. <br class="hidden md:block" /> Engineering Division
+            </h1>
+            <p class="mt-4 text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto font-light leading-relaxed">
+                Where computational thinking meets world-class technical communication. Join our team and build the future.
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#onboarding" class="bg-white text-blue-900 hover:bg-blue-50 px-8 py-3 rounded-lg font-bold shadow-lg transition transform hover:-translate-y-1">
+                    Start New Hire Onboarding
+                </a>
+                <a href="https://github.com" target="_blank" class="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-3 rounded-lg font-bold transition">
+                    View Company Repo
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        
+        <section id="instructor" class="py-16 bg-slate-100 border-b border-slate-200">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-slate-900">Meet Your Leadership</h2>
+                    <p class="mt-4 text-lg text-slate-600">Guiding our engineering division through complex algorithmic logic and clean documentation.</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200">
+                    <div class="md:flex">
+                        <div class="md:flex-shrink-0 bg-slate-800 md:w-72 flex flex-col items-center justify-center p-8 text-white">
+                            <!-- Instructor Photo Placeholder -->
+                            <div class="w-32 h-32 rounded-full border-4 border-blue-500 shadow-lg mb-4 overflow-hidden bg-slate-700 flex items-center justify-center">
+                                <svg class="w-20 h-20 text-slate-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-center">Dr. Ada Lovelace</h3>
+                            <p class="text-blue-400 font-bold tracking-wider text-sm uppercase text-center mt-1">President & Chief Architect</p>
+                        </div>
+                        <div class="p-8 md:p-10 flex-grow">
+                            <div class="uppercase tracking-wide text-sm text-blue-600 font-bold mb-2">Message from the President</div>
+                            <p class="text-slate-600 text-lg leading-relaxed mb-6 italic border-l-4 border-blue-200 pl-4">
+                                "Welcome to the team! As the President of CSS:100 Inc., my role is to ensure our codebase remains pristine and our communication remains crystal clear. In the real world, code is read ten times more often than it is written. I've designed this company simulation to bridge the gap between logical problem-solving and effective technical writing."
+                            </p>
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 border-t border-slate-100 pt-6">
+                                <div class="flex flex-col">
+                                    <span class="text-slate-900 font-bold">HQ Office Hours:</span>
+                                    <span class="text-slate-500 text-sm">Mon/Wed 2:00 PM - 4:00 PM (Virtual HQ)</span>
+                                </div>
+                                <div class="sm:ml-auto">
+                                    <!-- INSTRUCTOR LINK UPDATED TO POINT TO THEIR PORTFOLIO -->
+                                    <a href="https://your-instructor-username.github.io" target="_blank" class="text-slate-700 hover:text-blue-600 transition font-medium text-sm flex items-center gap-2 bg-slate-100 px-4 py-2 rounded-lg hover:bg-blue-50 border border-transparent hover:border-blue-100">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                        View Leadership Portfolio
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-16 bg-white border-t border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="text-blue-600 font-bold tracking-wider text-sm uppercase">Corporate Handbook</span>
+                    <h2 class="text-3xl font-bold text-slate-900 mt-2">Company Culture & Operations (Syllabus)</h2>
+                    <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">Review our operational guidelines. This document outlines our mission, what is expected of you, and how your performance will be evaluated during your tenure at CSS:100 Inc.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    
+                    <!-- Mission Statement / Course Description -->
+                    <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="bg-blue-100 p-3 rounded-lg text-blue-600">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900">Corporate Mission (Course Description)</h3>
+                        </div>
+                        <p class="text-slate-700 leading-relaxed">
+                            To bridge the critical gap between raw computational problem-solving and effective, human-readable communication. In the modern tech landscape, writing brilliant code is only half the job; the other half is explaining, documenting, and collaborating on that code. This simulation provides a hands-on environment for mastering both.
+                        </p>
+                    </div>
+
+                    <!-- Core Competencies / Learning Objectives -->
+                    <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="bg-indigo-100 p-3 rounded-lg text-indigo-600">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900">Core Competencies (Objectives)</h3>
+                        </div>
+                        <ul class="space-y-2 text-slate-700 list-disc list-inside">
+                            <li>Master fundamental Git & GitHub workflows (Commits, Push, Pull Requests).</li>
+                            <li>Develop basic proficiency in HTML/CSS and DOM structures.</li>
+                            <li>Produce clear, professional technical documentation and commit messages.</li>
+                            <li>Understand logic structures and algorithmic problem-solving.</li>
+                            <li>Navigate corporate-style codebases safely without causing regressions.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Compensation / Grading Scale -->
+                    <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="bg-green-100 p-3 rounded-lg text-green-600">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900">Performance Metrics (Grading)</h3>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center border-b border-slate-200 pb-2">
+                                <span class="text-slate-700 font-medium">Sprint Deliverables (Assignments)</span>
+                                <span class="text-slate-900 font-bold">40%</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-slate-200 pb-2">
+                                <span class="text-slate-700 font-medium">Quarterly Review (Midterm Project)</span>
+                                <span class="text-slate-900 font-bold">25%</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-slate-200 pb-2">
+                                <span class="text-slate-700 font-medium">Final Deployment (Final Project)</span>
+                                <span class="text-slate-900 font-bold">25%</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-slate-700 font-medium">Stand-ups (Attendance & Participation)</span>
+                                <span class="text-slate-900 font-bold">10%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Office Protocols / Policies -->
+                    <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="bg-amber-100 p-3 rounded-lg text-amber-600">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900">Office Protocols (Policies)</h3>
+                        </div>
+                        <div class="space-y-4 text-slate-700">
+                            <div>
+                                <strong class="text-slate-900 block">Deadlines (Sprint Cycles)</strong>
+                                Pull requests are strictly due by the end of the sprint cycle. Late commits will be flagged in the system and subject to penalty.
+                            </div>
+                            <div>
+                                <strong class="text-slate-900 block">Collaboration vs. Plagiarism</strong>
+                                Pair programming is encouraged! However, directly copying another engineer's code without citation or understanding violates our corporate integrity policy.
+                            </div>
+                            <div>
+                                <strong class="text-slate-900 block">AI Assistance Tools</strong>
+                                Use of AI (like Copilot or ChatGPT) is permitted for syntax debugging, but you must be able to fully explain and defend any code you commit during code reviews.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="careers" class="py-16 bg-slate-50 border-t border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="text-blue-600 font-bold tracking-wider text-sm uppercase">Internal Mobility</span>
+                    <h2 class="text-3xl font-bold text-slate-900 mt-2">Career Progression at CSS:100</h2>
+                    <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">Your initial pull request gets you in the door as an Entry-Level Engineer. As the semester progresses and your skills level up, you will earn hypothetical promotions based on your performance grades, requiring further code commits to update your corporate status.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 text-center">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-slate-300">
+                        <div class="text-slate-400 font-bold mb-2">Level 1</div>
+                        <h3 class="font-bold text-slate-800">Entry Level</h3>
+                        <p class="text-xs text-slate-500 mt-2">Completed Onboarding PR.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-blue-400">
+                        <div class="text-blue-500 font-bold mb-2">Level 2</div>
+                        <h3 class="font-bold text-slate-800">Junior Engineer</h3>
+                        <p class="text-xs text-slate-500 mt-2">Mastering the basics of their chosen track.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-indigo-500">
+                        <div class="text-indigo-500 font-bold mb-2">Level 3</div>
+                        <h3 class="font-bold text-slate-800">Senior Engineer</h3>
+                        <p class="text-xs text-slate-500 mt-2">Consistently delivering high-quality work.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-purple-500">
+                        <div class="text-purple-500 font-bold mb-2">Level 4</div>
+                        <h3 class="font-bold text-slate-800">Manager</h3>
+                        <p class="text-xs text-slate-500 mt-2">Leading peer reviews and technical documentation.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-amber-500">
+                        <div class="text-amber-500 font-bold mb-2">Level 5</div>
+                        <h3 class="font-bold text-slate-800">VP / C-Suite</h3>
+                        <p class="text-xs text-slate-500 mt-2">Top performers in Cyber, Web, or Data tracks.</p>
+                    </div>
+                </div>
+                
+                <div class="mt-10 bg-blue-50 rounded-xl p-6 border border-blue-100 flex flex-col md:flex-row items-start gap-4">
+                    <div class="bg-blue-600 text-white rounded-full p-2 flex-shrink-0">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-lg">The Promotion Protocol</h4>
+                        <p class="text-slate-700 mt-2">When you receive a grade that qualifies you for a promotion, your next task is to submit a new Pull Request. You will edit your HTML Employee Card in the directory below, changing your Rank (e.g., from Entry to Junior) and specializing your Track (e.g., Web Developer, Cybersecurity Analyst). This reinforces continuous Git workflows and HTML DOM navigation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="onboarding" class="py-16 bg-white border-t border-slate-200">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="text-blue-600 font-bold tracking-wider text-sm uppercase">Employee Orientation</span>
+                    <h2 class="text-3xl font-bold text-slate-900 mt-2">Onboarding Task: Company Directory Drop</h2>
+                    <p class="mt-4 text-lg text-slate-600">Your first ticket as a new hire is to generate your employee ID badge and append it to our company directory.</p>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="flex gap-4 p-6 bg-white rounded-xl shadow-sm border border-slate-200">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-lg">1</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">Fork & Clone Company Repo</h3>
+                            <p class="text-slate-600 mb-2">Fork the official CSS:100 Inc. repository to your own GitHub account, then clone it to your local workspace.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-4 p-6 bg-white rounded-xl shadow-sm border border-slate-200">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-lg">2</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">Locate the ID Badge Template</h3>
+                            <p class="text-slate-600 mb-2">Open <code>index.html</code> in your editor. Scroll down to the <strong>Company Directory</strong> section. Locate the HTML comment that says <code>&lt;!-- STUDENT TEMPLATE START --&gt;</code>.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 p-6 bg-white rounded-xl shadow-sm border border-slate-200">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-lg">3</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">Edit and Embed Your Credentials</h3>
+                            <p class="text-slate-600 mb-2">Uncomment the template, fill in your Name, Role/Major, a short Bio, and your GitHub URL. <strong>Do not break the surrounding HTML grid structure.</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 p-6 bg-blue-50 rounded-xl shadow-sm border border-blue-200 ring-2 ring-blue-500 ring-opacity-20">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg">4</div>
+                        <div class="w-full">
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">Commit with Context <span class="text-sm font-normal text-blue-600 ml-2 bg-blue-100 px-2 py-1 rounded">Technical Writing Focus</span></h3>
+                            <p class="text-slate-700 mb-3">This is the most critical step of onboarding. When you commit your changes, you must write a descriptive commit message that explains <em>what</em> you did and <em>why</em>. Avoid unhelpful messages.</p>
+                            <div class="bg-slate-800 text-slate-300 p-4 rounded-lg font-mono text-sm overflow-x-auto">
+                                <p class="text-slate-500 mb-1"># BAD Commit Message</p>
+                                <p class="mb-4 text-red-400">git commit -m "added my name"</p>
+                                
+                                <p class="text-slate-500 mb-1"># GOOD Commit Message (Use this format!)</p>
+                                <p class="text-green-400">git commit -m "feat(directory): append Jane Doe employee badge to index.html"</p>
+                                <br>
+                                <p class="text-slate-400"># Optional extended description (for PRs):</p>
+                                <p class="text-slate-400"># "Cloned the onboarding template block and inserted my personal details, including intended major and github link, to complete New Hire Orientation."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="directory" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-slate-900">Company Directory & Hierarchy</h2>
+                    <p class="mt-4 text-lg text-slate-600">Our engineering leadership and newly onboarded team members.</p>
+                </div>
+
+                <!-- ORG CHART STRUCTURE -->
+                <div class="flex flex-col items-center">
+                    
+                    <!-- CEO / ARCHITECT NODE -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-slate-800 w-full max-w-sm text-center relative z-10 hover:-translate-y-1 transition transform cursor-default">
+                        <div class="w-16 h-16 rounded-full bg-slate-800 text-white mx-auto flex items-center justify-center mb-4 shadow-md">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800">Dr. Ada Lovelace</h3>
+                        <p class="text-blue-600 font-bold tracking-wider text-xs uppercase mb-2">President & Chief Architect</p>
+                        <div class="inline-block px-3 py-1 bg-slate-100 rounded-full text-slate-500 text-xs font-medium">Reviewer of Pull Requests</div>
+                    </div>
+
+                    <!-- CONNECTING VERTICAL LINE -->
+                    <div class="w-1 h-12 bg-slate-300"></div>
+
+                    <!-- ENGINEERING TEAM CONTAINER -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-3xl w-full p-8 pt-10 shadow-inner relative">
+                        <!-- Label -->
+                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-slate-700 text-white px-6 py-1.5 rounded-full text-sm font-bold tracking-widest uppercase shadow-md">
+                            Engineering Team
+                        </div>
+
+                        <!-- STUDENT ROSTER GRID -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 mt-6" id="student-grid">
+                            
+                            <!-- ========================================================================= -->
+                            <!-- ATTENTION NEW HIRES: READ BELOW -->
+                            <!-- ========================================================================= -->
+                            <!-- 
+                                STUDENT TEMPLATE START 
+                                
+                                Instructions:
+                                1. Copy the entire <div> block directly below these comments.
+                                2. Paste it right AFTER the "STUDENT TEMPLATE END" line.
+                                3. Remove the HTML comment tags (the <!-- and the closing arrows) around YOUR newly pasted block.
+                                4. Replace the placeholder text with your info to create your ID Badge.
+                                5. Leave the Rank as "Entry Level" for your first PR. 
+                                6. In future assignments, you will update your Rank and Track to reflect your promotions!
+                                7. Save, Commit (with a good message!), and Push.
+                            -->
+
+                            <!-- 
+                            <div class="bg-white rounded-xl shadow-md px-6 pb-6 pt-10 border border-slate-200 hover:border-blue-400 hover:shadow-lg transition flex flex-col h-full text-center relative mt-4">
+                                
+                                <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 rounded-full bg-slate-100 border-4 border-slate-200 shadow-md flex items-center justify-center text-slate-400 overflow-hidden">
+                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+                                </div>
+                                
+                                <div class="flex-grow">
+                                    <h3 class="text-xl font-bold text-slate-800">[Your Full Name]</h3>
+                                    
+                                    <div class="my-3 flex flex-col items-center gap-1.5">
+                                        <span class="bg-slate-200 text-slate-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide border border-slate-300">Entry Level</span>
+                                        <p class="text-blue-600 font-bold text-xs uppercase tracking-wider mt-1">[Target Track: e.g., Cybersecurity, Web Dev]</p>
+                                    </div>
+                                    
+                                    <p class="text-slate-600 text-sm mb-4 line-clamp-3 italic">
+                                        "[Write a 1-2 sentence bio. What do you hope to learn? What is your favorite tech stack?]"
+                                    </p>
+                                </div>
+                                
+                                <div class="flex flex-col gap-2 mt-auto pt-4 border-t border-slate-100">
+                                    <a href="https://github.com/YOUR_USERNAME" target="_blank" class="text-slate-500 hover:text-slate-900 transition flex items-center justify-center gap-1 text-sm font-medium">
+                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        GitHub Profile
+                                    </a>
+                                    <a href="https://YOUR_USERNAME.github.io" target="_blank" class="w-full text-center bg-blue-50 text-blue-700 hover:bg-blue-600 hover:text-white transition py-1.5 rounded-lg text-sm font-semibold border border-blue-100 hover:border-transparent flex items-center justify-center gap-1">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                                        View Portfolio Website
+                                    </a>
+                                </div>
+                            </div>
+                            -->
+
+                            <!-- STUDENT TEMPLATE END -->
+                            <!-- PASTE YOUR COPIED BLOCK BELOW THIS LINE -->
+
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-12 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-center items-center gap-2 mb-4">
+                <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                </svg>
+                <span class="font-bold text-xl tracking-tight text-white">CSS:100 Inc.</span>
+            </div>
+            <p class="mb-2">Designed for educational purposes as a corporate simulation.</p>
+            <p class="text-sm">Engineered with HTML5, Tailwind CSS, and a culture of collaboration.</p>
+            <div class="mt-8 pt-8 border-t border-slate-800 text-sm">
+                &copy; <script>document.write(new Date().getFullYear())</script> CSS:100 Engineering Division. Hosted on GitHub Pages.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
