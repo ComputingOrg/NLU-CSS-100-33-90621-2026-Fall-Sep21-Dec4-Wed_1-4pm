@@ -1133,7 +1133,7 @@
                 <!-- Font Scaling (Adjusts .slide-viewport ONLY) -->
                 <div class="font-controls" title="Adjust Slide Content Font Size (ArrowUp / ArrowDown)">
                     <button class="font-btn" onclick="decreaseFont()" title="Decrease Font (ArrowDown)">▼ A-</button>
-                    <span class="font-indicator" id="fontScaleIndicator">100%</span>
+                    <span class="font-indicator" id="fontScaleIndicator">150%</span>
                     <button class="font-btn" onclick="increaseFont()" title="Increase Font (ArrowUp)">▲ A+</button>
                 </div>
                 <button class="hud-btn" onclick="resetCurrentSlide()" title="Reset Slide Questions / Labs (R)">↺ Reset Slide</button>
@@ -10247,7 +10247,7 @@
     <script>
         const totalSlides = 77;
         let currentSlide = 0;
-        let currentFontScale = parseInt(localStorage.getItem('css100_deck_font_scale')) || 100;
+        let currentFontScale = parseInt(localStorage.getItem('css100_deck_font_scale')) || 150;
 
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('css100_theme') || 'light';
@@ -10323,7 +10323,7 @@
         }
 
         function increaseFont() {
-            if (currentFontScale < 150) {
+            if (currentFontScale < 200) {
                 currentFontScale += 5;
                 applyFontScale();
             }
@@ -10337,7 +10337,7 @@
         }
 
         function applyFontScale() {
-            currentFontScale = Math.max(75, Math.min(150, currentFontScale));
+            currentFontScale = Math.max(75, Math.min(200, currentFontScale));
             document.documentElement.style.fontSize = currentFontScale + '%';
             const indicator = document.getElementById('fontScaleIndicator');
             if (indicator) indicator.innerText = currentFontScale + '%';
