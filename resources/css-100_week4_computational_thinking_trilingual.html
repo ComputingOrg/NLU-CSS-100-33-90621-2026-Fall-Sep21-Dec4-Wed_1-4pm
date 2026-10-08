@@ -985,7 +985,7 @@
                 <!-- Font Size Controls (Up / Down) -->
                 <div class="font-controls" title="Adjust Font Size (ArrowUp / ArrowDown)">
                     <button class="font-btn" onclick="decreaseFont()" title="Decrease Font (ArrowDown)">▼ A-</button>
-                    <span class="font-indicator" id="fontScaleIndicator">100%</span>
+                    <span class="font-indicator" id="fontScaleIndicator">150%</span>
                     <button class="font-btn" onclick="increaseFont()" title="Increase Font (ArrowUp)">▲ A+</button>
                 </div>
                 <button class="hud-btn" id="btnResetSlide" onclick="resetCurrentSlide()"
@@ -5512,10 +5512,10 @@ ALGORITMO EsPalindromo(S, N):
         const sorterOverlay = document.getElementById('sorterOverlay');
 
         // Font Size Scaling System (ArrowUp / ArrowDown)
-        let fontScale = parseFloat(localStorage.getItem('deck_font_scale')) || 1.0;
+        let fontScale = parseFloat(localStorage.getItem('deck_font_scale')) || 1.5;
 
         function setFontScale(newScale) {
-            fontScale = Math.max(0.75, Math.min(1.5, Math.round(newScale * 20) / 20));
+            fontScale = Math.max(0.75, Math.min(2, Math.round(newScale * 20) / 20));
             document.documentElement.style.fontSize = (fontScale * 100) + '%';
             const indicator = document.getElementById('fontScaleIndicator');
             if (indicator) indicator.textContent = `${Math.round(fontScale * 100)}%`;
