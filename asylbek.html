@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Asylbek Murzakulov | Portfolio</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --background: #f3f6fb;
+      --surface: #ffffff;
+      --text: #172033;
+      --muted: #526078;
+      --border: #dce3ee;
+      --accent: #2458d3;
+    }
+
+    body.dark {
+      color-scheme: dark;
+      --background: #101827;
+      --surface: #1b2639;
+      --text: #edf2fa;
+      --muted: #b6c3d8;
+      --border: #35445b;
+      --accent: #9cbaff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: system-ui, sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: var(--accent); }
+    button, input { font: inherit; }
+
+    a:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(960px, 90%);
+      margin: auto;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 24px 0;
+    }
+
+    button, .button {
+      display: inline-block;
+      padding: 10px 18px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface);
+      color: var(--text);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    header { padding: 55px 0; }
+
+    .label {
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    h1 {
+      font-size: clamp(36px, 7vw, 64px);
+      line-height: 1.1;
+      margin: 16px 0;
+      letter-spacing: -2px;
+    }
+
+    h2 { margin-top: 0; }
+    h3 { margin-bottom: 8px; }
+
+    .intro {
+      max-width: 650px;
+      font-size: 19px;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+
+    .grid .card { margin-bottom: 0; }
+    section { margin-bottom: 32px; }
+    .muted { color: var(--muted); }
+
+    .tag {
+      display: inline-block;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 5px 12px;
+      margin: 4px;
+      font-size: 14px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--background);
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    #result {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 0;
+    }
+
+    footer {
+      padding: 25px 0 40px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    @media (max-width: 650px) {
+      .grid { grid-template-columns: 1fr; }
+      header { padding: 30px 0; }
+      .card { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav aria-label="Main navigation">
+      <a href="index.html">← Class website</a>
+      <button id="theme" type="button" aria-pressed="false">
+        Dark mode
+      </button>
+    </nav>
+
+    <header>
+      <p class="label">Student portfolio</p>
+      <h1>Asylbek<br>Murzakulov</h1>
+      <p class="intro">
+        Computer science student at National Louis University.
+        Learning to turn everyday problems into useful programs.
+      </p>
+      <a class="button"
+         href="https://github.com/amurzakulov"
+         target="_blank"
+         rel="noopener noreferrer">
+        Visit my GitHub ↗
+      </a>
+    </header>
+
+    <section class="grid" aria-label="About me and skills">
+      <div class="card">
+        <h2>About me</h2>
+        <p>
+          I am from Kyrgyzstan and study computer science in
+          the Chicago area. I enjoy football, technology,
+          and learning new ways to solve problems.
+        </p>
+        <p>
+          My goal is to improve my programming skills and
+          build websites and applications that people can use.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Currently learning</h2>
+        <span class="tag">Java</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">GitHub</span>
+        <p class="muted">
+          I am developing these skills through coursework
+          and practice projects.
+        </p>
+      </div>
+    </section>
+
+    <section class="card">
+      <p class="label">Interactive project</p>
+      <h2>Monthly budget calculator</h2>
+      <p class="muted">
+        Enter your monthly income and total expenses in
+        US dollars to see the difference. This calculator
+        does not send or save your entries.
+      </p>
+
+      <form id="budget">
+        <div class="grid">
+          <div>
+            <label for="income">Monthly income after taxes ($)</label>
+            <input id="income" type="number" min="0"
+                   max="1000000000" step="0.01"
+                   placeholder="2500" required>
+          </div>
+          <div>
+            <label for="expenses">Total monthly expenses ($)</label>
+            <input id="expenses" type="number" min="0"
+                   max="1000000000" step="0.01"
+                   placeholder="1850" required>
+          </div>
+        </div>
+
+        <button type="submit">Calculate remaining money</button>
+        <button type="reset">Clear</button>
+        <p id="result" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>How this page works</h2>
+      <p>
+        HTML organizes the content. CSS controls the colors,
+        spacing, and layout. JavaScript handles the budget
+        calculation and the light and dark mode button.
+      </p>
+      <p>
+        The calculator subtracts expenses from income.
+        If expenses are higher, it shows the amount over budget.
+      </p>
+    </section>
+
+    <footer>
+      <p>Asylbek Murzakulov · National Louis University</p>
+      <p>
+        Built with AI assistance as a learning project.
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    const themeButton = document.getElementById("theme");
+
+    themeButton.addEventListener("click", function () {
+      const darkMode = document.body.classList.toggle("dark");
+      themeButton.textContent = darkMode ? "Light mode" : "Dark mode";
+      themeButton.setAttribute("aria-pressed", String(darkMode));
+    });
+
+    const budgetForm = document.getElementById("budget");
+    const result = document.getElementById("result");
+
+    const dollars = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD"
+    });
+
+    budgetForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      if (!budgetForm.reportValidity()) return;
+
+      const income = Number(document.getElementById("income").value);
+      const expenses = Number(document.getElementById("expenses").value);
+
+      if (!Number.isFinite(income) || !Number.isFinite(expenses)) {
+        result.textContent = "Please enter valid amounts.";
+        return;
+      }
+
+      const remaining = Math.round((income - expenses) * 100) / 100;
+
+      if (remaining > 0) {
+        result.textContent =
+          "Money remaining: " + dollars.format(remaining);
+      } else if (remaining < 0) {
+        result.textContent =
+          "Over budget by " + dollars.format(Math.abs(remaining));
+      } else {
+        result.textContent = "Your income and expenses are equal.";
+      }
+    });
+
+    budgetForm.addEventListener("reset", function () {
+      result.textContent = "";
+    });
+  </script>
+</body>
+</html>
