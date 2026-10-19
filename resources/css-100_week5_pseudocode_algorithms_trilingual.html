@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-deck-lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS-100 Week 5 — Algorithms &amp; Pseudocode (EN / RU / ES)</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    :root{--bg:#f8fafc;--paper:#fff;--ink:#0f172a;--muted:#475569;--accent:#1d4ed8;--accent-hover:#1e40af;--soft:#eff6ff;--line:#dbe3ee;--code:#0b1120;--code-ink:#e2e8f0;--success:#047857;--success-soft:#ecfdf5;--warn:#b45309;--warn-soft:#fffbeb;--danger:#b91c1c;--danger-soft:#fef2f2;--hud:rgba(255,255,255,.96);--scale:1.5;--sans:'Inter',system-ui,sans-serif;--head:'Outfit',system-ui,sans-serif;--mono:'JetBrains Mono',Consolas,monospace}
+    [data-theme="dark"]{color-scheme:dark;--bg:#090d16;--paper:#0f172a;--ink:#f8fafc;--muted:#b4c0d0;--accent:#60a5fa;--accent-hover:#93c5fd;--soft:#14233d;--line:#334155;--code:#070b13;--code-ink:#e2e8f0;--success:#34d399;--success-soft:#102b27;--warn:#fbbf24;--warn-soft:#302513;--danger:#f87171;--danger-soft:#351b22;--hud:rgba(15,23,42,.97)}
+    *{box-sizing:border-box}html,body{width:100%;height:100%;margin:0}body{overflow:hidden;background:var(--bg);color:var(--ink);font:16px/1.55 var(--sans);transition:background .18s,color .18s}
+    button{font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:7px;padding:6px 10px;cursor:pointer}button:hover{border-color:var(--accent);color:var(--accent)}button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}.frame{height:100dvh;display:flex;flex-direction:column;background:var(--paper)}
+    .progress-track{height:4px;flex:none;background:var(--line)}.progress-fill{height:100%;width:5%;background:var(--accent);transition:width .24s}
+    .topbar{height:52px;min-height:52px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);background:var(--hud);z-index:2}
+    .identity{display:flex;align-items:center;gap:10px;min-width:0}.tag{color:var(--accent);background:var(--soft);border:1px solid var(--accent);border-radius:5px;padding:3px 8px;font-size:11px;font-weight:800;letter-spacing:.04em;white-space:nowrap}.context{font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}.lang-group{display:flex;align-items:center;gap:0;padding:2px;height:32px;border:1px solid var(--line);border-radius:6px;background:var(--paper)}.lang-pill-btn{display:inline-flex;align-items:center;gap:4px;padding:3px 7px!important;border:0!important;border-radius:4px;background:transparent!important;color:var(--muted);font-size:11px!important;font-weight:700!important;line-height:1!important;white-space:nowrap}.lang-pill-btn:hover{background:var(--code)!important;color:var(--accent)!important}.lang-pill-btn.active{background:var(--accent)!important;color:#fff!important;box-shadow:0 1px 2px rgba(0,0,0,.1)}.font-controls{display:flex;align-items:center;gap:3px;padding:2px 6px;height:32px;border:1px solid var(--line);border-radius:6px;background:var(--paper)}.font-btn{padding:3px 6px!important;border:0!important;border-radius:4px;background:transparent!important;color:var(--ink)!important;font-size:12px!important;font-weight:700!important;line-height:1!important;white-space:nowrap}.font-btn:hover{background:var(--code)!important;color:var(--accent)!important}.font-indicator{min-width:36px;color:var(--ink);font:600 12px/1 var(--mono);text-align:center}.hud-btn{display:inline-flex;align-items:center;gap:5px;height:32px;padding:5px 12px!important;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink)!important;font-size:12px!important;font-weight:600!important;line-height:1!important;text-shadow:none;white-space:nowrap}.hud-btn:hover:not(:disabled){border-color:var(--accent);color:var(--accent)!important}.hud-btn:disabled{opacity:.35;cursor:not-allowed}
+    main{flex:1;min-height:0;overflow:auto;display:flex;justify-content:center;align-items:flex-start;padding:clamp(20px,4vh,48px) clamp(18px,5vw,70px)}.slide{width:min(100%,1120px);margin:auto;animation:enter .18s ease;font-size:calc(16px * var(--scale))}@keyframes enter{from{opacity:.5;transform:translateY(5px)}to{opacity:1;transform:none}}
+    .lang-view{display:none}[data-deck-lang="en"] .lang-view.lang-en,[data-deck-lang="ru"] .lang-view.lang-ru,[data-deck-lang="es"] .lang-view.lang-es{display:block}
+    .eyebrow{font-size:.76em;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}.slide h1,.slide h2,.slide h3{font-family:var(--head);line-height:1.12;letter-spacing:-.025em}.slide h1{font-size:clamp(2.5em,6vw,4.7em);max-width:950px;margin:0 0 18px}.slide h2{font-size:clamp(2em,4.2vw,3em);margin:0 0 12px}.slide h3{font-size:1.08em;margin:0 0 8px}.lead{max-width:930px;color:var(--muted);font-size:1.2em;line-height:1.55;margin:0}.sublead{color:var(--muted);max-width:900px;margin:0 0 14px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,245px),1fr));gap:14px;margin:23px 0 0}.grid.two{grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))}.card,.panel{border:1px solid var(--line);border-radius:12px;padding:17px 19px;background:var(--paper)}.card{background:var(--soft)}.card p,.card ul{margin:0;color:var(--muted)}.card .label{font-size:.75em;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:800;margin-bottom:6px}.card ul{padding-left:1.2em}li+li{margin-top:5px}.panel{margin-top:17px}.panel-title{font-weight:750;margin:0 0 9px}.note,.success,.warning,.danger{margin-top:16px;border-left:4px solid var(--accent);padding:11px 15px;border-radius:0 8px 8px 0;background:var(--soft)}.success{border-color:var(--success);background:var(--success-soft)}.warning{border-color:var(--warn);background:var(--warn-soft)}.danger{border-color:var(--danger);background:var(--danger-soft)}.note p,.success p,.warning p,.danger p{margin:0}.table-wrap{overflow-x:auto;margin-top:16px;border:1px solid var(--line);border-radius:10px}table{width:100%;border-collapse:collapse;min-width:500px}th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}th{background:var(--soft);font-size:.9em}tr:last-child td{border-bottom:0}
+    pre{margin:12px 0 0;padding:17px 19px;background:var(--code);color:var(--code-ink);border-radius:10px;overflow:auto;white-space:pre-wrap;word-break:normal;font: .88em/1.55 var(--mono);tab-size:4}code{font-family:var(--mono)}.inline-code{color:var(--accent);font-weight:650}.columns{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:15px;margin-top:17px}.step-list{counter-reset:step;list-style:none;padding:0;margin:14px 0}.step-list li{counter-increment:step;position:relative;padding:0 0 0 42px;margin:0 0 12px}.step-list li:before{content:counter(step);position:absolute;left:0;top:0;width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:var(--accent);color:white;font-weight:800;font-size:.85em}
+    .footer{height:48px;min-height:48px;padding:0 24px;display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid var(--line);background:var(--hud);font-size:13px;color:var(--muted)}.footer-info{display:flex;align-items:center;gap:10px;min-width:0}.shortcut-guide{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.counter{font-size:12px;font-weight:750;color:var(--muted);white-space:nowrap}.nav{display:flex;gap:7px;flex:none}.nav button{display:inline-flex;align-items:center;height:32px;padding:5px 14px;border:1px solid var(--line);border-radius:5px;background:var(--paper);color:var(--ink);font-size:13px;font-weight:600;line-height:1;white-space:nowrap}.nav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}.nav button:disabled{opacity:.35;cursor:not-allowed}.nav button.primary{background:var(--accent);color:white;border-color:var(--accent)}.nav button.primary:hover{background:var(--accent-hover);color:white}
+    .overlay{position:fixed;inset:0;background:rgba(2,6,23,.7);z-index:20;display:none;padding:4vh 4vw;align-items:center;justify-content:center}.overlay.open{display:flex}.sorter{width:min(1050px,100%);max-height:92vh;overflow:auto;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px}.sorter-head{display:flex;justify-content:space-between;align-items:center;gap:12px;position:sticky;top:-22px;background:var(--paper);padding:5px 0 14px;z-index:1}.sorter-head h2{margin:0;font:700 1.5rem var(--head)}.sorter-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:9px}.sorter-item{text-align:left;padding:12px;border-radius:8px;background:var(--soft);font-size:.88rem}.sorter-item strong{color:var(--accent);display:block;font-size:.76em;margin-bottom:4px}.sorter-item.current{outline:2px solid var(--accent)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.title-mark{display:inline-block;color:var(--accent)}.small{font-size:.9em;color:var(--muted)}.check-list{list-style:none;padding:0}.check-list li{padding-left:27px;position:relative}.check-list li:before{content:"✓";position:absolute;left:0;color:var(--success);font-weight:900}
+    @media(max-width:1050px){.topbar{height:auto;min-height:52px;align-items:flex-start;flex-direction:column;padding:9px 13px;gap:7px}.controls{justify-content:flex-start}.identity{width:100%}}
+    @media(max-width:850px){.context{white-space:normal}.footer{height:auto;min-height:48px;padding:8px 12px}main{padding:22px 16px}.slide{margin:0 auto}}
+    @media(max-width:520px){.controls{gap:4px}.hud-btn{font-size:11px;padding:5px 7px}.tag{font-size:10px}.footer{height:auto;min-height:48px;gap:7px;flex-wrap:wrap;padding:7px 10px}.footer-info{width:100%;justify-content:space-between}.shortcut-guide{white-space:normal;font-size:10px}.nav{margin-left:auto}.nav button{min-width:0;padding:7px 9px}.counter{font-size:11px}.slide h1{font-size:2.6em}.slide h2{font-size:2em}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+<div class="frame">
+  <div class="progress-track" aria-label="Presentation progress"><div class="progress-fill" id="progress"></div></div>
+  <header class="topbar">
+    <div class="identity"><span class="tag" id="slideTag">CSS-100 · WEEK 5</span><span class="context" id="contextLabel">Algorithms &amp; Pseudocode</span></div>
+    <div class="controls" aria-label="Presentation controls">
+      <div class="lang-group" role="group" aria-label="Language" title="Instant Language Switch (Press 'L' to cycle or Alt+1/2/3)">
+        <button class="lang-pill-btn active" data-language="en" aria-pressed="true">🇺🇸 EN</button><button class="lang-pill-btn" data-language="ru" aria-pressed="false">🇷🇺 RU</button><button class="lang-pill-btn" data-language="es" aria-pressed="false">🇪🇸 ES</button>
+      </div>
+      <div class="font-controls" title="Adjust Font Size from 75% to 200% (ArrowUp / ArrowDown)"><button class="font-btn" id="fontDown" title="Decrease Font (ArrowDown)">▼ A-</button><span class="font-indicator" id="fontLabel">150%</span><button class="font-btn" id="fontUp" title="Increase Font (ArrowUp)">▲ A+</button></div>
+      <button class="hud-btn" id="resetButton" title="Reset slide position and font size (R)">↺ Reset Slide</button>
+      <button class="hud-btn" id="gridButton" title="Overview Grid (G / O)">▦ Grid</button><button class="hud-btn" id="themeButton" title="Toggle Theme (T)">🌓 Theme</button><button class="hud-btn" id="fullscreenButton" title="Toggle Fullscreen (F)">⛶ Fullscreen</button>
+    </div>
+  </header>
+  <main id="slideViewport" tabindex="-1"></main>
+  <footer class="footer">
+    <div class="footer-info"><div class="counter" id="counter" aria-live="polite"></div><span aria-hidden="true">|</span><span class="shortcut-guide" id="shortcutGuide"></span></div>
+    <div class="nav"><button id="previousButton">← Previous</button><button class="primary" id="nextButton">Next →</button></div>
+  </footer>
+</div>
+<div class="overlay" id="sorterOverlay" role="dialog" aria-modal="true" aria-labelledby="sorterTitle">
+  <div class="sorter"><div class="sorter-head"><h2 id="sorterTitle">Slide sorter</h2><button id="closeSorter" aria-label="Close slide sorter">Close ✕</button></div><div class="sorter-grid" id="sorterGrid"></div></div>
+</div>
+
+<div id="slides" hidden>
+<section class="slide" data-tag="WEEK 5 · ORIENT" data-context="From a problem to a plan">
+  <div class="lang-view lang-en"><p class="eyebrow">CSS-100 · Week 5 · Think first, code second</p><h1>Algorithms <span class="title-mark">&amp;</span><br>Pseudocode</h1><p class="lead">Turn an everyday problem into a precise, testable plan—then translate the same logic into a programming language.</p><div class="grid two"><div class="card"><div class="label">The route</div><p>Define the problem → design steps → trace values → test boundaries → translate and improve.</p></div><div class="card"><div class="label">By the end</div><p>Write pseudocode using sequence, decisions, and loops; explain correctness; test edge cases; and break a larger task into manageable parts.</p></div></div><div class="note"><p><strong>Big idea:</strong> an algorithm is the plan. Python, JavaScript, and Java are different ways to express that plan.</p></div></div>
+  <div class="lang-view lang-ru"><p class="eyebrow">CSS-100 · Неделя 5 · Сначала думайте, потом пишите код</p><h1>Алгоритмы <span class="title-mark">&amp;</span><br>псевдокод</h1><p class="lead">Преобразуйте повседневную задачу в точный, проверяемый план, а затем запишите ту же логику на языке программирования.</p><div class="grid two"><div class="card"><div class="label">Маршрут</div><p>Определить задачу → спроектировать шаги → проследить значения → проверить границы → перевести алгоритм и улучшить его.</p></div><div class="card"><div class="label">Результат обучения</div><p>Вы сможете писать псевдокод с последовательностью, ветвлениями и циклами; объяснять корректность; проверять граничные случаи; и делить большую задачу на части.</p></div></div><div class="note"><p><strong>Главная идея:</strong> алгоритм — это план. Python, JavaScript и Java — разные способы выразить этот план.</p></div></div>
+  <div class="lang-view lang-es"><p class="eyebrow">CSS-100 · Semana 5 · Primero pensar, después programar</p><h1>Algoritmos <span class="title-mark">&amp;</span><br>pseudocódigo</h1><p class="lead">Convierte un problema cotidiano en un plan preciso y comprobable; luego expresa la misma lógica en un lenguaje de programación.</p><div class="grid two"><div class="card"><div class="label">Recorrido</div><p>Definir el problema → diseñar pasos → seguir los valores → probar límites → traducir y mejorar.</p></div><div class="card"><div class="label">Al terminar</div><p>Podrás escribir pseudocódigo con secuencia, decisiones y bucles; explicar la corrección; probar casos límite; y dividir una tarea grande en partes manejables.</p></div></div><div class="note"><p><strong>Idea clave:</strong> un algoritmo es el plan. Python, JavaScript y Java son maneras distintas de expresar ese plan.</p></div></div>
+</section>
+<section class="slide" data-tag="WEEK 5 · DEFINE" data-context="Specify input, output, and constraints">
+  <div class="lang-view lang-en"><p class="eyebrow">01 · Define before designing</p><h2>Start with the problem contract</h2><p class="lead">A reliable solution begins by agreeing on what goes in, what must come out, and which rules apply.</p><div class="grid"><div class="card"><div class="label">Input</div><p>What data is supplied? Name its type, units, allowed range, and whether it can be missing or empty.</p></div><div class="card"><div class="label">Output</div><p>What exact answer is required? Specify format, units, and what to do when there is no ordinary answer.</p></div><div class="card"><div class="label">Constraints</div><p>Limits, business rules, invalid values, ties, duplicates, and assumptions are part of the problem—not details to guess later.</p></div></div><div class="panel"><p class="panel-title">Example contract · adult pass</p><p><strong>Input:</strong> age, a whole number from 0 through 120. <strong>Output:</strong> “Eligible” or “Not eligible.” <strong>Rule:</strong> a pass is available at age 18 or older.</p></div><div class="note"><p>Writing the contract is like checking a recipe before cooking: quantities and desired result must be clear.</p></div></div>
+  <div class="lang-view lang-ru"><p class="eyebrow">01 · Сначала определить задачу</p><h2>Начните с условий задачи</h2><p class="lead">Надёжное решение начинается с понимания входных данных, требуемого результата и действующих правил.</p><div class="grid"><div class="card"><div class="label">Входные данные</div><p>Какие данные предоставлены? Укажите их тип, единицы, допустимый диапазон и могут ли они отсутствовать или быть пустыми.</p></div><div class="card"><div class="label">Результат</div><p>Какой именно ответ требуется? Уточните формат, единицы и действия, если обычного ответа нет.</p></div><div class="card"><div class="label">Ограничения</div><p>Пределы, правила, недопустимые значения, равенства, дубликаты и допущения — это часть задачи, а не то, что нужно угадывать.</p></div></div><div class="panel"><p class="panel-title">Условия примера · абонемент для взрослых</p><p><strong>Вход:</strong> возраст — целое число от 0 до 120. <strong>Результат:</strong> «Можно оформить» или «Нельзя оформить». <strong>Правило:</strong> абонемент доступен с 18 лет включительно.</p></div><div class="note"><p>Определить условия задачи — всё равно что проверить рецепт перед приготовлением: должны быть понятны количества и желаемый результат.</p></div></div>
+  <div class="lang-view lang-es"><p class="eyebrow">01 · Define antes de diseñar</p><h2>Empieza con el contrato del problema</h2><p class="lead">Una solución fiable comienza por acordar qué datos entran, qué resultado debe salir y qué reglas se aplican.</p><div class="grid"><div class="card"><div class="label">Entrada</div><p>¿Qué datos se proporcionan? Indica tipo, unidades, rango permitido y si pueden faltar o estar vacíos.</p></div><div class="card"><div class="label">Salida</div><p>¿Qué respuesta exacta se necesita? Especifica formato, unidades y qué hacer si no existe una respuesta normal.</p></div><div class="card"><div class="label">Restricciones</div><p>Límites, reglas, valores inválidos, empates, duplicados y supuestos forman parte del problema; no son detalles para adivinar después.</p></div></div><div class="panel"><p class="panel-title">Contrato de ejemplo · pase para adultos</p><p><strong>Entrada:</strong> edad, número entero entre 0 y 120. <strong>Salida:</strong> «Elegible» o «No elegible». <strong>Regla:</strong> el pase está disponible a partir de los 18 años.</p></div><div class="note"><p>Definir el contrato es como revisar una receta antes de cocinar: las cantidades y el resultado deseado deben estar claros.</p></div></div>
+</section>
+<section class="slide" data-tag="WEEK 5 · QUALITY" data-context="What makes an algorithm">
+  <div class="lang-view lang-en"><p class="eyebrow">02 · Quality and correctness</p><h2>What makes an algorithm?</h2><p class="lead">An algorithm is a finite, ordered set of unambiguous steps that transforms valid input into the required output.</p><div class="grid"><div class="card"><div class="label">Clear</div><p>Each step has one understandable meaning. A person or computer should not need to guess.</p></div><div class="card"><div class="label">Finite</div><p>It finishes after a limited number of steps for the inputs covered by the problem.</p></div><div class="card"><div class="label">Effective</div><p>Every instruction can actually be carried out with the available data and operations.</p></div><div class="card"><div class="label">Correct</div><p>For every valid input, it produces an output that satisfies the problem rules.</p></div></div><div class="columns"><div class="panel"><p class="panel-title">Correctness, in plain words</p><p>Ask: “If I follow these steps exactly, do I always get the promised result?” An algorithm that prints an answer quickly but uses the wrong rule is not correct.</p></div><div class="panel"><p class="panel-title">Everyday analogy · a bus route</p><p>A useful route has clear stops, a destination, and a way to make progress. “Keep riding forever” is not a complete route; neither is “go somewhere nearby.”</p></div></div><div class="warning"><p>Testing examples gives evidence, but a few successful examples alone do not prove correctness for every allowed input.</p></div></div>
+  <div class="lang-view lang-ru"><p class="eyebrow">02 · Качество и корректность</p><h2>Что такое алгоритм?</h2><p class="lead">Алгоритм — это конечная упорядоченная последовательность однозначных шагов, которая преобразует допустимые входные данные в требуемый результат.</p><div class="grid"><div class="card"><div class="label">Понятный</div><p>У каждого шага есть ясный смысл. Человеку или компьютеру не приходится догадываться.</p></div><div class="card"><div class="label">Конечный</div><p>Для рассматриваемых входных данных он завершается за ограниченное число шагов.</p></div><div class="card"><div class="label">Выполнимый</div><p>Каждую инструкцию можно выполнить с имеющимися данными и операциями.</p></div><div class="card"><div class="label">Корректный</div><p>Для любых допустимых входных данных он выдаёт результат, удовлетворяющий правилам задачи.</p></div></div><div class="columns"><div class="panel"><p class="panel-title">Корректность простыми словами</p><p>Спросите: «Если точно выполнить эти шаги, всегда ли получится обещанный результат?» Алгоритм, который быстро печатает ответ, но использует неверное правило, некорректен.</p></div><div class="panel"><p class="panel-title">Бытовая аналогия · маршрут автобуса</p><p>Хороший маршрут имеет понятные остановки, цель и способ продвигаться к ней. «Ехать бесконечно» — не полный маршрут; «поехать куда-нибудь поблизости» — тоже.</p></div></div><div class="warning"><p>Примеры при тестировании дают полезные свидетельства, но несколько успешных примеров сами по себе не доказывают корректность для всех допустимых данных.</p></div></div>
+  <div class="lang-view lang-es"><p class="eyebrow">02 · Calidad y corrección</p><h2>¿Qué es un algoritmo?</h2><p class="lead">Un algoritmo es un conjunto finito y ordenado de pasos inequívocos que transforma una entrada válida en la salida requerida.</p><div class="grid"><div class="card"><div class="label">Claro</div><p>Cada paso tiene un significado comprensible. Nadie debería tener que adivinar.</p></div><div class="card"><div class="label">Finito</div><p>Termina después de un número limitado de pasos para las entradas contempladas.</p></div><div class="card"><div class="label">Efectivo</div><p>Cada instrucción se puede ejecutar con los datos y operaciones disponibles.</p></div><div class="card"><div class="label">Correcto</div><p>Para toda entrada válida, produce una salida que cumple las reglas del problema.</p></div></div><div class="columns"><div class="panel"><p class="panel-title">Corrección en palabras sencillas</p><p>Pregunta: «Si sigo estos pasos exactamente, ¿obtendré siempre el resultado prometido?» Un algoritmo que imprime una respuesta rápidamente pero usa una regla equivocada no es correcto.</p></div><div class="panel"><p class="panel-title">Analogía cotidiana · una ruta de autobús</p><p>Una ruta útil tiene paradas claras, un destino y una forma de avanzar. «Sigue viajando para siempre» no es una ruta completa; tampoco lo es «ve a algún lugar cercano».</p></div></div><div class="warning"><p>Probar ejemplos aporta evidencia, pero unos pocos casos exitosos no demuestran por sí solos la corrección para todas las entradas permitidas.</p></div></div>
+</section>
+<section class="slide" data-tag="WEEK 5 · NOTATION" data-context="Pseudocode conventions">
+  <div class="lang-view lang-en"><p class="eyebrow">03 · A shared notation</p><h2>Pseudocode is a readable draft</h2><p class="lead">It describes logic without requiring the exact punctuation or syntax of one programming language. Conventions can vary; consistency and clarity matter most.</p><div class="grid two"><div class="card"><div class="label">Useful conventions</div><ul><li><code>INPUT</code> reads; <code>OUTPUT</code> shows a result.</li><li><code>←</code> means “store this value in.”</li><li><code>IF / ELSE / END IF</code> makes choices visible.</li><li><code>FOR / END FOR</code> and <code>WHILE / END WHILE</code> mark repetition.</li></ul></div><div class="card"><div class="label">Make it easy to follow</div><ul><li>Indent the steps inside a decision or loop.</li><li>Use names such as <code>total</code>, <code>score</code>, and <code>isEligible</code>.</li><li>Write one logical action per line.</li><li>Explain unusual assumptions in a short note.</li></ul></div></div><div class="panel"><p class="panel-title">A complete tiny example</p><pre>INPUT age
+IF age &gt;= 18 THEN
+    OUTPUT "Eligible"
+ELSE
+    OUTPUT "Not eligible"
+END IF</pre></div><div class="note"><p>Here <code>&gt;=</code> means “greater than or equal to,” so exactly 18 is included.</p></div></div>
+  <div class="lang-view lang-ru"><p class="eyebrow">03 · Общая запись</p><h2>Псевдокод — это понятный черновик</h2><p class="lead">Он описывает логику без требований к точной пунктуации или синтаксису одного языка программирования. Соглашения могут различаться; важнее всего последовательность и ясность.</p><div class="grid two"><div class="card"><div class="label">Полезные обозначения</div><ul><li><code>INPUT</code> считывает данные; <code>OUTPUT</code> показывает результат.</li><li><code>←</code> означает «сохранить это значение в переменной».</li><li><code>IF / ELSE / END IF</code> явно показывает выбор.</li><li><code>FOR / END FOR</code> и <code>WHILE / END WHILE</code> обозначают повторение.</li></ul></div><div class="card"><div class="label">Пишите понятно</div><ul><li>Делайте отступы внутри ветвления или цикла.</li><li>Используйте имена <code>total</code>, <code>score</code> и <code>isEligible</code>.</li><li>Пишите по одному логическому действию в строке.</li><li>Необычные допущения поясняйте коротким примечанием.</li></ul></div></div><div class="panel"><p class="panel-title">Короткий законченный пример</p><pre>INPUT age
+IF age &gt;= 18 THEN
+    OUTPUT "Можно оформить"
+ELSE
+    OUTPUT "Нельзя оформить"
+END IF</pre></div><div class="note"><p>Здесь <code>&gt;=</code> означает «больше или равно», поэтому возраст ровно 18 включён.</p></div></div>
+  <div class="lang-view lang-es"><p class="eyebrow">03 · Una notación compartida</p><h2>El pseudocódigo es un borrador legible</h2><p class="lead">Describe la lógica sin exigir la puntuación o sintaxis exacta de un lenguaje concreto. Las convenciones pueden variar; lo más importante es la coherencia y la claridad.</p><div class="grid two"><div class="card"><div class="label">Convenciones útiles</div><ul><li><code>INPUT</code> lee datos; <code>OUTPUT</code> muestra un resultado.</li><li><code>←</code> significa «guardar este valor en».</li><li><code>IF / ELSE / END IF</code> hace visibles las decisiones.</li><li><code>FOR / END FOR</code> y <code>WHILE / END WHILE</code> marcan la repetición.</li></ul></div><div class="card"><div class="label">Facilita la lectura</div><ul><li>Indenta los pasos dentro de una decisión o un bucle.</li><li>Usa nombres como <code>total</code>, <code>score</code> e <code>isEligible</code>.</li><li>Escribe una acción lógica por línea.</li><li>Explica los supuestos inusuales con una nota breve.</li></ul></div></div><div class="panel"><p class="panel-title">Un ejemplo breve completo</p><pre>INPUT age
+IF age &gt;= 18 THEN
+    OUTPUT "Elegible"
+ELSE
+    OUTPUT "No elegible"
+END IF</pre></div><div class="note"><p>Aquí <code>&gt;=</code> significa «mayor o igual que», así que se incluye la edad exacta de 18.</p></div></div>
+</section>
+<section class="slide" data-tag="WEEK 5 · STATE" data-context="Variables and assignment">
+  <div class="lang-view lang-en"><p class="eyebrow">04 · Remembering values</p><h2>Variables and assignment</h2><p class="lead">A variable is a named place to keep a value while an algorithm runs. Think of a labeled jar: the label tells you what the contents mean.</p><div class="columns"><div class="panel"><p class="panel-title">Assignment updates a variable</p><pre>score ← 6
+score ← score + 2</pre><p>After line 1, <code>score</code> is 6. Line 2 reads the old value (6), adds 2, and stores 8 back into the same variable.</p></div><div class="panel"><p class="panel-title">Assignment is not equality</p><p><code>score ← score + 2</code> is an instruction to change memory. It does not claim that a number equals itself plus two at the same instant.</p><p class="small">In many programming languages assignment uses <code>=</code>; pseudocode uses the arrow to make the direction clear.</p></div></div><div class="grid"><div class="card"><div class="label">Good names</div><p><code>itemPrice</code>, <code>count</code>, <code>average</code>, <code>hasTicket</code></p></div><div class="card"><div class="label">Avoid mystery names</div><p><code>x</code>, <code>thing2</code>, or <code>temp</code> when a meaningful name would explain the value.</p></div><div class="card"><div class="label">Types matter</div><p>Age is a whole number; price can have decimals; “has ticket” is true or false; a name is text.</p></div></div><div class="note"><p>Before tracing, write down each variable’s starting value. If there is no starting value, initialize it before using it.</p></div></div>
+  <div class="lang-view lang-ru"><p class="eyebrow">04 · Хранение значений</p><h2>Переменные и присваивание</h2><p class="lead">Переменная — это именованное место для хранения значения во время работы алгоритма. Представьте банку с ярлыком: ярлык объясняет, что лежит внутри.</p><div class="columns"><div class="panel"><p class="panel-title">Присваивание обновляет переменную</p><pre>score ← 6
+score ← score + 2</pre><p>После первой строки <code>score</code> равно 6. Вторая строка читает старое значение (6), прибавляет 2 и сохраняет 8 в той же переменной.</p></div><div class="panel"><p class="panel-title">Присваивание — не равенство</p><p><code>score ← score + 2</code> — команда изменить память. Она не утверждает, что число в тот же момент равно самому себе плюс два.</p><p class="small">Во многих языках программирования для присваивания используют <code>=</code>; стрелка в псевдокоде явно показывает направление.</p></div></div><div class="grid"><div class="card"><div class="label">Хорошие имена</div><p><code>itemPrice</code>, <code>count</code>, <code>average</code>, <code>hasTicket</code></p></div><div class="card"><div class="label">Избегайте загадочных имён</div><p><code>x</code>, <code>thing2</code> или <code>temp</code>, если осмысленное имя лучше объясняет значение.</p></div><div class="card"><div class="label">Типы важны</div><p>Возраст — целое число; цена может быть дробной; наличие билета — истина или ложь; имя — текст.</p></div></div><div class="note"><p>Перед трассировкой запишите начальные значения всех переменных. Если значения ещё нет, задайте его перед использованием.</p></div></div>
+  <div class="lang-view lang-es"><p class="eyebrow">04 · Recordar valores</p><h2>Variables y asignación</h2><p class="lead">Una variable es un lugar con nombre donde se guarda un valor mientras se ejecuta un algoritmo. Imagínala como un frasco etiquetado: la etiqueta explica su contenido.</p><div class="columns"><div class="panel"><p class="panel-title">La asignación actualiza una variable</p><pre>score ← 6
+score ← score + 2</pre><p>Después de la primera línea, <code>score</code> vale 6. La segunda lee el valor anterior (6), suma 2 y guarda 8 en la misma variable.</p></div><div class="panel"><p class="panel-title">Asignar no es comparar</p><p><code>score ← score + 2</code> es una instrucción para cambiar la memoria. No afirma que un número sea igual a sí mismo más dos al mismo tiempo.</p><p class="small">Muchos lenguajes usan <code>=</code> para asignar; la flecha del pseudocódigo deja clara la dirección.</p></div></div><div class="grid"><div class="card"><div class="label">Buenos nombres</div><p><code>itemPrice</code>, <code>count</code>, <code>average</code>, <code>hasTicket</code></p></div><div class="card"><div class="label">Evita nombres misteriosos</div><p><code>x</code>, <code>thing2</code> o <code>temp</code> cuando un nombre significativo explique mejor el valor.</p></div><div class="card"><div class="label">Los tipos importan</div><p>La edad es un entero; el precio puede tener decimales; tener entrada es verdadero o falso; un nombre es texto.</p></div></div><div class="note"><p>Antes de hacer una traza, anota el valor inicial de cada variable. Si aún no tiene valor, inicialízala antes de usarla.</p></div></div>
+</section>
+<section class="slide" data-tag="WEEK 5 · FLOW" data-context="Sequence and order">
+  <div class="lang-view lang-en"><p class="eyebrow">05 · Control flow · sequence</p><h2>Sequence: order changes the result</h2><p class="lead">In a sequence, instructions run from top to bottom. Each step can use values created by earlier steps.</p><div class="columns"><div class="panel"><p class="panel-title">Calculate a café bill</p><pre>INPUT price
+INPUT tipRate
+tip ← price * tipRate
+total ← price + tip
+OUTPUT total</pre><p>If price is 20 and tipRate is 0.15, the tip is 3 and the total is 23.</p></div><div class="panel"><p class="panel-title">Why this order?</p><ol class="step-list"><li>Read the original price and tip rate.</li><li>Calculate the tip from those known values.</li><li>Add the tip to the price.</li><li>Show the finished total.</li></ol></div></div><div class="warning"><p>If we calculate <code>total</code> before assigning <code>tip</code>, the algorithm tries to use a value it does not yet have. Order is part of the logic.</p></div></div>
+  <div class="lang-view lang-ru"><p class="eyebrow">05 · Порядок выполнения · последовательность</p><h2>Последовательность: порядок меняет результат</h2><p class="lead">В последовательности команды выполняются сверху вниз. Каждый шаг может использовать значения, созданные предыдущими шагами.</p><div class="columns"><div class="panel"><p class="panel-title">Рассчитать счёт в кафе</p><pre>INPUT price
+INPUT tipRate
+tip ← price * tipRate
+total ← price + tip
+OUTPUT total</pre><p>Если цена равна 20, а ставка чаевых — 0,15, чаевые составят 3, а итог — 23.</p></div><div class="panel"><p class="panel-title">Почему именно такой порядок?</p><ol class="step-list"><li>Считать исходную цену и ставку чаевых.</li><li>Рассчитать чаевые по известным значениям.</li><li>Прибавить чаевые к цене.</li><li>Показать итоговую сумму.</li></ol></div></div><div class="warning"><p>Если рассчитать <code>total</code> до присваивания <code>tip</code>, алгоритм попытается использовать ещё не заданное значение. Порядок — часть логики.</p></div></div>
+  <div class="lang-view lang-es"><p class="eyebrow">05 · Flujo de control · secuencia</p><h2>Secuencia: el orden cambia el resultado</h2><p class="lead">En una secuencia, las instrucciones se ejecutan de arriba abajo. Cada paso puede usar valores creados anteriormente.</p><div class="columns"><div class="panel"><p class="panel-title">Calcular la cuenta de una cafetería</p><pre>INPUT price
+INPUT tipRate
+tip ← price * tipRate
+total ← price + tip
+OUTPUT total</pre><p>Si el precio es 20 y la propina es 0,15, la propina vale 3 y el total es 23.</p></div><div class="panel"><p class="panel-title">¿Por qué este orden?</p><ol class="step-list"><li>Leer el precio inicial y la tasa de propina.</li><li>Calcular la propina con esos datos conocidos.</li><li>Sumarla al precio.</li><li>Mostrar el total final.</li></ol></div></div><div class="warning"><p>Si calculamos <code>total</code> antes de asignar <code>tip</code>, el algoritmo intenta usar un valor que aún no existe. El orden forma parte de la lógica.</p></div></div>
+</section>
+<section class="slide" data-tag="WEEK 5 · LOGIC" data-context="Boolean conditions and boundaries">
+  <div class="lang-view lang-en"><p class="eyebrow">06 · True or false?</p><h2>Boolean conditions and boundaries</h2><p class="lead">A condition is an expression whose answer is either <strong>true</strong> or <strong>false</strong>. Decisions and loops depend on that answer.</p><div class="table-wrap"><table><thead><tr><th>Operator</th><th>Meaning</th><th>Example</th></tr></thead><tbody><tr><td><code>==</code></td><td>is equal to</td><td><code>age == 18</code></td></tr><tr><td><code>!=</code></td><td>is not equal to</td><td><code>code != 0</code></td></tr><tr><td><code>&lt;</code>, <code>&gt;</code></td><td>less than, greater than</td><td><code>score &gt; 70</code></td></tr><tr><td><code>&lt;=</code>, <code>&gt;=</code></td><td>less/greater than or equal to</td><td><code>age &gt;= 18</code></td></tr><tr><td><code>AND</code>, <code>OR</code>, <code>NOT</code></td><td>combine or reverse true/false conditions</td><td><code>age &gt;= 18 AND hasID</code></td></tr></tbody></table></div><div class="columns"><div class="panel"><p class="panel-title">Boundary check</p><p>For “age is at least 18,” test 17, <strong>18</strong>, and 19. The boundary itself reveals whether the rule should use <code>&gt;</code> or <code>&gt;=</code>.</p></div><div class="panel"><p class="panel-title">A compound rule</p><pre>isEligible ← (age &gt;= 18) AND hasID</pre><p>Both conditions must be true. An adult without an ID, or a minor with an ID, does not pass this rule.</p></div></div><div class="note"><p>Words such as “at least,” “no more than,” and “between” hint at inclusive boundaries. Translate the wording before choosing the operator.</p></div></div>
+  <div class="lang-view lang-ru"><p class="eyebrow">06 · Истина или ложь?</p><h2>Логические условия и границы</h2><p class="lead">Условие — это выражение, результат которого — <strong>истина</strong> или <strong>ложь</strong>. От этого результата зависят ветвления и циклы.</p><div class="table-wrap"><table><thead><tr><th>Оператор</th><th>Значение</th><th>Пример</th></tr></thead><tbody><tr><td><code>==</code></td><td>равно</td><td><code>age == 18</code></td></tr><tr><td><code>!=</code></td><td>не равно</td><td><code>code != 0</code></td></tr><tr><td><code>&lt;</code>, <code>&gt;</code></td><td>меньше, больше</td><td><code>score &gt; 70</code></td></tr><tr><td><code>&lt;=</code>, <code>&gt;=</code></td><td>меньше/больше или равно</td><td><code>age &gt;= 18</code></td></tr><tr><td><code>AND</code>, <code>OR</code>, <code>NOT</code></td><td>объединяют или обращают условия</td><td><code>age &gt;= 18 AND hasID</code></td></tr></tbody></table></div><div class="columns"><div class="panel"><p class="panel-title">Проверка границ</p><p>Для правила «возраст не меньше 18» проверьте 17, <strong>18</strong> и 19. Граничное значение показывает, нужен ли оператор <code>&gt;</code> или <code>&gt;=</code>.</p></div><div class="panel"><p class="panel-title">Составное правило</p><pre>isEligible ← (age &gt;= 18) AND hasID</pre><p>Оба условия должны быть истинны. Взрослый без удостоверения и несовершеннолетний с удостоверением не проходят проверку.</p></div></div><div class="note"><p>Слова «не меньше», «не больше» и «от ... до ...» подсказывают включённые границы. Сначала переведите формулировку в логику, затем выбирайте оператор.</p></div></div>
+  <div class="lang-view lang-es"><p class="eyebrow">06 · ¿Verdadero o falso?</p><h2>Condiciones booleanas y límites</h2><p class="lead">Una condición es una expresión cuyo resultado es <strong>verdadero</strong> o <strong>falso</strong>. Las decisiones y los bucles dependen de ese resultado.</p><div class="table-wrap"><table><thead><tr><th>Operador</th><th>Significado</th><th>Ejemplo</th></tr></thead><tbody><tr><td><code>==</code></td><td>es igual a</td><td><code>age == 18</code></td></tr><tr><td><code>!=</code></td><td>no es igual a</td><td><code>code != 0</code></td></tr><tr><td><code>&lt;</code>, <code>&gt;</code></td><td>menor que, mayor que</td><td><code>score &gt; 70</code></td></tr><tr><td><code>&lt;=</code>, <code>&gt;=</code></td><td>menor/mayor o igual que</td><td><code>age &gt;= 18</code></td></tr><tr><td><code>AND</code>, <code>OR</code>, <code>NOT</code></td><td>combinan o invierten condiciones</td><td><code>age &gt;= 18 AND hasID</code></td></tr></tbody></table></div><div class="columns"><div class="panel"><p class="panel-title">Comprobar límites</p><p>Para «edad de al menos 18», prueba 17, <strong>18</strong> y 19. El límite permite ver si corresponde usar <code>&gt;</code> o <code>&gt;=</code>.</p></div><div class="panel"><p class="panel-title">Una regla compuesta</p><pre>isEligible ← (age &gt;= 18) AND hasID</pre><p>Ambas condiciones deben ser verdaderas. Una persona adulta sin identificación o una menor con identificación no cumple esta regla.</p></div></div><div class="note"><p>Expresiones como «al menos», «como máximo» y «entre» sugieren límites inclusivos. Interpreta el enunciado antes de elegir el operador.</p></div></div>
+</section>
+<section class="slide" data-tag="WEEK 5 · FLOW" data-context="Selection: choosing a path">
+  <div class="lang-view lang-en"><p class="eyebrow">07 · Control flow · selection</p><h2>Selection: choose a path</h2><p class="lead">An <code>IF</code> statement asks a yes/no question and executes the matching branch. The condition controls which steps happen.</p><div class="columns"><div class="panel"><p class="panel-title">Three grade bands</p><pre>INPUT score
+IF score &gt;= 90 THEN
+    OUTPUT "A"
+ELSE IF score &gt;= 80 THEN
+    OUTPUT "B"
+ELSE IF score &gt;= 70 THEN
+    OUTPUT "C"
+ELSE
+    OUTPUT "Keep practicing"
+END IF</pre></div><div class="panel"><p class="panel-title">Why check from highest down?</p><p>For a score of 92, the first condition is true, so the algorithm stops checking later alternatives. If we checked “score ≥ 70” first, 92 would be labeled C.</p><div class="warning"><p>Contract: this sample assumes scores are valid numbers from 0 to 100. Decide separately how to handle out-of-range input.</p></div></div></div><div class="note"><p>With exactly one path required, use an <code>IF / ELSE IF / ELSE</code> chain. Independent <code>IF</code> statements may each run.</p></div></div>
+  <div class="lang-view lang-ru"><p class="eyebrow">07 · Поток выполнения · выбор</p><h2>Ветвление: выберите путь</h2><p class="lead">Оператор <code>IF</code> задаёт вопрос с ответом «да» или «нет» и выполняет подходящую ветвь. Условие определяет, какие шаги произойдут.</p><div class="columns"><div class="panel"><p class="panel-title">Три диапазона оценки</p><pre>INPUT score
+IF score &gt;= 90 THEN
+    OUTPUT "A"
+ELSE IF score &gt;= 80 THEN
+    OUTPUT "B"
+ELSE IF score &gt;= 70 THEN
+    OUTPUT "C"
+ELSE
+    OUTPUT "Нужно больше практики"
+END IF</pre></div><div class="panel"><p class="panel-title">Почему проверять от большего к меньшему?</p><p>Для результата 92 первое условие истинно, поэтому дальнейшие варианты не проверяются. Если сначала проверить «score ≥ 70», результат 92 получит оценку C.</p><div class="warning"><p>Условия примера: предполагается, что оценка — допустимое число от 0 до 100. Обработку значений вне диапазона нужно определить отдельно.</p></div></div></div><div class="note"><p>Если нужен ровно один путь, используйте цепочку <code>IF / ELSE IF / ELSE</code>. Несколько независимых операторов <code>IF</code> могут выполниться все.</p></div></div>
+  <div class="lang-view lang-es"><p class="eyebrow">07 · Flujo de control · selección</p><h2>Selección: elige un camino</h2><p class="lead">Una instrucción <code>IF</code> formula una pregunta de sí o no y ejecuta la rama correspondiente. La condición controla qué pasos ocurren.</p><div class="columns"><div class="panel"><p class="panel-title">Tres niveles de calificación</p><pre>INPUT score
+IF score &gt;= 90 THEN
+    OUTPUT "A"
+ELSE IF score &gt;= 80 THEN
+    OUTPUT "B"
+ELSE IF score &gt;= 70 THEN
+    OUTPUT "C"
+ELSE
+    OUTPUT "Sigue practicando"
+END IF</pre></div><div class="panel"><p class="panel-title">¿Por qué comprobar de mayor a menor?</p><p>Con una puntuación de 92, la primera condición es verdadera y ya no se revisan las alternativas siguientes. Si comprobáramos primero «score ≥ 70», 92 recibiría una C.</p><div class="warning"><p>Contrato: este ejemplo supone que las puntuaciones son números válidos entre 0 y 100. Define por separado cómo tratar valores fuera de rango.</p></div></div></div><div class="note"><p>Cuando se necesita exactamente un camino, usa una cadena <code>IF / ELSE IF / ELSE</code>. Varias instrucciones <code>IF</code> independientes pueden ejecutarse todas.</p></div></div>
+</section>
+<section class="slide" data-tag="WEEK 5 · FLOW" data-context="Iteration: repeat safely">
+  <div class="lang-view lang-en"><p class="eyebrow">08 · Control flow · iteration</p><h2>Iteration: repeat work safely</h2><p class="lead">A loop repeats steps. Before writing one, identify what starts it, when it stops, and how each repetition makes progress.</p><div class="columns"><div class="panel"><p class="panel-title">FOR · known number of repetitions</p><pre>FOR day ← 1 TO 3
+    OUTPUT day
+END FOR</pre><p>The loop handles day 1, then 2, then 3: three times in total.</p></div><div class="panel"><p class="panel-title">WHILE · repeat while a condition holds</p><pre>cupCount ← 0
+WHILE cupCount &lt; 3
+    cupCount ← cupCount + 1
+END WHILE</pre><p>The update moves the value toward 3. Without the update, the condition would remain true forever.</p></div></div><div class="grid"><div class="card"><div class="label">Start</div><p>Initialize the loop variable or state before the first check.</p></div><div class="card"><div class="label">Stop</div><p>State the exact stopping condition and check whether the boundary is included.</p></div><div class="card"><div class="label">Progress</div><p>Update something that eventually makes the stop condition true.</p></div></div><div class="warning"><p>For a loop over a list, an empty list means zero repetitions. Make sure the result still makes sense in that case.</p></div></div>
+  <div class="lang-view lang-ru"><p class="eyebrow">08 · Поток выполнения · повторение</p><h2>Цикл: безопасное повторение действий</h2><p class="lead">Цикл повторяет шаги. До его записи определите начальное состояние, условие остановки и способ продвижения на каждом повторе.</p><div class="columns"><div class="panel"><p class="panel-title">FOR · известное число повторов</p><pre>FOR day ← 1 TO 3
+    OUTPUT day
+END FOR</pre><p>Цикл обрабатывает дни 1, затем 2, затем 3 — всего три раза.</p></div><div class="panel"><p class="panel-title">WHILE · повторять, пока условие истинно</p><pre>cupCount ← 0
+WHILE cupCount &lt; 3
+    cupCount ← cupCount + 1
+END WHILE</pre><p>Обновление приближает значение к 3. Без него условие оставалось бы истинным бесконечно.</p></div></div><div class="grid"><div class="card"><div class="label">Начало</div><p>Задайте начальное значение переменной или состояния до первой проверки.</p></div><div class="card"><div class="label">Остановка</div><p>Укажите точное условие остановки и проверьте, включена ли граница.</p></div><div class="card"><div class="label">Продвижение</div><p>Обновляйте значение так, чтобы условие остановки в итоге стало истинным.</p></div></div><div class="warning"><p>При обходе списка пустой список означает ноль повторов. Убедитесь, что результат имеет смысл и в этом случае.</p></div></div>
+  <div class="lang-view lang-es"><p class="eyebrow">08 · Flujo de control · iteración</p><h2>Iteración: repetir el trabajo con seguridad</h2><p class="lead">Un bucle repite pasos. Antes de escribirlo, identifica cómo empieza, cuándo termina y cómo avanza cada repetición.</p><div class="columns"><div class="panel"><p class="panel-title">FOR · cantidad de repeticiones conocida</p><pre>FOR day ← 1 TO 3
+    OUTPUT day
+END FOR</pre><p>El bucle procesa el día 1, después el 2 y luego el 3: tres veces en total.</p></div><div class="panel"><p class="panel-title">WHILE · repetir mientras se cumpla una condición</p><pre>cupCount ← 0
+WHILE cupCount &lt; 3
+    cupCount ← cupCount + 1
+END WHILE</pre><p>La actualización acerca el valor a 3. Sin ella, la condición seguiría siendo verdadera para siempre.</p></div></div><div class="grid"><div class="card"><div class="label">Inicio</div><p>Inicializa la variable o el estado antes de la primera comprobación.</p></div><div class="card"><div class="label">Parada</div><p>Indica la condición exacta de parada y comprueba si el límite se incluye.</p></div><div class="card"><div class="label">Avance</div><p>Actualiza algo que finalmente haga verdadera la condición de parada.</p></div></div><div class="warning"><p>Al recorrer una lista, una lista vacía implica cero repeticiones. Asegúrate de que el resultado también tenga sentido en ese caso.</p></div></div>
+</section>
+<section class="slide" data-tag="WEEK 5 · STATE" data-context="Counters and accumulators">
+  <div class="lang-view lang-en"><p class="eyebrow">09 · Two common loop tools</p><h2>Counters and accumulators</h2><p class="lead">A counter tracks how many events happened. An accumulator combines values into a running result.</p><div class="grid two"><div class="card"><div class="label">Counter · count positive numbers</div><pre>positiveCount ← 0
+FOR each value in values
+    IF value &gt; 0 THEN
+        positiveCount ← positiveCount + 1
+    END IF
+END FOR</pre><p>It starts at zero and increases by one only when an item meets the condition.</p></div><div class="card"><div class="label">Accumulator · add all prices</div><pre>total ← 0
+FOR each price in prices
+    total ← total + price
+END FOR</pre><p>It starts with the additive identity, zero, and adds each new value to the running total.</p></div></div><div class="panel"><p class="panel-title">A common pairing · average</p><pre>total ← 0
+count ← 0
+FOR each score in scores
+    total ← total + score
+    count ← count + 1
+END FOR
+IF count &gt; 0 THEN
+    average ← total / count
+ELSE
+    OUTPUT "No scores were provided"
+END IF</pre></div><div class="warning"><p>Do not divide by zero. Decide what an empty collection means before calculating an average.</p></div></div>
+  <div class="lang-view lang-ru"><p class="eyebrow">09 · Два инструмента цикла</p><h2>Счётчики и накопители</h2><p class="lead">Счётчик отслеживает количество событий. Накопитель объединяет значения в постепенно вычисляемый результат.</p><div class="grid two"><div class="card"><div class="label">Счётчик · посчитать положительные числа</div><pre>positiveCount ← 0
+FOR each value in values
+    IF value &gt; 0 THEN
+        positiveCount ← positiveCount + 1
+    END IF
+END FOR</pre><p>Он начинается с нуля и увеличивается на единицу только тогда, когда элемент удовлетворяет условию.</p></div><div class="card"><div class="label">Накопитель · сложить все цены</div><pre>total ← 0
+FOR each price in prices
+    total ← total + price
+END FOR</pre><p>Он начинается с нуля — нейтрального элемента сложения — и прибавляет каждое новое значение к текущей сумме.</p></div></div><div class="panel"><p class="panel-title">Частая пара · среднее значение</p><pre>total ← 0
+count ← 0
+FOR each score in scores
+    total ← total + score
+    count ← count + 1
+END FOR
+IF count &gt; 0 THEN
+    average ← total / count
+ELSE
+    OUTPUT "Оценки не предоставлены"
+END IF</pre></div><div class="warning"><p>Нельзя делить на ноль. Определите, что означает пустой список, прежде чем вычислять среднее.</p></div></div>
+  <div class="lang-view lang-es"><p class="eyebrow">09 · Dos herramientas comunes del bucle</p><h2>Contadores y acumuladores</h2><p class="lead">Un contador registra cuántos eventos ocurrieron. Un acumulador combina valores para producir un resultado progresivo.</p><div class="grid two"><div class="card"><div class="label">Contador · contar números positivos</div><pre>positiveCount ← 0
+FOR each value in values
+    IF value &gt; 0 THEN
+        positiveCount ← positiveCount + 1
+    END IF
+END FOR</pre><p>Empieza en cero y aumenta en uno solo cuando un elemento cumple la condición.</p></div><div class="card"><div class="label">Acumulador · sumar todos los precios</div><pre>total ← 0
+FOR each price in prices
+    total ← total + price
+END FOR</pre><p>Empieza en el elemento neutro de la suma, cero, y añade cada valor nuevo al total acumulado.</p></div></div><div class="panel"><p class="panel-title">Una combinación habitual · promedio</p><pre>total ← 0
+count ← 0
+FOR each score in scores
+    total ← total + score
+    count ← count + 1
+END FOR
+IF count &gt; 0 THEN
+    average ← total / count
+ELSE
+    OUTPUT "No se proporcionaron notas"
+END IF</pre></div><div class="warning"><p>No dividas entre cero. Decide qué significa una colección vacía antes de calcular el promedio.</p></div></div>
+</section>
+<section class="slide" data-tag="WEEK 5 · TRACE" data-context="Follow every state change">
+  <div class="lang-view lang-en"><p class="eyebrow">10 · Dry run · inspect every step</p><h2>Trace tables make invisible state visible</h2><p class="lead">A trace table records the changing values as one particular input moves through the algorithm.</p><div class="columns"><div class="panel"><p class="panel-title">Count positive values in [3, −1, 4]</p><pre>positiveCount ← 0
+FOR each value in [3, -1, 4]
+    IF value &gt; 0 THEN
+        positiveCount ← positiveCount + 1
+    END IF
+END FOR
+OUTPUT positiveCount</pre></div><div class="panel"><p class="panel-title">Trace one loop pass at a time</p><div class="table-wrap"><table><thead><tr><th>value</th><th>value &gt; 0?</th><th>count before</th><th>count after</th></tr></thead><tbody><tr><td>Start</td><td>—</td><td>—</td><td>0</td></tr><tr><td>3</td><td>True</td><td>0</td><td>1</td></tr><tr><td>−1</td><td>False</td><td>1</td><td>1</td></tr><tr><td>4</td><td>True</td><td>1</td><td>2</td></tr></tbody></table></div><p><strong>Output: 2</strong></p></div></div><div class="note"><p>Trace carefully: test the condition using the current value, then update only if its branch runs. Compare your result with a hand-calculated expectation.</p></div></div>
+  <div class="lang-view lang-ru"><p class="eyebrow">10 · Ручной запуск · проверяйте каждый шаг</p><h2>Таблица трассировки показывает изменения состояния</h2><p class="lead">Таблица трассировки записывает изменяющиеся значения, пока конкретные входные данные проходят через алгоритм.</p><div class="columns"><div class="panel"><p class="panel-title">Посчитать положительные значения в [3, −1, 4]</p><pre>positiveCount ← 0
+FOR each value in [3, -1, 4]
+    IF value &gt; 0 THEN
+        positiveCount ← positiveCount + 1
+    END IF
+END FOR
+OUTPUT positiveCount</pre></div><div class="panel"><p class="panel-title">Проследить каждый проход цикла</p><div class="table-wrap"><table><thead><tr><th>value</th><th>value &gt; 0?</th><th>count до</th><th>count после</th></tr></thead><tbody><tr><td>Начало</td><td>—</td><td>—</td><td>0</td></tr><tr><td>3</td><td>Истина</td><td>0</td><td>1</td></tr><tr><td>−1</td><td>Ложь</td><td>1</td><td>1</td></tr><tr><td>4</td><td>Истина</td><td>1</td><td>2</td></tr></tbody></table></div><p><strong>Результат: 2</strong></p></div></div><div class="note"><p>Действуйте внимательно: проверьте условие для текущего значения, а затем изменяйте счётчик, только если выполняется нужная ветвь. Сравните результат с ручным расчётом.</p></div></div>
+  <div class="lang-view lang-es"><p class="eyebrow">10 · Ejecución manual · observa cada paso</p><h2>Las tablas de seguimiento hacen visible el estado</h2><p class="lead">Una tabla de seguimiento registra los valores que cambian mientras una entrada concreta recorre el algoritmo.</p><div class="columns"><div class="panel"><p class="panel-title">Contar valores positivos en [3, −1, 4]</p><pre>positiveCount ← 0
+FOR each value in [3, -1, 4]
+    IF value &gt; 0 THEN
+        positiveCount ← positiveCount + 1
+    END IF
+END FOR
+OUTPUT positiveCount</pre></div><div class="panel"><p class="panel-title">Seguir cada vuelta del bucle</p><div class="table-wrap"><table><thead><tr><th>value</th><th>¿value &gt; 0?</th><th>count antes</th><th>count después</th></tr></thead><tbody><tr><td>Inicio</td><td>—</td><td>—</td><td>0</td></tr><tr><td>3</td><td>Verdadero</td><td>0</td><td>1</td></tr><tr><td>−1</td><td>Falso</td><td>1</td><td>1</td></tr><tr><td>4</td><td>Verdadero</td><td>1</td><td>2</td></tr></tbody></table></div><p><strong>Salida: 2</strong></p></div></div><div class="note"><p>Sigue el orden: evalúa la condición con el valor actual y actualiza solo si se ejecuta esa rama. Compara el resultado con un cálculo manual esperado.</p></div></div>
+</section>
+<section class="slide" data-tag="WEEK 5 · DESIGN" data-context="Stepwise refinement">
+  <div class="lang-view lang-en"><p class="eyebrow">11 · From rough idea to precise steps</p><h2>Stepwise refinement</h2><p class="lead">Start with a high-level plan. Repeatedly replace each broad action with smaller actions that are specific enough to perform or test.</p><div class="columns"><div class="panel"><p class="panel-title">Level 1 · broad description</p><pre>Calculate the average and say whether it passes.</pre><p>Useful as a goal, but too vague to implement: Which scores? What is a pass? What if no scores are given?</p></div><div class="panel"><p class="panel-title">Level 2 · refined plan</p><pre>INPUT scores and passingThreshold
+IF scores is empty THEN
+    OUTPUT "No scores"
+ELSE
+    total ← 0
+    FOR each score in scores
+        total ← total + score
+    END FOR
+    average ← total / number of scores
+    OUTPUT average
+    OUTPUT whether average &gt;= passingThreshold
+END IF</pre></div></div><div class="grid"><div class="card"><div class="label">Ask “what does that mean?”</div><p>Turn vague verbs like “process,” “check,” or “handle” into observable actions.</p></div><div class="card"><div class="label">Keep each layer focused</div><p>Do not add every implementation detail at the first sketch. Refine until each step is testable.</p></div></div><div class="note"><p>This is like planning a trip: “get to campus” becomes “check the route, take the bus, get off at the library stop, walk to class.”</p></div></div>
+  <div class="lang-view lang-ru"><p class="eyebrow">11 · От общей идеи к точным шагам</p><h2>Пошаговое уточнение</h2><p class="lead">Начните с плана высокого уровня. Затем заменяйте каждое общее действие более мелкими и достаточно конкретными действиями, которые можно выполнить или проверить.</p><div class="columns"><div class="panel"><p class="panel-title">Уровень 1 · общее описание</p><pre>Вычислить среднее и сообщить, сдан ли предмет.</pre><p>Это полезная цель, но для реализации она слишком расплывчата: какие оценки учитывать? Что считается проходным результатом? Что делать, если оценок нет?</p></div><div class="panel"><p class="panel-title">Уровень 2 · уточнённый план</p><pre>INPUT scores and passingThreshold
+IF scores is empty THEN
+    OUTPUT "Оценок нет"
+ELSE
+    total ← 0
+    FOR each score in scores
+        total ← total + score
+    END FOR
+    average ← total / number of scores
+    OUTPUT average
+    OUTPUT whether average &gt;= passingThreshold
+END IF</pre></div></div><div class="grid"><div class="card"><div class="label">Спросите: «Что это означает?»</div><p>Заменяйте расплывчатые слова «обработать», «проверить» или «учесть» наблюдаемыми действиями.</p></div><div class="card"><div class="label">Уточняйте каждый уровень</div><p>Не добавляйте все технические детали в первый набросок. Уточняйте шаги, пока каждый не станет проверяемым.</p></div></div><div class="note"><p>Это похоже на план поездки: «добраться до кампуса» превращается в «проверить маршрут, сесть на автобус, выйти у библиотеки и дойти до аудитории».</p></div></div>
+  <div class="lang-view lang-es"><p class="eyebrow">11 · De una idea general a pasos precisos</p><h2>Refinamiento paso a paso</h2><p class="lead">Empieza con un plan de alto nivel. Sustituye cada acción general por acciones más pequeñas y suficientemente concretas para ejecutarlas o probarlas.</p><div class="columns"><div class="panel"><p class="panel-title">Nivel 1 · descripción general</p><pre>Calcular el promedio y decir si se aprueba.</pre><p>Es una meta útil, pero demasiado vaga para implementarla: ¿qué notas? ¿Qué cuenta como aprobado? ¿Qué ocurre si no hay notas?</p></div><div class="panel"><p class="panel-title">Nivel 2 · plan refinado</p><pre>INPUT scores and passingThreshold
+IF scores is empty THEN
+    OUTPUT "No hay notas"
+ELSE
+    total ← 0
+    FOR each score in scores
+        total ← total + score
+    END FOR
+    average ← total / number of scores
+    OUTPUT average
+    OUTPUT whether average &gt;= passingThreshold
+END IF</pre></div></div><div class="grid"><div class="card"><div class="label">Pregunta «¿qué significa?»</div><p>Convierte verbos vagos como «procesar», «comprobar» o «gestionar» en acciones observables.</p></div><div class="card"><div class="label">Enfoca cada nivel</div><p>No añadas todos los detalles de implementación al primer borrador. Refina hasta que cada paso se pueda probar.</p></div></div><div class="note"><p>Es como planear un viaje: «llegar al campus» se convierte en «consultar la ruta, tomar el autobús, bajar en la biblioteca y caminar al aula».</p></div></div>
+</section>
+<section class="slide" data-tag="WEEK 5 · EXAMPLE 1" data-context="Worked example: eligibility">
+  <div class="lang-view lang-en"><p class="eyebrow">12 · Worked example 1 · eligibility</p><h2>Is a student eligible?</h2><p class="lead">Suppose a campus tutoring program accepts a student who has at least 6 completed credits <em>and</em> has submitted the application.</p><div class="grid"><div class="card"><div class="label">Inputs</div><p><code>credits</code>: whole number, 0 or more.<br><code>applicationSubmitted</code>: true or false.</p></div><div class="card"><div class="label">Rule</div><p>Eligible only when both conditions are true: credits ≥ 6 AND application submitted.</p></div><div class="card"><div class="label">Output</div><p>“Eligible” or “Not eligible.”</p></div></div><div class="columns"><div class="panel"><p class="panel-title">Pseudocode</p><pre>INPUT credits
+INPUT applicationSubmitted
+IF credits &gt;= 6 AND applicationSubmitted THEN
+    OUTPUT "Eligible"
+ELSE
+    OUTPUT "Not eligible"
+END IF</pre></div><div class="panel"><p class="panel-title">Check each requirement</p><div class="table-wrap"><table><thead><tr><th>Credits</th><th>Application?</th><th>Decision</th><th>Reason</th></tr></thead><tbody><tr><td>6</td><td>Yes</td><td>Eligible</td><td>Both true; boundary included.</td></tr><tr><td>5</td><td>Yes</td><td>Not eligible</td><td>Credit rule false.</td></tr><tr><td>8</td><td>No</td><td>Not eligible</td><td>Application rule false.</td></tr></tbody></table></div></div></div><div class="success"><p>The truth table of the rule is easy to explain: both inputs must pass. If the policy instead allowed either requirement, the connector would be <code>OR</code>—a different problem.</p></div></div>
+  <div class="lang-view lang-ru"><p class="eyebrow">12 · Разобранный пример 1 · соответствие условиям</p><h2>Имеет ли студент право участвовать?</h2><p class="lead">Предположим, программа университетских консультаций принимает студента, который набрал не менее 6 зачётных единиц <em>и</em> подал заявку.</p><div class="grid"><div class="card"><div class="label">Входные данные</div><p><code>credits</code>: целое число, не меньше 0.<br><code>applicationSubmitted</code>: истина или ложь.</p></div><div class="card"><div class="label">Правило</div><p>Студент подходит, только если истинны оба условия: зачётные единицы ≥ 6 И заявка подана.</p></div><div class="card"><div class="label">Результат</div><p>«Можно участвовать» или «Нельзя участвовать».</p></div></div><div class="columns"><div class="panel"><p class="panel-title">Псевдокод</p><pre>INPUT credits
+INPUT applicationSubmitted
+IF credits &gt;= 6 AND applicationSubmitted THEN
+    OUTPUT "Можно участвовать"
+ELSE
+    OUTPUT "Нельзя участвовать"
+END IF</pre></div><div class="panel"><p class="panel-title">Проверим каждое требование</p><div class="table-wrap"><table><thead><tr><th>Зачётные единицы</th><th>Заявка?</th><th>Решение</th><th>Причина</th></tr></thead><tbody><tr><td>6</td><td>Да</td><td>Можно</td><td>Оба условия истинны; граница включена.</td></tr><tr><td>5</td><td>Да</td><td>Нельзя</td><td>Условие по зачётам ложно.</td></tr><tr><td>8</td><td>Нет</td><td>Нельзя</td><td>Условие подачи заявки ложно.</td></tr></tbody></table></div></div></div><div class="success"><p>Правило легко объяснить: оба входных условия должны выполняться. Если бы правила допускали выполнение любого одного условия, связующим оператором был бы <code>OR</code> — это уже другая задача.</p></div></div>
+  <div class="lang-view lang-es"><p class="eyebrow">12 · Ejemplo resuelto 1 · elegibilidad</p><h2>¿Cumple los requisitos el estudiante?</h2><p class="lead">Supongamos que un programa de tutorías del campus acepta a quien tenga al menos 6 créditos aprobados <em>y</em> haya presentado la solicitud.</p><div class="grid"><div class="card"><div class="label">Entradas</div><p><code>credits</code>: entero, igual o mayor que 0.<br><code>applicationSubmitted</code>: verdadero o falso.</p></div><div class="card"><div class="label">Regla</div><p>Es elegible solo cuando ambas condiciones son verdaderas: créditos ≥ 6 Y solicitud presentada.</p></div><div class="card"><div class="label">Salida</div><p>«Elegible» o «No elegible».</p></div></div><div class="columns"><div class="panel"><p class="panel-title">Pseudocódigo</p><pre>INPUT credits
+INPUT applicationSubmitted
+IF credits &gt;= 6 AND applicationSubmitted THEN
+    OUTPUT "Elegible"
+ELSE
+    OUTPUT "No elegible"
+END IF</pre></div><div class="panel"><p class="panel-title">Comprueba cada requisito</p><div class="table-wrap"><table><thead><tr><th>Créditos</th><th>¿Solicitud?</th><th>Decisión</th><th>Motivo</th></tr></thead><tbody><tr><td>6</td><td>Sí</td><td>Elegible</td><td>Ambas verdaderas; incluye el límite.</td></tr><tr><td>5</td><td>Sí</td><td>No elegible</td><td>La regla de créditos es falsa.</td></tr><tr><td>8</td><td>No</td><td>No elegible</td><td>La regla de solicitud es falsa.</td></tr></tbody></table></div></div></div><div class="success"><p>La regla es fácil de explicar: ambas entradas deben cumplirse. Si la política permitiera cumplir cualquiera de las condiciones, el conector sería <code>OR</code>; sería otro problema.</p></div></div>
+</section>
+<section class="slide" data-tag="WEEK 5 · EXAMPLE 2" data-context="Worked example: a discount">
+  <div class="lang-view lang-en"><p class="eyebrow">13 · Worked example 2 · discount</p><h2>Calculate a simple store discount</h2><p class="lead">A store gives 10% off a purchase of $50 or more. Otherwise, the customer pays the listed price.</p><div class="grid"><div class="card"><div class="label">Input and constraint</div><p><code>subtotal</code>, a non-negative amount in dollars before discount.</p></div><div class="card"><div class="label">Decision boundary</div><p>Discount applies when <code>subtotal ≥ 50</code>, including exactly $50.</p></div><div class="card"><div class="label">Output</div><p>The amount due, rounded to the nearest cent in a real checkout system.</p></div></div><div class="columns"><div class="panel"><p class="panel-title">Plan and calculate</p><pre>INPUT subtotal
+IF subtotal &gt;= 50 THEN
+    discount ← subtotal * 0.10
+ELSE
+    discount ← 0
+END IF
+amountDue ← subtotal - discount
+OUTPUT amountDue</pre></div><div class="panel"><p class="panel-title">Trace a $60 purchase</p><ol class="step-list"><li>$60 ≥ $50 is true, so enter the first branch.</li><li>discount ← 60 × 0.10 = $6.</li><li>amountDue ← 60 − 6 = $54.</li><li>Output $54.00 after currency rounding.</li></ol></div></div><div class="table-wrap"><table><thead><tr><th>Subtotal</th><th>Discount</th><th>Amount due</th><th>What it tests</th></tr></thead><tbody><tr><td>$0</td><td>$0</td><td>$0</td><td>Minimum / no discount</td></tr><tr><td>$49.99</td><td>$0</td><td>$49.99</td><td>Just below boundary</td></tr><tr><td>$50.00</td><td>$5</td><td>$45.00</td><td>Exact boundary</td></tr></tbody></table></div><div class="note"><p>Real software needs an explicit money-rounding policy. Here, the example uses simple decimal arithmetic to teach the decision logic.</p></div></div>
+  <div class="lang-view lang-ru"><p class="eyebrow">13 · Разобранный пример 2 · скидка</p><h2>Рассчитать простую скидку</h2><p class="lead">Магазин предоставляет скидку 10% при покупке на сумму не менее 50 долларов. В противном случае покупатель платит полную цену.</p><div class="grid"><div class="card"><div class="label">Входные данные и ограничение</div><p><code>subtotal</code> — неотрицательная сумма в долларах до скидки.</p></div><div class="card"><div class="label">Граница решения</div><p>Скидка действует, если <code>subtotal ≥ 50</code>, включая ровно 50 долларов.</p></div><div class="card"><div class="label">Результат</div><p>Сумма к оплате, округлённая до ближайшего цента в настоящей кассовой системе.</p></div></div><div class="columns"><div class="panel"><p class="panel-title">План и расчёт</p><pre>INPUT subtotal
+IF subtotal &gt;= 50 THEN
+    discount ← subtotal * 0.10
+ELSE
+    discount ← 0
+END IF
+amountDue ← subtotal - discount
+OUTPUT amountDue</pre></div><div class="panel"><p class="panel-title">Трассировка покупки на $60</p><ol class="step-list"><li>$60 ≥ $50 — истина, поэтому выполняется первая ветвь.</li><li>discount ← 60 × 0,10 = $6.</li><li>amountDue ← 60 − 6 = $54.</li><li>Вывести $54,00 после денежного округления.</li></ol></div></div><div class="table-wrap"><table><thead><tr><th>Сумма покупки</th><th>Скидка</th><th>К оплате</th><th>Что проверяется</th></tr></thead><tbody><tr><td>$0</td><td>$0</td><td>$0</td><td>Минимум / скидки нет</td></tr><tr><td>$49,99</td><td>$0</td><td>$49,99</td><td>Ниже границы</td></tr><tr><td>$50,00</td><td>$5</td><td>$45,00</td><td>Точная граница</td></tr></tbody></table></div><div class="note"><p>В реальной программе нужно явно определить правила округления денежных сумм. Здесь используется простая десятичная арифметика для объяснения ветвления.</p></div></div>
+  <div class="lang-view lang-es"><p class="eyebrow">13 · Ejemplo resuelto 2 · descuento</p><h2>Calcular un descuento sencillo</h2><p class="lead">Una tienda ofrece un 10 % de descuento en compras de $50 o más. En caso contrario, el cliente paga el precio indicado.</p><div class="grid"><div class="card"><div class="label">Entrada y restricción</div><p><code>subtotal</code>, cantidad no negativa en dólares antes del descuento.</p></div><div class="card"><div class="label">Límite de decisión</div><p>El descuento se aplica cuando <code>subtotal ≥ 50</code>, incluido exactamente $50.</p></div><div class="card"><div class="label">Salida</div><p>El importe a pagar, redondeado al centavo más cercano en un sistema real de caja.</p></div></div><div class="columns"><div class="panel"><p class="panel-title">Plan y cálculo</p><pre>INPUT subtotal
+IF subtotal &gt;= 50 THEN
+    discount ← subtotal * 0.10
+ELSE
+    discount ← 0
+END IF
+amountDue ← subtotal - discount
+OUTPUT amountDue</pre></div><div class="panel"><p class="panel-title">Traza de una compra de $60</p><ol class="step-list"><li>$60 ≥ $50 es verdadero, así que entra en la primera rama.</li><li>discount ← 60 × 0,10 = $6.</li><li>amountDue ← 60 − 6 = $54.</li><li>Muestra $54,00 después del redondeo monetario.</li></ol></div></div><div class="table-wrap"><table><thead><tr><th>Subtotal</th><th>Descuento</th><th>Total a pagar</th><th>Qué comprueba</th></tr></thead><tbody><tr><td>$0</td><td>$0</td><td>$0</td><td>Mínimo / sin descuento</td></tr><tr><td>$49,99</td><td>$0</td><td>$49,99</td><td>Justo por debajo del límite</td></tr><tr><td>$50,00</td><td>$5</td><td>$45,00</td><td>Límite exacto</td></tr></tbody></table></div><div class="note"><p>El software real necesita una política explícita de redondeo del dinero. Aquí se usa aritmética decimal sencilla para enseñar la decisión.</p></div></div>
+</section>
+<section class="slide" data-tag="WEEK 5 · TRANSLATE" data-context="One algorithm in three languages">
+  <div class="lang-view lang-en"><p class="eyebrow">14 · Same idea, different syntax</p><h2>Translate logic, not punctuation</h2><p class="lead">The discount algorithm has the same input, comparison, branches, calculation, and output in all three versions.</p><div class="grid"><div class="card"><div class="label">Python</div><pre>subtotal = float(input("Subtotal: "))
+if subtotal &gt;= 50:
+    discount = subtotal * 0.10
+else:
+    discount = 0
+amount_due = subtotal - discount
+print(amount_due)</pre></div><div class="card"><div class="label">JavaScript</div><pre>const subtotal = Number(prompt("Subtotal:"));
+let discount;
+if (subtotal &gt;= 50) {
+  discount = subtotal * 0.10;
+} else {
+  discount = 0;
+}
+const amountDue = subtotal - discount;
+console.log(amountDue);</pre></div><div class="card"><div class="label">Java</div><pre>import java.util.Scanner;
+public class Discount {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Subtotal: ");
+        double subtotal = input.nextDouble();
+        double discount;
+        if (subtotal &gt;= 50) {
+            discount = subtotal * 0.10;
+        } else {
+            discount = 0;
+        }
+        double amountDue = subtotal - discount;
+        System.out.println(amountDue);
+        input.close();
+    }
+}</pre></div></div><div class="note"><p>Syntax differs—indentation, braces, declarations, and input methods—but the decision rule stays the same. Try subtotal 49.99 and 50.00 in each version; both should agree with the pseudocode.</p></div></div>
+  <div class="lang-view lang-ru"><p class="eyebrow">14 · Одна идея, разный синтаксис</p><h2>Переводите логику, а не пунктуацию</h2><p class="lead">В алгоритме скидки во всех трёх версиях одинаковы входные данные, сравнение, ветвление, вычисление и вывод результата.</p><div class="grid"><div class="card"><div class="label">Python</div><pre>subtotal = float(input("Сумма покупки: "))
+if subtotal &gt;= 50:
+    discount = subtotal * 0.10
+else:
+    discount = 0
+amount_due = subtotal - discount
+print(amount_due)</pre></div><div class="card"><div class="label">JavaScript</div><pre>const subtotal = Number(prompt("Сумма покупки:"));
+let discount;
+if (subtotal &gt;= 50) {
+  discount = subtotal * 0.10;
+} else {
+  discount = 0;
+}
+const amountDue = subtotal - discount;
+console.log(amountDue);</pre></div><div class="card"><div class="label">Java</div><pre>import java.util.Scanner;
+public class Discount {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Сумма покупки: ");
+        double subtotal = input.nextDouble();
+        double discount;
+        if (subtotal &gt;= 50) {
+            discount = subtotal * 0.10;
+        } else {
+            discount = 0;
+        }
+        double amountDue = subtotal - discount;
+        System.out.println(amountDue);
+        input.close();
+    }
+}</pre></div></div><div class="note"><p>Синтаксис различается — отступами, фигурными скобками, объявлениями и вводом данных, — но правило выбора остаётся тем же. Проверьте в каждой версии суммы 49,99 и 50,00: результат должен совпасть с псевдокодом.</p></div></div>
+  <div class="lang-view lang-es"><p class="eyebrow">14 · La misma idea, distinta sintaxis</p><h2>Traduce la lógica, no la puntuación</h2><p class="lead">El algoritmo del descuento conserva la misma entrada, comparación, ramas, cálculo y salida en las tres versiones.</p><div class="grid"><div class="card"><div class="label">Python</div><pre>subtotal = float(input("Subtotal: "))
+if subtotal &gt;= 50:
+    discount = subtotal * 0.10
+else:
+    discount = 0
+amount_due = subtotal - discount
+print(amount_due)</pre></div><div class="card"><div class="label">JavaScript</div><pre>const subtotal = Number(prompt("Subtotal:"));
+let discount;
+if (subtotal &gt;= 50) {
+  discount = subtotal * 0.10;
+} else {
+  discount = 0;
+}
+const amountDue = subtotal - discount;
+console.log(amountDue);</pre></div><div class="card"><div class="label">Java</div><pre>import java.util.Scanner;
+public class Discount {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Subtotal: ");
+        double subtotal = input.nextDouble();
+        double discount;
+        if (subtotal &gt;= 50) {
+            discount = subtotal * 0.10;
+        } else {
+            discount = 0;
+        }
+        double amountDue = subtotal - discount;
+        System.out.println(amountDue);
+        input.close();
+    }
+}</pre></div></div><div class="note"><p>La sintaxis cambia —sangría, llaves, declaraciones y métodos de entrada—, pero la regla de decisión es la misma. Prueba 49,99 y 50,00 en cada versión; todas deben coincidir con el pseudocódigo.</p></div></div>
+</section>
+<section class="slide" data-tag="WEEK 5 · TEST" data-context="Test representative and edge cases">
+  <div class="lang-view lang-en"><p class="eyebrow">15 · Test more than the usual case</p><h2>Build a small, thoughtful test set</h2><p class="lead">Good tests target different behaviors. An edge case sits at an important boundary or an unusual but allowed input.</p><div class="table-wrap"><table><thead><tr><th>Test category</th><th>Discount example</th><th>Expected result</th><th>Why it matters</th></tr></thead><tbody><tr><td>Typical</td><td>$60.00</td><td>$54.00</td><td>Checks ordinary discounted path.</td></tr><tr><td>Just below boundary</td><td>$49.99</td><td>$49.99</td><td>Checks the non-discount branch.</td></tr><tr><td>Exact boundary</td><td>$50.00</td><td>$45.00</td><td>Catches <code>&gt;</code> versus <code>&gt;=</code>.</td></tr><tr><td>Minimum valid</td><td>$0.00</td><td>$0.00</td><td>Checks zero does not break the math.</td></tr><tr><td>Invalid (if prohibited)</td><td>−$1.00</td><td>Reject with a clear message</td><td>Checks input validation rules.</td></tr></tbody></table></div><div class="grid"><div class="card"><div class="label">Typical case</div><p>Represents a normal input on a common path.</p></div><div class="card"><div class="label">Boundary case</div><p>Tests at and just around a threshold or limit.</p></div><div class="card"><div class="label">Invalid / empty case</div><p>Tests what the contract says to reject or handle specially.</p></div></div><div class="note"><p>Write the expected answer before running the program. Otherwise, a surprising output can trick you into treating it as correct.</p></div></div>
+  <div class="lang-view lang-ru"><p class="eyebrow">15 · Проверяйте не только обычный случай</p><h2>Составьте небольшой набор тестов</h2><p class="lead">Хорошие тесты проверяют разные варианты поведения. Граничный случай находится на важной границе или представляет необычные, но допустимые данные.</p><div class="table-wrap"><table><thead><tr><th>Категория</th><th>Пример скидки</th><th>Ожидаемый результат</th><th>Зачем проверять</th></tr></thead><tbody><tr><td>Обычный случай</td><td>$60,00</td><td>$54,00</td><td>Проверяет типичный путь со скидкой.</td></tr><tr><td>Ниже границы</td><td>$49,99</td><td>$49,99</td><td>Проверяет ветвь без скидки.</td></tr><tr><td>Точная граница</td><td>$50,00</td><td>$45,00</td><td>Выявляет ошибку между <code>&gt;</code> и <code>&gt;=</code>.</td></tr><tr><td>Минимум</td><td>$0,00</td><td>$0,00</td><td>Проверяет, что ноль не ломает вычисления.</td></tr><tr><td>Недопустимое значение</td><td>−$1,00</td><td>Отклонить с понятным сообщением</td><td>Проверяет правила валидации.</td></tr></tbody></table></div><div class="grid"><div class="card"><div class="label">Обычный случай</div><p>Представляет стандартные данные для распространённого пути.</p></div><div class="card"><div class="label">Граничный случай</div><p>Проверяет значение порога и значения рядом с ним.</p></div><div class="card"><div class="label">Недопустимые или пустые данные</div><p>Проверяет, что условия задачи требуют отклонить или обработать особо.</p></div></div><div class="note"><p>Запишите ожидаемый ответ до запуска программы. Иначе неожиданный результат может показаться правильным.</p></div></div>
+  <div class="lang-view lang-es"><p class="eyebrow">15 · Prueba más que el caso habitual</p><h2>Diseña un conjunto de pruebas pequeño y útil</h2><p class="lead">Las buenas pruebas se centran en comportamientos distintos. Un caso límite está en una frontera importante o usa una entrada permitida poco habitual.</p><div class="table-wrap"><table><thead><tr><th>Tipo de prueba</th><th>Ejemplo de descuento</th><th>Resultado esperado</th><th>Por qué importa</th></tr></thead><tbody><tr><td>Típica</td><td>$60,00</td><td>$54,00</td><td>Comprueba el camino normal con descuento.</td></tr><tr><td>Justo debajo del límite</td><td>$49,99</td><td>$49,99</td><td>Comprueba la rama sin descuento.</td></tr><tr><td>Límite exacto</td><td>$50,00</td><td>$45,00</td><td>Detecta <code>&gt;</code> frente a <code>&gt;=</code>.</td></tr><tr><td>Mínimo válido</td><td>$0,00</td><td>$0,00</td><td>Comprueba que el cero no rompe el cálculo.</td></tr><tr><td>Inválida (si se prohíbe)</td><td>−$1,00</td><td>Rechazar con un mensaje claro</td><td>Comprueba las reglas de validación.</td></tr></tbody></table></div><div class="grid"><div class="card"><div class="label">Caso típico</div><p>Representa una entrada normal que sigue un camino frecuente.</p></div><div class="card"><div class="label">Caso límite</div><p>Prueba un umbral o límite y los valores cercanos.</p></div><div class="card"><div class="label">Inválido o vacío</div><p>Comprueba lo que el contrato exige rechazar o tratar de forma especial.</p></div></div><div class="note"><p>Escribe la respuesta esperada antes de ejecutar el programa. De lo contrario, una salida sorprendente podría parecerte correcta.</p></div></div>
+</section>
+<section class="slide" data-tag="WEEK 5 · DEBUG" data-context="Debug with a method">
+  <div class="lang-view lang-en"><p class="eyebrow">16 · When the result is wrong</p><h2>Debug with a method—not a guess</h2><p class="lead">A bug is a mismatch between intended behavior and actual behavior. Find the earliest step where the state becomes wrong.</p><div class="columns"><div class="panel"><p class="panel-title">The total is too large</p><pre>total ← 0
+FOR each price in prices
+    total ← total + price
+    total ← total + price   // suspicious duplicate
+END FOR</pre><p>For prices [2, 3], the intended total is 5. A trace shows 4 after the first item and 10 after the second: each price is added twice.</p></div><div class="panel"><p class="panel-title">A calm debugging routine</p><ol class="step-list"><li>Reproduce the problem with a small known input.</li><li>Write the expected result and the actual result.</li><li>Trace variable values, one step at a time.</li><li>Find the first divergence; inspect its condition and update.</li><li>Change one cause, then rerun the same tests and nearby edge cases.</li></ol></div></div><div class="grid"><div class="card"><div class="label">Logic bug</div><p>The program runs, but follows the wrong rule or order.</p></div><div class="card"><div class="label">Syntax error</div><p>The language cannot parse the instructions, such as a missing brace or colon.</p></div><div class="card"><div class="label">Runtime error</div><p>The program starts but fails while running, for example by dividing by zero.</p></div></div><div class="note"><p>Changing many lines at once makes cause and effect hard to see. Make one focused fix and verify it.</p></div></div>
+  <div class="lang-view lang-ru"><p class="eyebrow">16 · Если результат неверен</p><h2>Ищите ошибку по плану, а не наугад</h2><p class="lead">Ошибка — это расхождение между ожидаемым и фактическим поведением. Найдите первый шаг, на котором состояние становится неверным.</p><div class="columns"><div class="panel"><p class="panel-title">Сумма получилась слишком большой</p><pre>total ← 0
+FOR each price in prices
+    total ← total + price
+    total ← total + price   // подозрительное повторение
+END FOR</pre><p>Для цен [2, 3] ожидаемая сумма — 5. Трассировка показывает 4 после первого элемента и 10 после второго: каждая цена прибавлена дважды.</p></div><div class="panel"><p class="panel-title">Спокойный порядок отладки</p><ol class="step-list"><li>Воспроизведите проблему на небольшом известном примере.</li><li>Запишите ожидаемый и фактический результат.</li><li>Проследите значения переменных шаг за шагом.</li><li>Найдите первое расхождение; проверьте условие и обновление.</li><li>Исправьте одну причину, затем повторите те же тесты и близкие граничные случаи.</li></ol></div></div><div class="grid"><div class="card"><div class="label">Логическая ошибка</div><p>Программа работает, но применяет неверное правило или порядок.</p></div><div class="card"><div class="label">Синтаксическая ошибка</div><p>Язык не может разобрать команды, например из-за пропущенной скобки или двоеточия.</p></div><div class="card"><div class="label">Ошибка времени выполнения</div><p>Программа запускается, но сбоит во время работы, например при делении на ноль.</p></div></div><div class="note"><p>Если изменить сразу много строк, трудно понять причину и следствие. Внесите одно точечное исправление и проверьте его.</p></div></div>
+  <div class="lang-view lang-es"><p class="eyebrow">16 · Cuando el resultado es incorrecto</p><h2>Depura con un método, no con suposiciones</h2><p class="lead">Un error es una diferencia entre el comportamiento deseado y el real. Encuentra el primer paso en el que el estado deja de ser correcto.</p><div class="columns"><div class="panel"><p class="panel-title">El total es demasiado grande</p><pre>total ← 0
+FOR each price in prices
+    total ← total + price
+    total ← total + price   // duplicación sospechosa
+END FOR</pre><p>Para los precios [2, 3], el total esperado es 5. La traza muestra 4 después del primer elemento y 10 después del segundo: cada precio se suma dos veces.</p></div><div class="panel"><p class="panel-title">Rutina tranquila de depuración</p><ol class="step-list"><li>Reproduce el problema con una entrada pequeña y conocida.</li><li>Anota el resultado esperado y el resultado real.</li><li>Sigue los valores de las variables paso a paso.</li><li>Encuentra la primera diferencia; revisa su condición y actualización.</li><li>Cambia una causa y vuelve a ejecutar las mismas pruebas y casos límite cercanos.</li></ol></div></div><div class="grid"><div class="card"><div class="label">Error lógico</div><p>El programa se ejecuta, pero sigue una regla o un orden equivocados.</p></div><div class="card"><div class="label">Error de sintaxis</div><p>El lenguaje no puede interpretar las instrucciones, por ejemplo, por una llave o dos puntos que faltan.</p></div><div class="card"><div class="label">Error en tiempo de ejecución</div><p>El programa comienza, pero falla durante la ejecución, por ejemplo, al dividir entre cero.</p></div></div><div class="note"><p>Cambiar muchas líneas de una vez dificulta ver la causa y el efecto. Haz una corrección concreta y verifícala.</p></div></div>
+</section>
+<section class="slide" data-tag="WEEK 5 · DESIGN" data-context="Decomposition and modular thinking">
+  <div class="lang-view lang-en"><p class="eyebrow">17 · Make large work manageable</p><h2>Decompose the problem</h2><p class="lead">Decomposition means splitting a complex task into smaller parts with clear responsibilities and results.</p><div class="grid"><div class="card"><div class="label">1 · Validate input</div><p>Check that prices are non-negative and that a list is present.</p></div><div class="card"><div class="label">2 · Calculate subtotal</div><p>Add the item prices using an accumulator.</p></div><div class="card"><div class="label">3 · Decide discount</div><p>Apply the threshold rule in one focused step.</p></div><div class="card"><div class="label">4 · Present result</div><p>Subtract the discount, round for currency, and show a clear receipt.</p></div></div><div class="panel"><p class="panel-title">Each part can be explained and tested alone</p><pre>subtotal ← calculateSubtotal(prices)
+discount ← calculateDiscount(subtotal)
+amountDue ← subtotal - discount
+displayReceipt(subtotal, discount, amountDue)</pre><p>The names above describe conceptual tasks; a beginner can first write each part as a separate pseudocode section before learning functions.</p></div><div class="columns"><div class="panel"><p class="panel-title">Why decompose?</p><p>Smaller chunks are easier to understand, test, reuse, and debug. A mistake in receipt formatting does not need to change the discount rule.</p></div><div class="panel"><p class="panel-title">Analogy · packing a backpack</p><p>Gather books, pack lunch, fill a bottle, and check the list. A checklist breaks “get ready” into manageable actions.</p></div></div></div>
+  <div class="lang-view lang-ru"><p class="eyebrow">17 · Управляемая сложность</p><h2>Разделите задачу на части</h2><p class="lead">Декомпозиция — это разделение сложной задачи на меньшие части с понятными обязанностями и результатами.</p><div class="grid"><div class="card"><div class="label">1 · Проверить входные данные</div><p>Убедиться, что цены неотрицательные, а список предоставлен.</p></div><div class="card"><div class="label">2 · Рассчитать сумму покупок</div><p>Сложить цены товаров с помощью накопителя.</p></div><div class="card"><div class="label">3 · Определить скидку</div><p>Применить пороговое правило в отдельном понятном шаге.</p></div><div class="card"><div class="label">4 · Показать результат</div><p>Вычесть скидку, округлить денежную сумму и вывести понятный чек.</p></div></div><div class="panel"><p class="panel-title">Каждую часть можно отдельно объяснить и проверить</p><pre>subtotal ← calculateSubtotal(prices)
+discount ← calculateDiscount(subtotal)
+amountDue ← subtotal - discount
+displayReceipt(subtotal, discount, amountDue)</pre><p>Эти имена обозначают отдельные задачи; сначала новичок может написать для каждой отдельный раздел псевдокода и только потом изучать функции.</p></div><div class="columns"><div class="panel"><p class="panel-title">Зачем делить задачу?</p><p>Маленькие части проще понять, проверить, повторно использовать и отладить. Ошибка в оформлении чека не должна менять правило скидки.</p></div><div class="panel"><p class="panel-title">Аналогия · собрать рюкзак</p><p>Собрать книги, упаковать обед, наполнить бутылку и проверить список. Чек-лист превращает «собраться» в управляемые действия.</p></div></div></div>
+  <div class="lang-view lang-es"><p class="eyebrow">17 · Hacer manejable el trabajo grande</p><h2>Descompón el problema</h2><p class="lead">Descomponer significa dividir una tarea compleja en partes más pequeñas con responsabilidades y resultados claros.</p><div class="grid"><div class="card"><div class="label">1 · Validar la entrada</div><p>Comprobar que los precios no sean negativos y que exista una lista.</p></div><div class="card"><div class="label">2 · Calcular el subtotal</div><p>Sumar los precios de los artículos con un acumulador.</p></div><div class="card"><div class="label">3 · Decidir el descuento</div><p>Aplicar la regla del umbral en un paso enfocado.</p></div><div class="card"><div class="label">4 · Presentar el resultado</div><p>Restar el descuento, redondear la moneda y mostrar un recibo claro.</p></div></div><div class="panel"><p class="panel-title">Cada parte se puede explicar y probar por separado</p><pre>subtotal ← calculateSubtotal(prices)
+discount ← calculateDiscount(subtotal)
+amountDue ← subtotal - discount
+displayReceipt(subtotal, discount, amountDue)</pre><p>Estos nombres describen tareas conceptuales; primero puedes escribir cada parte como una sección independiente de pseudocódigo antes de aprender funciones.</p></div><div class="columns"><div class="panel"><p class="panel-title">¿Por qué descomponer?</p><p>Los bloques pequeños son más fáciles de entender, probar, reutilizar y depurar. Un error en el formato del recibo no debería cambiar la regla del descuento.</p></div><div class="panel"><p class="panel-title">Analogía · preparar una mochila</p><p>Reunir los libros, guardar el almuerzo, llenar una botella y revisar la lista. Una lista de comprobación divide «prepararse» en acciones manejables.</p></div></div></div>
+</section>
+<section class="slide" data-tag="WEEK 5 · LAB" data-context="Practice lab: classify and average">
+  <div class="lang-view lang-en"><p class="eyebrow">18 · Practice lab · try before revealing an answer</p><h2>Build a score summary</h2><p class="lead">Design an algorithm that reads exactly four quiz scores, each from 0 to 100, calculates their average, and reports “Pass” when the average is at least 70.</p><div class="grid"><div class="card"><div class="label">Part A · define</div><p>List inputs, output, and constraints. What is the boundary score for a pass?</p></div><div class="card"><div class="label">Part B · plan</div><p>Initialize a total, add all four scores, divide by four, then choose a message.</p></div><div class="card"><div class="label">Part C · test</div><p>Try [70, 70, 70, 70], [69, 70, 70, 70], and [0, 0, 0, 0]. Predict the results first.</p></div></div><details class="panel"><summary><strong>One possible pseudocode solution</strong></summary><pre>total ← 0
+FOR each of 4 scores
+    INPUT score
+    total ← total + score
+END FOR
+average ← total / 4
+IF average &gt;= 70 THEN
+    OUTPUT average, "Pass"
+ELSE
+    OUTPUT average, "Keep practicing"
+END IF</pre><p>For [69, 70, 70, 70], the total is 279 and the average is 69.75, so this algorithm reports “Keep practicing.”</p></details><div class="note"><p>Stretch: add input validation for scores outside 0–100. Decide whether to reject the whole set or ask for the invalid score again.</p></div></div>
+  <div class="lang-view lang-ru"><p class="eyebrow">18 · Практическая работа · сначала попробуйте сами</p><h2>Создайте сводку результатов</h2><p class="lead">Разработайте алгоритм, который считывает ровно четыре оценки от 0 до 100, вычисляет среднее и выводит «Сдано», если среднее не меньше 70.</p><div class="grid"><div class="card"><div class="label">Часть A · определите задачу</div><p>Перечислите входные данные, результат и ограничения. Каков граничный проходной балл?</p></div><div class="card"><div class="label">Часть B · составьте план</div><p>Задайте начальную сумму, прибавьте все четыре оценки, разделите на четыре, затем выберите сообщение.</p></div><div class="card"><div class="label">Часть C · проверьте</div><p>Попробуйте [70, 70, 70, 70], [69, 70, 70, 70] и [0, 0, 0, 0]. Сначала предскажите результат.</p></div></div><details class="panel"><summary><strong>Один из возможных вариантов псевдокода</strong></summary><pre>total ← 0
+FOR each of 4 scores
+    INPUT score
+    total ← total + score
+END FOR
+average ← total / 4
+IF average &gt;= 70 THEN
+    OUTPUT average, "Сдано"
+ELSE
+    OUTPUT average, "Нужно больше практики"
+END IF</pre><p>Для [69, 70, 70, 70] сумма равна 279, а среднее — 69,75, поэтому алгоритм выводит «Нужно больше практики».</p></details><div class="note"><p>Дополнительное задание: добавьте проверку оценок вне диапазона 0–100. Решите, отклонять весь набор или повторно запросить недопустимую оценку.</p></div></div>
+  <div class="lang-view lang-es"><p class="eyebrow">18 · Laboratorio práctico · intenta resolverlo antes</p><h2>Crea un resumen de puntuaciones</h2><p class="lead">Diseña un algoritmo que lea exactamente cuatro puntuaciones de 0 a 100, calcule su promedio y muestre «Aprobado» cuando el promedio sea al menos 70.</p><div class="grid"><div class="card"><div class="label">Parte A · define</div><p>Enumera las entradas, la salida y las restricciones. ¿Cuál es el límite para aprobar?</p></div><div class="card"><div class="label">Parte B · planifica</div><p>Inicializa un total, suma las cuatro puntuaciones, divide entre cuatro y después elige un mensaje.</p></div><div class="card"><div class="label">Parte C · prueba</div><p>Prueba [70, 70, 70, 70], [69, 70, 70, 70] y [0, 0, 0, 0]. Predice los resultados primero.</p></div></div><details class="panel"><summary><strong>Una posible solución en pseudocódigo</strong></summary><pre>total ← 0
+FOR each of 4 scores
+    INPUT score
+    total ← total + score
+END FOR
+average ← total / 4
+IF average &gt;= 70 THEN
+    OUTPUT average, "Aprobado"
+ELSE
+    OUTPUT average, "Sigue practicando"
+END IF</pre><p>Para [69, 70, 70, 70], el total es 279 y el promedio es 69,75, así que el algoritmo muestra «Sigue practicando».</p></details><div class="note"><p>Reto: añade validación para puntuaciones fuera de 0–100. Decide si rechazar todo el conjunto o volver a pedir la puntuación inválida.</p></div></div>
+</section>
+<section class="slide" data-tag="WEEK 5 · CHECK" data-context="Mastery check with feedback">
+  <div class="lang-view lang-en"><p class="eyebrow">19 · Mastery check · pause and answer</p><h2>Can you explain the logic?</h2><p class="lead">Answer each question before opening its feedback. Try to explain your reasoning, not just name a keyword.</p><div class="grid two"><details class="panel"><summary><strong>1 · A fee applies at age 18 or older. Which condition?</strong></summary><p><code>age &gt;= 18</code>. The words “or older” include 18. Using <code>&gt; 18</code> would incorrectly exclude the boundary.</p></details><details class="panel"><summary><strong>2 · A loop count never changes. What can happen?</strong></summary><p>If its condition stays true, the loop may never end. Initialize state and make a progress update that eventually makes the stop condition true.</p></details><details class="panel"><summary><strong>3 · Why initialize a total to zero?</strong></summary><p>Every value can then be added to a known starting point. An uninitialized total may contain no usable value; a stale value can contaminate the answer.</p></details><details class="panel"><summary><strong>4 · Which case tests a threshold of 50 best?</strong></summary><p>Use values just below (49.99), exactly at (50), and just above (50.01). Together they expose boundary mistakes.</p></details><details class="panel"><summary><strong>5 · What does a trace table tell you?</strong></summary><p>It shows how variable state and decisions change for selected inputs. It helps locate a bug, but it is not by itself proof for every possible input.</p></details><details class="panel"><summary><strong>6 · Python works; Java gives a different answer. What next?</strong></summary><p>Compare the language-neutral condition and each variable update line by line. Run the same boundary test in both and locate the first divergence.</p></details></div><div class="success"><p><strong>Mastery looks like this:</strong> you can state the contract, trace an example, justify a boundary operator, and explain why your tests matter.</p></div></div>
+  <div class="lang-view lang-ru"><p class="eyebrow">19 · Проверка знаний · остановитесь и ответьте</p><h2>Можете объяснить логику?</h2><p class="lead">Ответьте на каждый вопрос, прежде чем открывать пояснение. Постарайтесь объяснить ход мысли, а не просто назвать ключевое слово.</p><div class="grid two"><details class="panel"><summary><strong>1 · Сбор разрешён с 18 лет включительно. Какое условие?</strong></summary><p><code>age &gt;= 18</code>. Слова «или старше» включают 18 лет. Условие <code>&gt; 18</code> ошибочно исключит граничное значение.</p></details><details class="panel"><summary><strong>2 · Счётчик цикла не меняется. Что может произойти?</strong></summary><p>Если условие остаётся истинным, цикл может никогда не завершиться. Инициализируйте состояние и добавьте изменение, которое в итоге сделает условие остановки истинным.</p></details><details class="panel"><summary><strong>3 · Зачем задавать сумме начальное значение 0?</strong></summary><p>Каждое значение прибавляется к известной начальной точке. Неинициализированная сумма может не иметь пригодного значения, а старое значение исказит ответ.</p></details><details class="panel"><summary><strong>4 · Какие данные лучше проверяют порог 50?</strong></summary><p>Проверьте чуть меньше (49,99), ровно 50 и чуть больше (50,01). Вместе они выявляют ошибки на границе.</p></details><details class="panel"><summary><strong>5 · Что показывает таблица трассировки?</strong></summary><p>Она показывает изменения переменных и решений для выбранных входных данных. Это помогает найти ошибку, но само по себе не доказывает правильность для всех данных.</p></details><details class="panel"><summary><strong>6 · Python работает, а Java выдаёт другой результат. Что делать?</strong></summary><p>Сравните нейтральное к языку условие и обновления переменных построчно. Запустите одинаковый граничный тест в обеих версиях и найдите первое расхождение.</p></details></div><div class="success"><p><strong>Вы освоили тему, если</strong> можете сформулировать условия задачи, проследить пример, обосновать оператор на границе и объяснить назначение тестов.</p></div></div>
+  <div class="lang-view lang-es"><p class="eyebrow">19 · Comprueba lo aprendido · detente y responde</p><h2>¿Puedes explicar la lógica?</h2><p class="lead">Responde cada pregunta antes de abrir su explicación. Intenta justificar tu razonamiento, no solo nombrar una palabra clave.</p><div class="grid two"><details class="panel"><summary><strong>1 · La tarifa se aplica desde los 18 años. ¿Qué condición?</strong></summary><p><code>age &gt;= 18</code>. «Desde los 18» incluye esa edad. Usar <code>&gt; 18</code> excluiría incorrectamente el límite.</p></details><details class="panel"><summary><strong>2 · El contador de un bucle nunca cambia. ¿Qué puede ocurrir?</strong></summary><p>Si la condición sigue siendo verdadera, el bucle quizá nunca termine. Inicializa el estado y añade un avance que finalmente haga verdadera la condición de parada.</p></details><details class="panel"><summary><strong>3 · ¿Por qué inicializar el total en cero?</strong></summary><p>Así cada valor se suma a un punto de partida conocido. Un total sin inicializar quizá no tenga un valor utilizable; un valor antiguo puede contaminar el resultado.</p></details><details class="panel"><summary><strong>4 · ¿Qué casos comprueban mejor un umbral de 50?</strong></summary><p>Usa valores justo por debajo (49,99), exactamente en 50 y justo por encima (50,01). En conjunto revelan errores de límite.</p></details><details class="panel"><summary><strong>5 · ¿Qué te dice una tabla de seguimiento?</strong></summary><p>Muestra cómo cambian el estado de las variables y las decisiones para ciertas entradas. Ayuda a localizar errores, pero no demuestra por sí sola todos los casos posibles.</p></details><details class="panel"><summary><strong>6 · Python funciona y Java da otra respuesta. ¿Qué haces?</strong></summary><p>Compara línea por línea la condición independiente del lenguaje y las actualizaciones de variables. Ejecuta la misma prueba límite en ambos y localiza la primera diferencia.</p></details></div><div class="success"><p><strong>Dominas el tema si</strong> puedes definir el contrato, seguir una traza, justificar un operador de límite y explicar por qué importan tus pruebas.</p></div></div>
+</section>
+<section class="slide" data-tag="WEEK 5 · RECAP" data-context="Your algorithm design checklist">
+  <div class="lang-view lang-en"><p class="eyebrow">20 · Take the method with you</p><h2>Your algorithm design checklist</h2><p class="lead">When you face a new programming task, use this sequence before reaching for syntax.</p><div class="columns"><div class="panel"><p class="panel-title">Design</p><ul class="check-list"><li>State inputs, outputs, constraints, and assumptions.</li><li>Choose clear variable names and initialize values.</li><li>Refine the plan into ordered, unambiguous steps.</li><li>Identify sequence, decisions, loops, and their boundaries.</li><li>Check that every loop makes progress and eventually stops.</li></ul></div><div class="panel"><p class="panel-title">Verify</p><ul class="check-list"><li>Trace at least one typical input by hand.</li><li>Test boundaries, empty/minimum values, and invalid data.</li><li>Compare expected and actual results; find the first divergence.</li><li>Translate the same logic into code without changing the rule.</li><li>Explain why the answer satisfies the problem contract.</li></ul></div></div><div class="success"><p><strong>Remember:</strong> clear problem definition → simple plan → careful trace → meaningful tests → readable code. Correct logic comes before clever syntax.</p></div><div class="note"><p>Next step: choose a small everyday task—splitting a bill, tracking water intake, or calculating a study average—and write its input, output, rules, pseudocode, and three boundary-focused tests.</p></div></div>
+  <div class="lang-view lang-ru"><p class="eyebrow">20 · Используйте этот метод дальше</p><h2>Контрольный список проектирования алгоритма</h2><p class="lead">Получив новую задачу программирования, сначала пройдите этот порядок, а уже потом переходите к синтаксису.</p><div class="columns"><div class="panel"><p class="panel-title">Проектирование</p><ul class="check-list"><li>Укажите входные данные, результат, ограничения и допущения.</li><li>Выберите понятные имена переменных и задайте начальные значения.</li><li>Уточните план до упорядоченных и однозначных шагов.</li><li>Определите последовательность, ветвления, циклы и их границы.</li><li>Убедитесь, что каждый цикл продвигается и в итоге завершается.</li></ul></div><div class="panel"><p class="panel-title">Проверка</p><ul class="check-list"><li>Вручную проследите хотя бы один обычный пример.</li><li>Проверьте границы, пустые/минимальные значения и недопустимые данные.</li><li>Сравните ожидаемый и фактический результаты; найдите первое расхождение.</li><li>Переведите ту же логику в код, не изменяя правила.</li><li>Объясните, почему ответ соответствует условиям задачи.</li></ul></div></div><div class="success"><p><strong>Помните:</strong> ясная формулировка задачи → простой план → внимательная трассировка → содержательные тесты → понятный код. Корректная логика важнее изящного синтаксиса.</p></div><div class="note"><p>Следующее задание: выберите небольшую бытовую задачу — разделить счёт, отслеживать выпитую воду или вычислить средний балл за учёбу — и запишите входные данные, результат, правила, псевдокод и три теста с граничными значениями.</p></div></div>
+  <div class="lang-view lang-es"><p class="eyebrow">20 · Conserva este método</p><h2>Lista de comprobación para diseñar algoritmos</h2><p class="lead">Ante una nueva tarea de programación, sigue estos pasos antes de empezar con la sintaxis.</p><div class="columns"><div class="panel"><p class="panel-title">Diseña</p><ul class="check-list"><li>Define entradas, salidas, restricciones y supuestos.</li><li>Elige nombres claros e inicializa los valores.</li><li>Refina el plan en pasos ordenados e inequívocos.</li><li>Identifica secuencias, decisiones, bucles y sus límites.</li><li>Comprueba que cada bucle avanza y termina finalmente.</li></ul></div><div class="panel"><p class="panel-title">Verifica</p><ul class="check-list"><li>Sigue a mano al menos una entrada típica.</li><li>Prueba límites, valores mínimos o vacíos y datos inválidos.</li><li>Compara resultados esperados y reales; encuentra la primera diferencia.</li><li>Traduce la misma lógica al código sin cambiar la regla.</li><li>Explica por qué la respuesta satisface el contrato del problema.</li></ul></div></div><div class="success"><p><strong>Recuerda:</strong> definición clara → plan sencillo → seguimiento cuidadoso → pruebas útiles → código legible. La lógica correcta va antes que la sintaxis ingeniosa.</p></div><div class="note"><p>Siguiente paso: elige una tarea cotidiana pequeña —repartir una cuenta, registrar el consumo de agua o calcular un promedio de estudio— y escribe entradas, salidas, reglas, pseudocódigo y tres pruebas centradas en límites.</p></div></div>
+</section>
+</div>
+<script>
+(() => {
+  const source = document.getElementById('slides');
+  const slides = Array.from(source.querySelectorAll('.slide'));
+  const viewport = document.getElementById('slideViewport');
+  const progress = document.getElementById('progress');
+  const counter = document.getElementById('counter');
+  const tag = document.getElementById('slideTag');
+  const context = document.getElementById('contextLabel');
+  const overlay = document.getElementById('sorterOverlay');
+  const sorterGrid = document.getElementById('sorterGrid');
+  let current = 0;
+  let language = localStorage.getItem('deck_presentation_lang') || 'en';
+  if (!['en','ru','es'].includes(language)) language = 'en';
+  const savedScale = Number(localStorage.getItem('deck_font_scale'));
+  let scale = Number.isFinite(savedScale) && savedScale > 0 ? savedScale : 1.5;
+  const labels = {
+    en: {previous:'← Previous', next:'Next →', reset:'↺ Reset Slide', first:'First', last:'Last', slide:'Slide', of:'of', theme:'🌓 Theme', full:'⛶ Fullscreen', grid:'▦ Grid', close:'✕ Close (Esc)', title:'Slide sorter', shortcuts:'Navigate: ← / → • Font: ↑ / ↓ • Grid: G • Lang: L (1=EN, 2=RU, 3=ES)'},
+    ru: {previous:'← Назад', next:'Вперед →', reset:'↺ Сбросить слайд', first:'В начало', last:'В конец', slide:'Слайд', of:'из', theme:'🌓 Тема', full:'⛶ Экран', grid:'▦ Сетка', close:'✕ Закрыть (Esc)', title:'Сортировщик слайдов', shortcuts:'Навигация: ← / → • Масштаб: ↑ / ↓ • Обзор: G • Язык: L (1=EN, 2=RU, 3=ES)'},
+    es: {previous:'← Anterior', next:'Siguiente →', reset:'↺ Restablecer diapositiva', first:'Inicio', last:'Final', slide:'Diapositiva', of:'de', theme:'🌓 Tema', full:'⛶ Pantalla', grid:'▦ Cuadrícula', close:'✕ Cerrar (Esc)', title:'Organizador de diapositivas', shortcuts:'Navegación: ← / → • Escala: ↑ / ↓ • Cuadrícula: G • Idioma: L (1=EN, 2=RU, 3=ES)'}
+  };
+  const langNames = {en:['English','Russian','Spanish'],ru:['Английский','Русский','Испанский'],es:['Inglés','Ruso','Español']};
+  const titleFromSlide = (slide) => {
+    const visible = slide.querySelector(`.lang-${language}`);
+    const heading = visible && visible.querySelector('h1,h2');
+    return heading ? heading.textContent.replace(/&/g,' & ').replace(/\s+/g,' ').trim() : `Slide ${slides.indexOf(slide)+1}`;
+  };
+  function render() {
+    const slide = slides[current];
+    viewport.replaceChildren(slide);
+    tag.textContent = slide.dataset.tag || 'CSS-100 · WEEK 5';
+    context.textContent = slide.dataset.context || '';
+    counter.textContent = `${labels[language].slide} ${current+1} ${labels[language].of} ${slides.length}`;
+    progress.style.width = `${((current+1)/slides.length)*100}%`;
+    document.getElementById('previousButton').disabled = current === 0;
+    document.getElementById('nextButton').disabled = current === slides.length-1;
+    document.getElementById('previousButton').textContent = labels[language].previous;
+    document.getElementById('nextButton').textContent = labels[language].next;
+    document.getElementById('gridButton').textContent = labels[language].grid;
+    document.getElementById('themeButton').textContent = labels[language].theme;
+    document.getElementById('fullscreenButton').textContent = labels[language].full;
+    document.getElementById('resetButton').textContent = labels[language].reset;
+    document.getElementById('closeSorter').textContent = labels[language].close;
+    document.getElementById('sorterTitle').textContent = labels[language].title;
+    document.getElementById('shortcutGuide').textContent = labels[language].shortcuts;
+    document.documentElement.lang = language;
+    document.title = `CSS-100 Week 5 — ${titleFromSlide(slide)} (${language.toUpperCase()})`;
+    viewport.scrollTop = 0;
+    updateSorter();
+  }
+  function updateSorter() {
+    sorterGrid.replaceChildren();
+    slides.forEach((slide, index) => {
+      const button = document.createElement('button');
+      button.className = `sorter-item${index === current ? ' current' : ''}`;
+      button.innerHTML = `<strong>${index+1} · ${slide.dataset.tag || 'Week 5'}</strong>`;
+      const title = document.createElement('span');
+      title.textContent = titleFromSlide(slide);
+      button.append(title);
+      button.addEventListener('click', () => { current = index; render(); closeGrid(); });
+      sorterGrid.append(button);
+    });
+  }
+  function closeGrid() { overlay.classList.remove('open'); document.getElementById('gridButton').focus(); }
+  function openGrid() { updateSorter(); overlay.classList.add('open'); document.getElementById('closeSorter').focus(); }
+  function setLanguage(next) {
+    language = next;
+    localStorage.setItem('deck_presentation_lang', next);
+    document.documentElement.dataset.deckLang = next;
+    document.querySelectorAll('[data-language]').forEach(button => {
+      const active = button.dataset.language === next;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-pressed', String(active));
+      button.title = langNames[next][['en','ru','es'].indexOf(button.dataset.language)] + ` (${['1','2','3'][['en','ru','es'].indexOf(button.dataset.language)]})`;
+    });
+    render();
+  }
+  function setScale(next) {
+    scale = Math.max(.75, Math.min(2, Math.round(next*20)/20));
+    document.documentElement.style.setProperty('--scale', scale);
+    document.getElementById('fontLabel').textContent = `${Math.round(scale*100)}%`;
+    localStorage.setItem('deck_font_scale', scale);
+  }
+  function cycleLanguage() { setLanguage(({en:'ru',ru:'es',es:'en'})[language]); }
+  function resetCurrentSlide() { viewport.scrollTop = 0; setScale(1.5); }
+  function navigate(delta) { current = Math.max(0, Math.min(slides.length-1, current+delta)); render(); }
+  document.getElementById('previousButton').addEventListener('click', () => navigate(-1));
+  document.getElementById('nextButton').addEventListener('click', () => navigate(1));
+  document.getElementById('fontDown').addEventListener('click', () => setScale(scale-.05));
+  document.getElementById('fontUp').addEventListener('click', () => setScale(scale+.05));
+  document.getElementById('resetButton').addEventListener('click', resetCurrentSlide);
+  document.getElementById('themeButton').addEventListener('click', () => {
+    document.documentElement.dataset.theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('css100_theme', document.documentElement.dataset.theme);
+  });
+  document.getElementById('fullscreenButton').addEventListener('click', async () => {
+    try {
+      if (!document.fullscreenElement) await document.documentElement.requestFullscreen();
+      else await document.exitFullscreen();
+    } catch (error) { console.warn('Fullscreen is unavailable in this browser.', error); }
+  });
+  document.getElementById('gridButton').addEventListener('click', openGrid);
+  document.getElementById('closeSorter').addEventListener('click', closeGrid);
+  overlay.addEventListener('click', event => { if (event.target === overlay) closeGrid(); });
+  document.querySelectorAll('[data-language]').forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.language)));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && overlay.classList.contains('open')) { closeGrid(); return; }
+    if (overlay.classList.contains('open')) {
+      return;
+    }
+    if (event.altKey && !event.ctrlKey && !event.metaKey && ['1','2','3'].includes(event.key)) {
+      setLanguage(({1:'en',2:'ru',3:'es'})[event.key]);
+      event.preventDefault();
+      return;
+    }
+    if (event.altKey || event.ctrlKey || event.metaKey) return;
+    if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement || event.target.isContentEditable) return;
+    if (event.key === 'ArrowRight' || event.key === 'PageDown' || event.key === ' ') { event.preventDefault(); navigate(1); }
+    else if (event.key === 'ArrowLeft' || event.key === 'PageUp') { event.preventDefault(); navigate(-1); }
+    else if (event.key === 'ArrowUp') { event.preventDefault(); setScale(scale+.05); }
+    else if (event.key === 'ArrowDown') { event.preventDefault(); setScale(scale-.05); }
+    else if (event.key === 'Home') { current=0; render(); }
+    else if (event.key === 'End') { current=slides.length-1; render(); }
+    else if (['1','2','3'].includes(event.key)) setLanguage(({1:'en',2:'ru',3:'es'})[event.key]);
+    else if (event.key.toLowerCase() === 'l') cycleLanguage();
+    else if (event.key.toLowerCase() === 'g' || event.key.toLowerCase() === 'o') openGrid();
+    else if (event.key.toLowerCase() === 'r') resetCurrentSlide();
+    else if (event.key.toLowerCase() === 't') document.getElementById('themeButton').click();
+    else if (event.key.toLowerCase() === 'f') document.getElementById('fullscreenButton').click();
+    else if (event.key === '+' || event.key === '=') setScale(scale+.1);
+    else if (event.key === '-' || event.key === '_') setScale(scale-.1);
+    else if (event.key === '0') setScale(1.5);
+  });
+  document.documentElement.dataset.theme = localStorage.getItem('css100_theme') || 'light';
+  setScale(scale);
+  setLanguage(language);
+  setLanguage('en');
+})();
+</script>
+</body>
+</html>
