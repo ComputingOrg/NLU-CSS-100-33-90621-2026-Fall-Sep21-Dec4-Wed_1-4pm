@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanykei Ajybekova | Portfolio</title>
+    
+    <!-- Import Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Import Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#3b82f6', // Blue-500
+                        secondary: '#1e293b', // Slate-800
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        .gradient-text {
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-grid-pattern {
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-blue-200">
+
+    <nav class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="font-bold text-xl tracking-tight text-secondary">
+                    KA<span class="text-primary">.dev</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-slate-600 hover:text-primary transition font-medium text-sm uppercase tracking-wider">About</a>
+                    <a href="#courses" class="text-slate-600 hover:text-primary transition font-medium text-sm uppercase tracking-wider">Coursework & Projects</a>
+                    <a href="#contact" class="text-slate-600 hover:text-primary transition font-medium text-sm uppercase tracking-wider">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative pt-20 pb-32 overflow-hidden bg-grid-pattern">
+        <!-- Decorative blob -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-blue-100 opacity-50 blur-3xl pointer-events-none"></div>
+        
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <!-- Profile Image -->
+                <div class="flex-shrink-0 relative">
+                    <div class="w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-white shadow-xl overflow-hidden bg-slate-200">
+                        <div class="w-full h-full flex items-center justify-center bg-secondary text-white text-6xl font-bold" role="img" aria-label="Kanykei Ajybekova initials">KA</div>
+                    </div>
+                    <!-- Status Badge -->
+                    <div class="absolute bottom-4 right-4 bg-white px-4 py-2 rounded-full shadow-lg border border-slate-100 flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></span>
+                        <span class="text-xs font-bold text-slate-700 uppercase tracking-wide">CSS:100 Student</span>
+                    </div>
+                </div>
+
+                <!-- Intro Text -->
+                <div class="text-center md:text-left flex-grow">
+                    <span class="inline-block py-1 px-3 rounded-full bg-blue-50 text-primary text-sm font-bold tracking-wider mb-4 border border-blue-100">
+                        CSS:100 Student | Exploring AI & Software Development
+                    </span>
+                    <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-4 text-secondary">
+                        Hi, I'm <span class="gradient-text">Kanykei Ajybekova</span>.
+                    </h1>
+                    <p class="text-xl text-slate-600 mb-8 max-w-2xl leading-relaxed">
+                        I am building my programming and web development skills, with a strong interest in artificial intelligence and software development.
+                    </p>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                        <a href="#courses" class="bg-primary text-white hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold shadow-md transition">
+                            View My Projects
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section id="about" class="py-20 bg-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    <div>
+                        <h2 class="text-3xl font-bold text-secondary mb-6">About Me</h2>
+                        <div class="prose text-slate-600 leading-relaxed space-y-4">
+                            <p>
+                                I am a CSS:100 student interested in artificial intelligence, software development, and web development. I am developing my programming skills while learning to communicate technical ideas clearly.
+                            </p>
+                            <p>
+                                This portfolio highlights my coursework and the projects I complete as I continue learning.
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold text-secondary mb-6">Current Learning</h2>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg font-medium border border-slate-200">HTML5 / CSS3</span>
+                            <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg font-medium border border-slate-200">Git & GitHub</span>
+                            <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg font-medium border border-slate-200">Computational Thinking</span>
+                            <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg font-medium border border-slate-200">Technical Writing</span>
+                            <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg font-medium border border-slate-200">Artificial Intelligence</span>
+                            <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg font-medium border border-slate-200">Software Development</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="courses" class="py-20 bg-slate-50 border-t border-slate-200">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-secondary">Academic Journey & Projects</h2>
+                    <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">A showcase of the courses I've attended and the practical projects I've built to apply my knowledge.</p>
+                </div>
+
+                <div class="space-y-12">
+                    
+                    <!-- COURSE BLOCK 1 -->
+                    <div class="bg-white rounded-2xl shadow-md border border-slate-200 overflow-hidden">
+                        <!-- Course Header -->
+                        <div class="bg-secondary p-6 md:p-8 text-white flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                            <div>
+                                <span class="text-blue-400 font-bold tracking-wider text-sm uppercase">Fall 2026</span>
+                                <h3 class="text-2xl font-bold mt-1">CSS:100 - Computational Thinking & Technical Writing</h3>
+                                <p class="text-slate-300 mt-2">Focused on logic structures, Git workflows, HTML/CSS basics, and writing clear documentation for engineering teams.</p>
+                            </div>
+                            <div class="bg-blue-600/30 border border-blue-400/50 px-4 py-2 rounded-lg whitespace-nowrap text-sm font-semibold">
+                                Grade / Status: In Progress
+                            </div>
+                        </div>
+                        
+                        <!-- Course Projects -->
+                        <div class="p-6 md:p-8 bg-white">
+                            <h4 class="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2">
+                                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                                Highlighted Projects
+                            </h4>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Project 1 -->
+                                <div class="border border-slate-200 rounded-xl p-6 hover:shadow-lg transition group">
+                                    <h5 class="font-bold text-lg text-secondary group-hover:text-primary transition">CSS:100 Company Directory Profile</h5>
+                                    <p class="text-sm text-slate-600 mt-2 mb-4 line-clamp-3">
+                                        Added my student profile to the course company directory, introducing my interests in artificial intelligence and software development.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-1 rounded">HTML</span>
+                                        <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2 py-1 rounded">Git</span>
+                                    </div>
+                                    <a href="index.html#directory" class="text-primary font-medium text-sm flex items-center gap-1 hover:underline">
+                                        View Directory Profile <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                    </a>
+                                </div>
+
+                                <!-- Project 2 (Placeholder for future) -->
+                                <div class="border border-slate-200 border-dashed rounded-xl p-6 bg-slate-50 flex flex-col justify-center items-center text-center">
+                                    <svg class="w-10 h-10 text-slate-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                                    <h5 class="font-bold text-slate-500">Upcoming Midterm Project</h5>
+                                    <p class="text-sm text-slate-400 mt-1">To be uploaded upon course progression.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="bg-secondary text-slate-400 py-12 text-center border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-2xl font-bold text-white mb-6">Current Work</h2>
+            <p class="mb-8 max-w-xl mx-auto">Explore my CSS:100 student profile and current course work in the company directory.</p>
+            <a href="index.html#directory" class="inline-flex items-center gap-2 bg-primary text-white hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold transition">
+                Visit the Company Directory
+            </a>
+
+            <div class="text-sm">
+                &copy; <script>document.write(new Date().getFullYear())</script> Kanykei Ajybekova. Built as part of CSS:100.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
