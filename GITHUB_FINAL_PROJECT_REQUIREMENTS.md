@@ -2,7 +2,7 @@
 ## Assignment: Build Your Personal Profile Website
 
 **Course repo:** `NLU-CSS-100-33-90621-2026-Fall-Sep21-Dec4-Wed_1-4pm`
-**Due date:** _TBD – instructor to fill in_
+**Due date:** Novermber 25, 2026
 
 ---
 
@@ -16,6 +16,7 @@ In this assignment you will create a personal profile website, publish it with G
 2. A profile page (`index.html`) that meets every requirement in Part 3
 3. A published GitHub Pages site
 4. Your profile card on the course landing page linking to your GitHub profile and your portfolio site
+5. A Back button on your profile website that returns visitors to the course landing page
 
 ---
 
@@ -102,6 +103,18 @@ On the course landing page, **CSS:100 – Computational Thinking & Technical Wri
 - A **Let's Connect** section at the bottom of the page (the footer)
 - Include links to: **LinkedIn**, **GitHub**, **Twitter / X**, and/or any other social media you want others to connect with
 
+### F. Back button to the course landing page
+- Your profile website must include a clearly visible **Back** button or link that takes the user back to the course landing page: [CSS:100 - Computational Thinking & Technical Writing](https://computingorg.github.io/NLU-CSS-100-33-90621-2026-Fall-Sep21-Dec4-Wed_1-4pm/)
+- Place it somewhere easy to find, such as the top of the page (navigation bar) or near the footer.
+
+Example:
+
+```html
+<a href="https://computingorg.github.io/NLU-CSS-100-33-90621-2026-Fall-Sep21-Dec4-Wed_1-4pm/">
+  ← Back to CSS:100 Course Page
+</a>
+```
+
 ---
 
 ## Part 4: Student Checklist
@@ -140,6 +153,10 @@ Check off each item as you complete it. Every box should be checked before you s
 - [ ] LinkedIn link works
 - [ ] GitHub link works
 - [ ] Twitter / X link (or another social media link) works
+
+### Navigation
+- [ ] My page has a visible **Back** button or link
+- [ ] The Back button takes me to the [course landing page](https://computingorg.github.io/NLU-CSS-100-33-90621-2026-Fall-Sep21-Dec4-Wed_1-4pm/)
 
 ### Publishing and landing page
 - [ ] My site is published with GitHub Pages
