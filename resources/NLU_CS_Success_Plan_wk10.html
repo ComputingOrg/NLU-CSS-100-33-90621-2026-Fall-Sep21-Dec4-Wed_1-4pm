@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4-Year Computer Science Academic &amp; Professional Development Success Plan (Editable)</title>
+  <style>
+    /* ==========================================================================
+       EDITABLE & ULTRA-LOW-INK PURE BLACK & WHITE PRINT STYLESHEET
+       - Pure black (#000000) ink on pure white (#FFFFFF) paper
+       - Interactive inputs, checkboxes, radios, textareas, and live credit math
+       ========================================================================== */
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #F4F4F4;
+      color: #000000;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 9.5pt;
+      line-height: 1.35;
+    }
+
+    /* Non-printing control bar for editing, saving, and PDF export */
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: #111111;
+      color: #FFFFFF;
+      padding: 10px 18px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border-bottom: 2px solid #000000;
+      font-size: 9pt;
+    }
+
+    .toolbar-title {
+      font-weight: bold;
+      letter-spacing: 0.02em;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .toolbar button,
+    .toolbar label.btn-import {
+      background-color: #FFFFFF;
+      color: #000000;
+      border: 1px solid #FFFFFF;
+      padding: 5px 10px;
+      font-size: 8.5pt;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+
+    .toolbar button:hover,
+    .toolbar label.btn-import:hover {
+      background-color: #E2E2E2;
+    }
+
+    .toolbar button.btn-danger {
+      background-color: transparent;
+      color: #FFFFFF;
+      border: 1px solid #888888;
+    }
+
+    .toolbar button.btn-danger:hover {
+      background-color: #333333;
+    }
+
+    .save-status {
+      font-size: 8pt;
+      color: #CCCCCC;
+      margin-left: 6px;
+    }
+
+    /* US Letter sheet container */
+    .sheet {
+      width: 8.5in;
+      margin: 0.25in auto;
+      padding: 0.55in;
+      background-color: #FFFFFF;
+      color: #000000;
+    }
+
+    @media screen {
+      .sheet {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+      }
+    }
+
+    @media (max-width: 860px) {
+      .sheet {
+        width: 100%;
+        margin: 0;
+        padding: 0.4in;
+      }
+    }
+
+    hr.section-rule {
+      border: 0;
+      border-top: 1px solid #000000;
+      margin: 10px 0;
+    }
+
+    h1 {
+      font-size: 13.5pt;
+      font-weight: bold;
+      margin: 3px 0 0 0;
+      line-height: 1.25;
+    }
+
+    h2 {
+      font-size: 10pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin: 0 0 6px 0;
+    }
+
+    p {
+      margin: 0 0 6px 0;
+    }
+
+    .doc-header {
+      border-bottom: 1px solid #000000;
+      padding-bottom: 7px;
+      margin-bottom: 11px;
+    }
+
+    .doc-kicker {
+      font-size: 8.5pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .policy-note {
+      border-left: 1px solid #000000;
+      padding-left: 10px;
+      margin: 6px 0 8px 0;
+    }
+
+    /* Form inputs styled cleanly on underlines */
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    input[type="number"],
+    textarea {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 9pt;
+      color: #000000;
+      background-color: #FAFAFA;
+      border: none;
+      border-bottom: 1px solid #000000;
+      padding: 1px 4px;
+      outline: none;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="date"]:focus,
+    input[type="number"]:focus,
+    textarea:focus {
+      background-color: #EEF5FF;
+    }
+
+    input[type="number"] {
+      -moz-appearance: textfield;
+      text-align: center;
+    }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Inline fill-in rows */
+    .field-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 7px;
+    }
+
+    .field-item {
+      display: flex;
+      align-items: baseline;
+      flex: 1 1 auto;
+      min-width: 160px;
+    }
+
+    .field-label {
+      white-space: nowrap;
+      margin-right: 5px;
+    }
+
+    .fill-input {
+      flex: 1 1 auto;
+      width: 100%;
+      min-width: 45px;
+      height: 17px;
+    }
+
+    .inline-num {
+      width: 48px;
+      height: 17px;
+      font-weight: bold;
+    }
+
+    /* Interactive checkboxes and radios */
+    .option-group label {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-right: 12px;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .check-line {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 3px;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      width: 12px;
+      height: 12px;
+      margin: 1px 0 0 0;
+      accent-color: #000000;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    /* Quarterly course rows */
+    .course-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #000000;
+      height: 18px;
+      font-size: 8pt;
+      gap: 3px;
+    }
+
+    .course-name-input {
+      flex: 1 1 auto;
+      width: 100%;
+      border-bottom: none !important;
+      font-size: 8pt !important;
+      padding: 0 2px !important;
+      height: 16px;
+    }
+
+    .cr-wrap {
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+      padding-left: 2px;
+      font-size: 8pt;
+    }
+
+    .cr-input {
+      width: 24px !important;
+      border-bottom: none !important;
+      font-size: 8pt !important;
+      padding: 0 1px !important;
+      height: 16px;
+      text-align: right !important;
+    }
+
+    .quarter-total {
+      margin-top: 5px;
+      font-size: 8pt;
+      font-weight: bold;
+      text-align: right;
+    }
+
+    .quarter-total-input {
+      width: 32px !important;
+      font-size: 8pt !important;
+      font-weight: bold;
+      height: 15px;
+    }
+
+    /* Data tables */
+    table.grid-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 5px 0;
+      font-size: 8.5pt;
+    }
+
+    table.grid-table th,
+    table.grid-table td {
+      border: 1px solid #000000;
+      padding: 4px 6px;
+      text-align: left;
+      vertical-align: top;
+      background-color: #FFFFFF;
+    }
+
+    table.grid-table th {
+      font-weight: bold;
+    }
+
+    table.grid-table tr {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .text-center {
+      text-align: center !important;
+    }
+
+    .cell-input {
+      width: 100%;
+      height: 18px;
+      font-size: 8.5pt !important;
+    }
+
+    /* Ruled multi-line textareas for PDP & Career Match */
+    textarea.ruled-area {
+      width: 100%;
+      resize: vertical;
+      border: none;
+      font-size: 8.5pt;
+      line-height: 18px;
+      padding: 0 3px;
+      background-image: repeating-linear-gradient(
+        to bottom,
+        #FAFAFA 0px,
+        #FAFAFA 17px,
+        #000000 17px,
+        #000000 18px
+      );
+      background-attachment: local;
+    }
+
+    textarea.pdp-area {
+      height: 36px; /* 2 ruled lines */
+    }
+
+    textarea.blueprint-area-2 {
+      height: 36px; /* 2 ruled lines */
+    }
+
+    textarea.blueprint-area-3 {
+      height: 54px; /* 3 ruled lines */
+    }
+
+    /* Signature row at bottom of Page 4 */
+    .sig-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 14px;
+    }
+
+    .sig-col {
+      flex: 1 1 0;
+    }
+
+    .sig-input {
+      width: 100%;
+      height: 22px;
+      margin-bottom: 3px;
+      font-style: italic;
+    }
+
+    .sig-caption {
+      font-size: 8pt;
+      font-weight: bold;
+    }
+
+    /* Page footer */
+    .page-footer {
+      margin-top: 10px;
+      padding-top: 4px;
+      border-top: 1px solid #000000;
+      font-size: 8pt;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Print rules for clean 4-page US Letter PDF export */
+    @page {
+      size: letter;
+      margin: 0.55in;
+    }
+
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+
+      html, body {
+        background-color: #FFFFFF !important;
+      }
+
+      .sheet {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="date"],
+      input[type="number"],
+      textarea {
+        background-color: transparent !important;
+      }
+
+      textarea.ruled-area {
+        resize: none !important;
+        background-image: repeating-linear-gradient(
+          to bottom,
+          transparent 0px,
+          transparent 17px,
+          #000000 17px,
+          #000000 18px
+        ) !important;
+      }
+
+      .page-break {
+        page-break-before: always;
+        break-before: page;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Interactive Toolbar (Automatically hidden when printing or saving as PDF) -->
+  <div class="toolbar no-print">
+    <div>
+      <span class="toolbar-title">NLU CS 4-Year Success Plan &mdash; Interactive Form</span>
+      <span class="save-status" id="saveStatus">Auto-save enabled</span>
+    </div>
+    <div class="toolbar-actions">
+      <button type="button" onclick="window.print()">Print / Save as PDF</button>
+      <button type="button" onclick="exportFormData()">Export JSON</button>
+      <label class="btn-import" for="importFile">Import JSON</label>
+      <input type="file" id="importFile" accept=".json" style="display:none;" onchange="importFormData(event)" />
+      <button type="button" class="btn-danger" onclick="clearFormData()">Clear Form</button>
+    </div>
+  </div>
+
+  <form id="successPlanForm" onsubmit="return false;">
+
+    <!-- ========================================================================
+         PAGE 1: STUDENT PROFILE, CONCENTRATION REQUIREMENT & COURSERA SUBSTITUTIONS
+         ======================================================================== -->
+    <div class="sheet">
+      <div class="doc-header">
+        <div class="doc-kicker">National Louis University (NLU) | CSS 100: Computational Thinking and Technical Writing</div>
+        <h1>4-Year Computer Science Academic &amp; Professional Development Success Plan (180 Credits to Graduate)</h1>
+      </div>
+
+      <h2>1. Student Profile &amp; Advising Information</h2>
+
+      <div class="field-row">
+        <div class="field-item" style="flex: 2 1 260px;">
+          <label class="field-label" for="studentName"><strong>Student Name:</strong></label>
+          <input type="text" id="studentName" name="studentName" class="fill-input" placeholder="Full Name" />
+        </div>
+        <div class="field-item" style="flex: 1 1 150px;">
+          <label class="field-label" for="studentId"><strong>NLU Student ID:</strong></label>
+          <input type="text" id="studentId" name="studentId" class="fill-input" placeholder="N00..." />
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-item" style="flex: 2 1 260px;">
+          <label class="field-label" for="studentEmail"><strong>NLU Email:</strong></label>
+          <input type="email" id="studentEmail" name="studentEmail" class="fill-input" placeholder="name@my.nl.edu" />
+        </div>
+        <div class="field-item" style="flex: 1 1 150px;">
+          <label class="field-label" for="planDate"><strong>Date:</strong></label>
+          <input type="date" id="planDate" name="planDate" class="fill-input" />
+        </div>
+      </div>
+
+      <div class="field-row option-group">
+        <span><strong>Current Class Standing (select one):</strong></span>
+        <label><input type="radio" name="classStanding" value="Year 1 (Freshman)" /> Year 1 (Freshman)</label>
+        <label><input type="radio" name="classStanding" value="Year 2 (Sophomore)" /> Year 2 (Sophomore)</label>
+        <label><input type="radio" name="classStanding" value="Year 3 (Junior)" /> Year 3 (Junior)</label>
+        <label><input type="radio" name="classStanding" value="Year 4 (Senior)" /> Year 4 (Senior)</label>
+        <label><input type="radio" name="classStanding" value="Transfer" /> Transfer</label>
+      </div>
+
+      <div class="field-row">
+        <div class="field-item">
+          <label class="field-label" for="creditsEarned"><strong>Current Credits Earned:</strong></label>
+          <input type="number" id="creditsEarned" name="creditsEarned" class="inline-num" min="0" max="180" step="0.5" placeholder="0" oninput="recalculateAll()" />
+          <span style="margin-left: 4px;">/ 180 QH</span>
+        </div>
+        <div class="field-item">
+          <label class="field-label" for="creditsRemaining"><strong>Remaining Credits Needed:</strong></label>
+          <input type="number" id="creditsRemaining" name="creditsRemaining" class="inline-num" min="0" max="180" step="0.5" placeholder="180" />
+          <span style="margin-left: 4px;">QH</span>
+        </div>
+        <div class="field-item">
+          <label class="field-label" for="targetGradTerm"><strong>Target Graduation Term/Year:</strong></label>
+          <input type="text" id="targetGradTerm" name="targetGradTerm" class="fill-input" placeholder="e.g., Spring 2030" />
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-item">
+          <label class="field-label" for="successCoach"><strong>Assigned NLU Student Success Coach:</strong></label>
+          <input type="text" id="successCoach" name="successCoach" class="fill-input" />
+        </div>
+        <div class="field-item">
+          <label class="field-label" for="instructorName"><strong>CSS 100 Instructor:</strong></label>
+          <input type="text" id="instructorName" name="instructorName" class="fill-input" />
+        </div>
+      </div>
+
+      <hr class="section-rule" />
+
+      <h2>2. Concentration Area &amp; Mandatory Capstone / Internship Requirement</h2>
+
+      <div class="field-row">
+        <div class="field-item">
+          <label class="field-label" for="concentrationArea"><strong>Declared / Intended Concentration Area:</strong></label>
+          <input type="text" id="concentrationArea" name="concentrationArea" class="fill-input" placeholder="e.g., Software Engineering, Cybersecurity, Data Science, AI" />
+        </div>
+      </div>
+
+      <div class="policy-note">
+        <p>
+          <strong>Policy Note:</strong> Freshmen and Sophomores <strong>MUST officially declare</strong> their Computer Science Concentration Area before entering Junior and Senior year (Year 3 / Year 4). Additionally, all B.S. Computer Science students <strong>MUST complete</strong> either <strong>CAR 490 (Internship Practicum)</strong> or <strong>CAR 492 (Capstone Project)</strong> prior to graduation.
+        </p>
+      </div>
+
+      <div class="field-row option-group" style="margin-top: 8px;">
+        <span><strong>Culminating Requirement Selection:</strong></span>
+        <label><input type="radio" name="culminatingReq" value="CAR 490" /> CAR 490 (Internship Practicum)</label>
+        <label><input type="radio" name="culminatingReq" value="CAR 492" /> CAR 492 (Capstone Project)</label>
+        <div class="field-item" style="min-width: 150px;">
+          <label class="field-label" for="culminatingTerm"><strong>Target Term:</strong></label>
+          <input type="text" id="culminatingTerm" name="culminatingTerm" class="fill-input" placeholder="e.g., Spring Yr 4" />
+        </div>
+      </div>
+
+      <hr class="section-rule" />
+
+      <h2>3. Optional Coursera Certificate Course Substitutions</h2>
+      <p>
+        Students may optionally earn approved Coursera Professional Certificates and include them in their plan to substitute for corresponding NLU courses (coordinate with NLU Success Coach and Prior Learning Assessment).
+      </p>
+
+      <table class="grid-table">
+        <thead>
+          <tr>
+            <th class="text-center" style="width: 9%;">Include?</th>
+            <th style="width: 34%;">Coursera Certificate</th>
+            <th style="width: 17%;">NLU Course Substituted</th>
+            <th class="text-center" style="width: 11%;">Credits (QH)</th>
+            <th style="width: 17%;">Target Completion Term</th>
+            <th class="text-center" style="width: 12%;">Verification / Coach Initials</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-center"><input type="checkbox" name="coursera_css210" class="coursera-cb" data-credits="5" onchange="recalculateAll()" /></td>
+            <td>Google IT Support Professional Certificate</td>
+            <td>CSS 210</td>
+            <td class="text-center">5 QH</td>
+            <td><input type="text" name="coursera_css210_term" class="cell-input" /></td>
+            <td><input type="text" name="coursera_css210_init" class="cell-input text-center" /></td>
+          </tr>
+          <tr>
+            <td class="text-center"><input type="checkbox" name="coursera_css300" class="coursera-cb" data-credits="5" onchange="recalculateAll()" /></td>
+            <td>Google Data Analytics Professional Certificate</td>
+            <td>CSS 300</td>
+            <td class="text-center">5 QH</td>
+            <td><input type="text" name="coursera_css300_term" class="cell-input" /></td>
+            <td><input type="text" name="coursera_css300_init" class="cell-input text-center" /></td>
+          </tr>
+          <tr>
+            <td class="text-center"><input type="checkbox" name="coursera_css400" class="coursera-cb" data-credits="5" onchange="recalculateAll()" /></td>
+            <td>Google Cybersecurity Professional Certificate</td>
+            <td>CSS 400</td>
+            <td class="text-center">5 QH</td>
+            <td><input type="text" name="coursera_css400_term" class="cell-input" /></td>
+            <td><input type="text" name="coursera_css400_init" class="cell-input text-center" /></td>
+          </tr>
+          <tr>
+            <td class="text-center"><input type="checkbox" name="coursera_css303" class="coursera-cb" data-credits="5" onchange="recalculateAll()" /></td>
+            <td>Google UX Design Professional Certificate</td>
+            <td>CSS 303</td>
+            <td class="text-center">5 QH</td>
+            <td><input type="text" name="coursera_css303_term" class="cell-input" /></td>
+            <td><input type="text" name="coursera_css303_init" class="cell-input text-center" /></td>
+          </tr>
+          <tr>
+            <td class="text-center"><input type="checkbox" name="coursera_css315" class="coursera-cb" data-credits="5" onchange="recalculateAll()" /></td>
+            <td>Google Project Management Professional Certificate</td>
+            <td>CSS 315</td>
+            <td class="text-center">5 QH</td>
+            <td><input type="text" name="coursera_css315_term" class="cell-input" /></td>
+            <td><input type="text" name="coursera_css315_init" class="cell-input text-center" /></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p style="margin-top: 6px;">
+        <strong>Total Coursera Substitution Credits Planned:</strong>
+        <input type="number" id="totalCourseraCredits" name="totalCourseraCredits" class="inline-num" min="0" max="25" step="5" value="0" oninput="recalculateAll()" /> QH
+      </p>
+
+      <div class="page-footer">
+        <span>National Louis University &bull; CSS 100: Computational Thinking and Technical Writing</span>
+        <span>Page 1 of 4</span>
+      </div>
+    </div>
+
+    <!-- ========================================================================
+         PAGE 2: 4-YEAR QUARTERLY ACADEMIC ROADMAP (180 QUARTER HOURS)
+         ======================================================================== -->
+    <div class="sheet page-break">
+      <h2>4. 4-Year Quarterly Academic Roadmap (180 Quarter Hours)</h2>
+      <p>
+        Map courses across Fall, Winter, and Spring quarters for Years 1&ndash;4 (typically 15 QH per quarter = 45 QH/year; 180 QH total required for B.S. graduation). Each year includes an <strong>Optional Summer Quarter</strong> for students who want to accelerate and graduate early, plus space to slot in Coursera substitutions and <strong>CAR 490/492</strong>.
+      </p>
+
+      <div id="roadmapContainer"></div>
+
+      <p style="margin-top: 8px; font-size: 9pt;">
+        <strong>Graduation Credit Summary:</strong>
+        Year 1 QH: <input type="number" id="sumY1" name="sumY1" class="inline-num" style="width: 38px;" value="0" oninput="updateGrandTotal()" /> +
+        Year 2 QH: <input type="number" id="sumY2" name="sumY2" class="inline-num" style="width: 38px;" value="0" oninput="updateGrandTotal()" /> +
+        Year 3 QH: <input type="number" id="sumY3" name="sumY3" class="inline-num" style="width: 38px;" value="0" oninput="updateGrandTotal()" /> +
+        Year 4 QH: <input type="number" id="sumY4" name="sumY4" class="inline-num" style="width: 38px;" value="0" oninput="updateGrandTotal()" /> +
+        Transfer/Coursera QH: <input type="number" id="sumTransfer" name="sumTransfer" class="inline-num" style="width: 38px;" value="0" oninput="updateGrandTotal()" /> =
+        <strong>Total: <input type="number" id="sumGrandTotal" name="sumGrandTotal" class="inline-num" style="width: 44px;" value="0" readonly /> / 180 QH</strong>
+      </p>
+
+      <div class="page-footer">
+        <span>National Louis University &bull; B.S. in Computer Science (180 Quarter Hours)</span>
+        <span>Page 2 of 4</span>
+      </div>
+    </div>
+
+    <!-- ========================================================================
+         PAGE 3: PROFESSIONAL DEVELOPMENT PLAN (PDP)
+         ======================================================================== -->
+    <div class="sheet page-break">
+      <h2>5. Professional Development Plan (PDP)</h2>
+
+      <p>
+        <strong>Professional Development Plan Instructions:</strong> Please use this template to build your professional development plan. Be sure to be as specific as possible when you are building this plan. For target dates you should consider deadlines within 3-4 years maximum. Some skills and certifications may take a long time to achieve and that&rsquo;s ok! Be sure to prioritize both short-term and long-term goals as well as the support(s) you will need.
+      </p>
+
+      <div style="margin: 6px 0 8px 0; font-size: 8.8pt;">
+        <label class="check-line"><input type="checkbox" name="pdp_chk_1" /> At least three (3) technical/professional skills beyond what you will learn in the program.</label>
+        <label class="check-line"><input type="checkbox" name="pdp_chk_2" /> At least two (2) industry certifications beyond what you will achieve in the program.</label>
+        <label class="check-line"><input type="checkbox" name="pdp_chk_3" /> At least two (2) substantive projects that you will develop that relate to your career.</label>
+        <label class="check-line"><input type="checkbox" name="pdp_chk_4" /> At least one (1) way to host/showcase these projects (e.g., learning Git + GitHub, portfolio site).</label>
+        <label class="check-line"><input type="checkbox" name="pdp_chk_5" /> Any other career, networking, hackathon, or leadership goals beyond those mentioned above (optional).</label>
+      </div>
+
+      <table class="grid-table">
+        <thead>
+          <tr>
+            <th style="width: 44%;">
+              Skills / Tasks / Certifications to Achieve
+              <div style="font-weight: normal; font-size: 7.5pt; margin-top: 2px;">
+                What are the items necessary to ensure that you are ready to succeed in your desired career? Specify priority: Short-Term vs. Long-Term
+              </div>
+            </th>
+            <th style="width: 20%;">
+              Target Dates
+              <div style="font-weight: normal; font-size: 7.5pt; margin-top: 2px;">
+                When will you achieve these goals? Within 3&ndash;4 years max
+              </div>
+            </th>
+            <th style="width: 36%;">
+              Support Needed
+              <div style="font-weight: normal; font-size: 7.5pt; margin-top: 2px;">
+                What support(s) will you need from yourself, your family, friends, professors, and NLU staff to succeed in these goals?
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody id="pdpTableBody"></tbody>
+      </table>
+
+      <div class="page-footer">
+        <span>National Louis University &bull; CSS 100: Professional Development Plan</span>
+        <span>Page 3 of 4</span>
+      </div>
+    </div>
+
+    <!-- ========================================================================
+         PAGE 4: COMPUTER SCIENCE CAREER MATCH, POST-GRADUATION PLAN & COACH LOOP-IN
+         ======================================================================== -->
+    <div class="sheet page-break">
+      <h2>6. Computer Science Career Match &amp; Post-Graduation Blueprint</h2>
+
+      <div class="field-row" style="margin-top: 6px;">
+        <div class="field-item">
+          <label class="field-label" for="careerFocusArea"><strong>Concentration / Focus Area:</strong></label>
+          <input type="text" id="careerFocusArea" name="careerFocusArea" class="fill-input" />
+        </div>
+      </div>
+
+      <div class="field-row" style="margin-top: 6px;">
+        <div class="field-item">
+          <label class="field-label" for="targetRole1"><strong>Top 2 Target CS Career Roles: &nbsp;1)</strong></label>
+          <input type="text" id="targetRole1" name="targetRole1" class="fill-input" />
+        </div>
+        <div class="field-item">
+          <label class="field-label" for="targetRole2"><strong>2)</strong></label>
+          <input type="text" id="targetRole2" name="targetRole2" class="fill-input" />
+        </div>
+      </div>
+
+      <div style="margin-top: 8px;">
+        <label for="recCertsHosting"><strong>Recommended Certifications &amp; Hosting Platforms for Target Career:</strong></label>
+        <textarea id="recCertsHosting" name="recCertsHosting" class="ruled-area blueprint-area-2"></textarea>
+      </div>
+
+      <div style="margin-top: 8px;">
+        <label for="utilizeDegree"><strong>How I Will Utilize My B.S. in Computer Science After Graduation</strong> (technical skills, CAR 490/492 experience, portfolio):</label>
+        <textarea id="utilizeDegree" name="utilizeDegree" class="ruled-area blueprint-area-3"></textarea>
+      </div>
+
+      <div style="margin-top: 10px;">
+        <label for="postGradPlan"><strong>Post-Graduation Action Plan</strong> (Months 0&ndash;12 &amp; Years 1&ndash;3: job search strategy, networking, graduate study, advanced certifications):</label>
+        <textarea id="postGradPlan" name="postGradPlan" class="ruled-area blueprint-area-3"></textarea>
+      </div>
+
+      <hr class="section-rule" />
+
+      <h2>7. NLU Student Success Coach Loop-In &amp; Sign-Off</h2>
+
+      <div style="margin: 4px 0 8px 0; font-size: 8.8pt;">
+        <label class="check-line"><input type="checkbox" name="coach_chk_1" /> Scheduled advising meeting with NLU Student Success Coach to review 180 QH roadmap.</label>
+        <label class="check-line"><input type="checkbox" name="coach_chk_2" /> Verified Concentration Area declaration deadline (prior to Year 3/4) and CAR 490/492 eligibility.</label>
+        <label class="check-line"><input type="checkbox" name="coach_chk_3" /> Reviewed Coursera certificate substitutions (CSS 210 / CSS 300 / CSS 400) and PDP milestones with Coach.</label>
+      </div>
+
+      <div>
+        <label for="coachNotes"><strong>Coach Notes / Advising Feedback:</strong></label>
+        <textarea id="coachNotes" name="coachNotes" class="ruled-area blueprint-area-2"></textarea>
+      </div>
+
+      <div class="sig-grid">
+        <div class="sig-col">
+          <input type="text" name="sigStudent" class="sig-input" placeholder="Type name / date" />
+          <div class="sig-caption">Student Signature &amp; Date</div>
+        </div>
+        <div class="sig-col">
+          <input type="text" name="sigCoach" class="sig-input" placeholder="Coach signature / date" />
+          <div class="sig-caption">NLU Student Success Coach Signature &amp; Date</div>
+        </div>
+        <div class="sig-col">
+          <input type="text" name="sigInstructor" class="sig-input" placeholder="Instructor review / date" />
+          <div class="sig-caption">CSS 100 Instructor Review &amp; Date</div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>National Louis University &bull; CSS 100: Computational Thinking and Technical Writing</span>
+        <span>Page 4 of 4</span>
+      </div>
+    </div>
+
+  </form>
+
+  <script>
+    const STORAGE_KEY = 'nlu_cs_4yr_success_plan_v1';
+
+    const YEARS = [
+      { id: 1, title: 'YEAR 1 (Freshman)' },
+      { id: 2, title: 'YEAR 2 (Sophomore &mdash; Declare Concentration Before Year 3)' },
+      { id: 3, title: 'YEAR 3 (Junior)' },
+      { id: 4, title: 'YEAR 4 (Senior &mdash; Must Complete CAR 490 or CAR 492)' }
+    ];
+
+    const QUARTERS = [
+      { key: 'fall', label: 'Fall Quarter' },
+      { key: 'winter', label: 'Winter Quarter' },
+      { key: 'spring', label: 'Spring Quarter' },
+      { key: 'summer', label: 'Optional Summer Quarter (Early Graduation)' }
+    ];
+
+    const PDP_ROWS = [
+      { key: 'skill1', label: 'Skill #1:' },
+      { key: 'skill2', label: 'Skill #2:' },
+      { key: 'skill3', label: 'Skill #3:' },
+      { key: 'cert1', label: 'Certification #1:' },
+      { key: 'cert2', label: 'Certification #2:' },
+      { key: 'proj1', label: 'Career Project #1:' },
+      { key: 'proj2', label: 'Career Project #2:' },
+      { key: 'host', label: 'Project Hosting Platform (e.g., Git + GitHub):' },
+      { key: 'opt', label: 'Optional Goal:' }
+    ];
+
+    function buildRoadmapTables() {
+      const container = document.getElementById('roadmapContainer');
+      let html = '';
+      YEARS.forEach(yr => {
+        html += `<table class="grid-table"><thead><tr><th colspan="4">${yr.title}</th></tr><tr>`;
+        QUARTERS.forEach(q => {
+          html += `<th style="width:25%;">${q.label}</th>`;
+        });
+        html += `</tr></thead><tbody><tr>`;
+        QUARTERS.forEach(q => {
+          html += `<td>`;
+          for (let row = 1; row <= 4; row++) {
+            html += `
+              <div class="course-line">
+                <input type="text" name="y${yr.id}_${q.key}_c${row}" class="course-name-input" placeholder="Course ${row}" />
+                <span class="cr-wrap">Cr:
+                  <input type="number" name="y${yr.id}_${q.key}_cr${row}" class="cr-input y${yr.id}-cr y${yr.id}-${q.key}-cr" min="0" max="15" step="0.5" oninput="recalculateAll()" />
+                </span>
+              </div>`;
+          }
+          html += `
+            <div class="quarter-total">
+              Quarter Total: <input type="number" id="tot_y${yr.id}_${q.key}" name="tot_y${yr.id}_${q.key}" class="quarter-total-input" value="0" readonly /> QH
+            </div>
+          </td>`;
+        });
+        html += `</tr></tbody></table>`;
+      });
+      container.innerHTML = html;
+    }
+
+    function buildPdpTable() {
+      const tbody = document.getElementById('pdpTableBody');
+      let html = '';
+      PDP_ROWS.forEach(item => {
+        html += `
+          <tr>
+            <td>
+              <div style="font-size: 8pt;"><strong>${item.label}</strong></div>
+              <textarea name="pdp_${item.key}_goal" class="ruled-area pdp-area"></textarea>
+            </td>
+            <td>
+              <div style="font-size: 8pt;">&nbsp;</div>
+              <textarea name="pdp_${item.key}_date" class="ruled-area pdp-area"></textarea>
+            </td>
+            <td>
+              <div style="font-size: 8pt;">&nbsp;</div>
+              <textarea name="pdp_${item.key}_support" class="ruled-area pdp-area"></textarea>
+            </td>
+          </tr>`;
+      });
+      tbody.innerHTML = html;
+    }
+
+    function recalculateAll() {
+      // 1. Remaining Credits Needed
+      const earnedInput = document.getElementById('creditsEarned');
+      const remInput = document.getElementById('creditsRemaining');
+      if (earnedInput && earnedInput.value !== '') {
+        const earned = parseFloat(earnedInput.value) || 0;
+        remInput.value = Math.max(0, 180 - earned);
+      }
+
+      // 2. Coursera Substitution Credits
+      let courseraTotal = 0;
+      document.querySelectorAll('.coursera-cb:checked').forEach(cb => {
+        courseraTotal += parseFloat(cb.dataset.credits || '0');
+      });
+      const courseraField = document.getElementById('totalCourseraCredits');
+      if (courseraField) courseraField.value = courseraTotal;
+      const sumTransfer = document.getElementById('sumTransfer');
+      if (sumTransfer) sumTransfer.value = courseraTotal;
+
+      // 3. Quarter & Year Totals
+      YEARS.forEach(yr => {
+        let yearSum = 0;
+        QUARTERS.forEach(q => {
+          let qSum = 0;
+          document.querySelectorAll(`.y${yr.id}-${q.key}-cr`).forEach(inp => {
+            qSum += parseFloat(inp.value) || 0;
+          });
+          const qTotEl = document.getElementById(`tot_y${yr.id}_${q.key}`);
+          if (qTotEl) qTotEl.value = qSum;
+          yearSum += qSum;
+        });
+        const ySumEl = document.getElementById(`sumY${yr.id}`);
+        if (ySumEl) ySumEl.value = yearSum;
+      });
+
+      updateGrandTotal();
+    }
+
+    function updateGrandTotal() {
+      const y1 = parseFloat(document.getElementById('sumY1')?.value) || 0;
+      const y2 = parseFloat(document.getElementById('sumY2')?.value) || 0;
+      const y3 = parseFloat(document.getElementById('sumY3')?.value) || 0;
+      const y4 = parseFloat(document.getElementById('sumY4')?.value) || 0;
+      const tr = parseFloat(document.getElementById('sumTransfer')?.value) || 0;
+      const grand = document.getElementById('sumGrandTotal');
+      if (grand) grand.value = y1 + y2 + y3 + y4 + tr;
+    }
+
+    function serializeForm() {
+      const form = document.getElementById('successPlanForm');
+      const data = {};
+      Array.from(form.elements).forEach(el => {
+        if (!el.name) return;
+        if (el.type === 'checkbox') {
+          data[el.name] = el.checked;
+        } else if (el.type === 'radio') {
+          if (el.checked) data[el.name] = el.value;
+        } else {
+          data[el.name] = el.value;
+        }
+      });
+      return data;
+    }
+
+    function populateForm(data) {
+      if (!data) return;
+      const form = document.getElementById('successPlanForm');
+      Array.from(form.elements).forEach(el => {
+        if (!el.name || !(el.name in data)) return;
+        if (el.type === 'checkbox') {
+          el.checked = Boolean(data[el.name]);
+        } else if (el.type === 'radio') {
+          el.checked = (el.value === data[el.name]);
+        } else {
+          el.value = data[el.name];
+        }
+      });
+      recalculateAll();
+    }
+
+    function saveToLocalStorage() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(serializeForm()));
+        const status = document.getElementById('saveStatus');
+        if (status) status.textContent = 'Saved locally (' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ')';
+      } catch (e) {
+        // Ignore storage quota errors
+      }
+    }
+
+    function exportFormData() {
+      const blob = new Blob([JSON.stringify(serializeForm(), null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'NLU_CS_4Year_Success_Plan_Data.json';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+
+    function importFormData(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const parsed = JSON.parse(e.target.result);
+          populateForm(parsed);
+          saveToLocalStorage();
+        } catch (err) {
+          alert('Invalid JSON file.');
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function clearFormData() {
+      if (!confirm('Clear all entries in this form?')) return;
+      document.getElementById('successPlanForm').reset();
+      localStorage.removeItem(STORAGE_KEY);
+      recalculateAll();
+      const status = document.getElementById('saveStatus');
+      if (status) status.textContent = 'Form cleared';
+    }
+
+    // Initialize dynamic grids and restore any saved entries
+    buildRoadmapTables();
+    buildPdpTable();
+
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) populateForm(JSON.parse(saved));
+    } catch (e) {}
+
+    document.getElementById('successPlanForm').addEventListener('input', saveToLocalStorage);
+    document.getElementById('successPlanForm').addEventListener('change', saveToLocalStorage);
+  </script>
+</body>
+</html>
