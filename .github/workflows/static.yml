@@ -22,22 +22,29 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
+  # Single deploy job since we're just deploying static HTML/CSS files
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      # Step 1: Download the repository files onto the GitHub Actions runner (Node 24)
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
+
+      # Step 2: Configure GitHub Pages metadata and site settings (Node 24)
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
+
+      # Step 3: Package the site files into a Pages-compatible artifact (Node 24)
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
-          # Upload entire repository
+          # Upload entire repository root (includes index.html and blog.html)
           path: '.'
+
+      # Step 4: Publish the uploaded artifact to the live github.io URL (Node 24)
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
