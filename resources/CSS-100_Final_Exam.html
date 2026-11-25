@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CSS-100 Computational Thinking and Technical Writing Final Exam</title>
+    <style>
+        @page {
+            size: letter;
+            margin: .38in .42in;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            max-width: 7.55in;
+            margin: 0 auto;
+            padding: .08in;
+            color: #1f2937;
+            background: white;
+            font: 10pt/1.25 "Times New Roman", Times, serif;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 14pt;
+            margin: 0 0 2px;
+            color: #1e3a5f;
+        }
+
+        .sub {
+            text-align: center;
+            font-size: 9.5pt;
+            margin-bottom: 6px;
+            color: #475569;
+        }
+
+        .info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 6px;
+            border-bottom: 2px solid #1e3a5f;
+            padding-bottom: 4px;
+            margin-bottom: 6px;
+            font-size: 9.5pt;
+        }
+
+        h2 {
+            font-size: 11pt;
+            color: #1e3a5f;
+            border-bottom: 1px solid #94a3b8;
+            padding-bottom: 1px;
+            margin: 6px 0 3px;
+            break-after: avoid;
+        }
+
+        h3 {
+            font-size: 9.5pt;
+            margin: 4px 0 2px 8px;
+            break-after: avoid;
+        }
+
+        .note {
+            font-size: 8.5pt;
+            font-style: italic;
+            color: #475569;
+            margin: 2px 0 3px 8px;
+            break-after: avoid;
+        }
+
+        .instructions {
+            border: 1px solid #94a3b8;
+            padding: 4px 8px;
+            margin-bottom: 6px;
+            font-size: 8.5pt;
+            line-height: 1.25;
+        }
+
+        .instructions p {
+            margin: 2px 0;
+        }
+
+        .q {
+            margin: 0 0 3px;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .q.compact {
+            margin-bottom: 2px;
+        }
+
+        .n {
+            font-weight: bold;
+            color: #1e3a5f;
+        }
+
+        .ans {
+            display: inline-block;
+            border-bottom: 1px solid #64748b;
+            width: 1.2in;
+            height: 13px;
+            vertical-align: bottom;
+            margin-left: 3px;
+        }
+
+        .ans.wide {
+            width: 3.5in;
+            max-width: 90%;
+        }
+
+        .work {
+            border: 1px dashed #94a3b8;
+            min-height: .38in;
+            margin: 2px 0 4px 8px;
+            padding: 2px 4px;
+            font-size: 8.5pt;
+        }
+
+        .compact .work {
+            margin-top: 2px;
+            margin-bottom: 2px;
+        }
+
+        .work.medium {
+            min-height: .6in;
+        }
+
+        .work.long {
+            min-height: .9in;
+        }
+
+        .work.essay {
+            min-height: 1.45in;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 3px 0 5px 8px;
+            font-size: 9pt;
+            max-width: calc(100% - 8px);
+        }
+
+        th,
+        td {
+            border: 1px solid #94a3b8;
+            padding: 1px 4px;
+            height: auto;
+        }
+
+        th {
+            background: #dbeafe;
+            color: #1e3a5f;
+            font-weight: bold;
+        }
+
+        table.match,
+        table.bank,
+        table.truth,
+        table.circuits {
+            width: calc(100% - 8px);
+        }
+
+        table.match th,
+        table.match td,
+        table.truth th,
+        table.truth td {
+            text-align: center;
+        }
+
+        table.match td.write {
+            width: 42%;
+        }
+
+        table.match td.letter {
+            width: 14%;
+        }
+
+        table.bank {
+            font-size: 8.5pt;
+            break-inside: avoid;
+        }
+
+        table.bank td {
+            vertical-align: top;
+        }
+
+        table.bank td:first-child,
+        table.bank td:nth-child(3) {
+            width: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .symbol-bank {
+            columns: 3;
+            column-gap: 12px;
+            margin: 3px 0 5px 8px;
+            font-size: 9pt;
+        }
+
+        .symbol-bank div {
+            break-inside: avoid;
+            padding: 1px 0;
+        }
+
+        table.symbols {
+            width: calc(100% - 8px);
+            table-layout: fixed;
+        }
+
+        table.symbols th,
+        table.symbols td {
+            text-align: center;
+        }
+
+        table.symbols code {
+            font-size: 10.5pt;
+            font-weight: bold;
+        }
+
+        table.cv {
+            width: 100%;
+            max-width: 100%;
+            margin: 3px 0;
+        }
+
+        table.cv td:first-child {
+            width: 1.2in;
+            font-weight: bold;
+        }
+
+        table.truth th,
+        table.truth td {
+            min-width: 35px;
+        }
+
+        table.truth td {
+            height: 25px;
+        }
+
+        table.circuits {
+            table-layout: fixed;
+        }
+
+        table.circuits td {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        table.circuits tbody {
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        table.circuits td.circuit-answer {
+            text-align: left;
+        }
+
+        .gate-grid {
+            table-layout: fixed;
+            width: calc(100% - 22px);
+        }
+
+        .gate-grid td {
+            width: 25%;
+            text-align: center;
+        }
+
+        .gate-grid svg {
+            display: block;
+            width: 1.15in;
+            height: .55in;
+            max-width: 100%;
+            margin: 2px auto;
+        }
+
+        .circuit {
+            display: block;
+            width: 4.8in;
+            max-width: 100%;
+            height: auto;
+            margin: auto;
+        }
+
+        .circuit text {
+            fill: #111;
+            font: bold 21px Consolas, monospace;
+            text-anchor: middle;
+        }
+
+        .visual-circuit {
+            display: block;
+            width: 100%;
+            max-width: 6.6in;
+            height: auto;
+            margin: 8px auto;
+        }
+
+        .visual-circuit text {
+            fill: #111;
+            font: bold 22px Consolas, monospace;
+        }
+
+        .visual-circuit .gate-label {
+            text-anchor: middle;
+        }
+
+        code,
+        pre {
+            font-family: Consolas, monospace;
+            font-size: 9.5pt;
+        }
+
+        [data-q="77"] th,
+        [data-q="78"] th,
+        [data-q="79"] th,
+        [data-q="80"] th,
+        table.circuits tbody tr:first-child>td:last-child {
+            font-family: Consolas, monospace;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            break-inside: avoid;
+            page-break-inside: avoid;
+            border: 1px solid #94a3b8;
+            border-radius: 4px;
+            margin: 3px 0 5px 8px;
+            padding: 4px 6px;
+            width: 4.9in;
+            max-width: calc(100% - 8px);
+            background: #f8fafc;
+        }
+
+        .q-grid-2 {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            column-gap: 14px;
+            row-gap: 3px;
+            margin-left: 8px;
+        }
+
+        .q-grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            column-gap: 12px;
+            row-gap: 3px;
+            margin-left: 8px;
+        }
+
+        .q-grid-2 .q,
+        .q-grid-3 .q {
+            margin-bottom: 2px;
+        }
+
+        .cv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-left: 8px;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .cv-grid .q {
+            margin-bottom: 0;
+        }
+
+        .cv-grid h3 {
+            font-size: 9.5pt;
+            margin: 1px 0 2px 0;
+        }
+
+        .cv-grid .work {
+            min-height: .55in;
+            margin: 2px 0 0;
+        }
+
+        .print {
+            display: block;
+            margin: 8px auto;
+            padding: 4px 10px;
+        }
+
+        @media print {
+            .print {
+                display: none;
+            }
+
+            body {
+                max-width: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            h2 {
+                margin-top: 5px;
+            }
+
+            .q,
+            .q-grid-2 .q,
+            .q-grid-3 .q {
+                margin-bottom: 2px;
+            }
+
+            [data-q="81"] {
+                break-inside: auto;
+                page-break-inside: auto;
+            }
+
+            h2:last-of-type {
+                break-before: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+        <defs>
+            <symbol id="and" viewBox="0 0 100 50">
+                <g fill="none" stroke="#111" stroke-width="2">
+                    <path d="M0 15H20M0 35H20M60 25H100M20 5H40A20 20 0 0 1 40 45H20Z" />
+                </g>
+            </symbol>
+            <symbol id="nand" viewBox="0 0 100 50">
+                <g fill="none" stroke="#111" stroke-width="2">
+                    <path d="M0 15H20M0 35H20M68 25H100M20 5H40A20 20 0 0 1 40 45H20Z" />
+                    <circle cx="64" cy="25" r="4" />
+                </g>
+            </symbol>
+            <symbol id="or" viewBox="0 0 100 50">
+                <g fill="none" stroke="#111" stroke-width="2">
+                    <path d="M0 15H20M0 35H20M62 25H100M15 5Q42 5 62 25Q42 45 15 45Q28 25 15 5Z" />
+                </g>
+            </symbol>
+            <symbol id="nor" viewBox="0 0 100 50">
+                <g fill="none" stroke="#111" stroke-width="2">
+                    <path d="M0 15H20M0 35H20M70 25H100M15 5Q42 5 62 25Q42 45 15 45Q28 25 15 5Z" />
+                    <circle cx="66" cy="25" r="4" />
+                </g>
+            </symbol>
+            <symbol id="xor" viewBox="0 0 100 50">
+                <g fill="none" stroke="#111" stroke-width="2">
+                    <path d="M0 15H20M0 35H20M62 25H100M15 5Q42 5 62 25Q42 45 15 45Q28 25 15 5ZM9 5Q22 25 9 45" />
+                </g>
+            </symbol>
+            <symbol id="xnor" viewBox="0 0 100 50">
+                <g fill="none" stroke="#111" stroke-width="2">
+                    <path d="M0 15H20M0 35H20M70 25H100M15 5Q42 5 62 25Q42 45 15 45Q28 25 15 5ZM9 5Q22 25 9 45" />
+                    <circle cx="66" cy="25" r="4" />
+                </g>
+            </symbol>
+            <symbol id="buffer" viewBox="0 0 100 50">
+                <g fill="none" stroke="#111" stroke-width="2">
+                    <path d="M0 25H20M60 25H100M20 5L60 25L20 45Z" />
+                </g>
+            </symbol>
+            <symbol id="not" viewBox="0 0 100 50">
+                <g fill="none" stroke="#111" stroke-width="2">
+                    <path d="M0 25H20M68 25H100M20 5L60 25L20 45Z" />
+                    <circle cx="64" cy="25" r="4" />
+                </g>
+            </symbol>
+        </defs>
+    </svg>
+    <button class="print" type="button" onclick="window.print()">Print exam</button>
+    <h1>CSS-100 Computational Thinking and Technical Writing Final Exam</h1>
+    <div class="sub">101 Questions &nbsp;|&nbsp; Show work where indicated &nbsp;|&nbsp; Write clearly</div>
+    <div class="info"><span>Full Name: ____________________</span><span>Course: ____________</span><span>Date:
+            ____________</span><span>Score: __________</span></div>
+
+    <h2>Part 1: Computer Parts and Protocols (Q1-Q13)</h2>
+    <p class="note">For each acronym, (a) write its full form and (b) write the matching letter from the Definition
+        Bank. Each letter is used once. </p>
+    <table class="match">
+        <tr>
+            <th>#</th>
+            <th>Acronym</th>
+            <th>Full form (write it out)</th>
+            <th>Definition letter</th>
+        </tr>
+        <tr data-q="1">
+            <td>1</td>
+            <td><b>CPU</b></td>
+            <td class="write"></td>
+            <td class="letter"></td>
+        </tr>
+        <tr data-q="2">
+            <td>2</td>
+            <td><b>GPU</b></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr data-q="3">
+            <td>3</td>
+            <td><b>NPU</b></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr data-q="4">
+            <td>4</td>
+            <td><b>TPU</b></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr data-q="5">
+            <td>5</td>
+            <td><b>RAM</b></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr data-q="6">
+            <td>6</td>
+            <td><b>ROM</b></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr data-q="7">
+            <td>7</td>
+            <td><b>HDD</b></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr data-q="8">
+            <td>8</td>
+            <td><b>SSD</b></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr data-q="9">
+            <td>9</td>
+            <td><b>NVMe</b></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr data-q="10">
+            <td>10</td>
+            <td><b>PSU</b></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr data-q="11">
+            <td>11</td>
+            <td><b>HTTP</b></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr data-q="12">
+            <td>12</td>
+            <td><b>HTTPS</b></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr data-q="13">
+            <td>13</td>
+            <td><b>DNS</b></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <h3>Computer Definition Bank</h3>
+    <table class="bank">
+        <tr>
+            <th>Letter</th>
+            <th>Definition</th>
+            <th>Letter</th>
+            <th>Definition</th>
+        </tr>
+        <tr>
+            <td>A</td>
+            <td>Translates a domain name into an IP address.</td>
+            <td>H</td>
+            <td>Long-term storage using spinning magnetic disks.</td>
+        </tr>
+        <tr>
+            <td>B</td>
+            <td>Long-term storage using flash memory without moving parts.</td>
+            <td>I</td>
+            <td>A processor designed to accelerate neural-network tasks.</td>
+        </tr>
+        <tr>
+            <td>C</td>
+            <td>Processes graphics and performs many parallel calculations.</td>
+            <td>J</td>
+            <td>Web communication using HTTP with TLS encryption.</td>
+        </tr>
+        <tr>
+            <td>D</td>
+            <td>Protocol used to request and send web resources without the encryption provided by HTTPS.</td>
+            <td>K</td>
+            <td>The main processor that carries out program instructions.</td>
+        </tr>
+        <tr>
+            <td>E</td>
+            <td>Temporary working memory that normally loses its contents when power is removed.</td>
+            <td>L</td>
+            <td>Nonvolatile memory commonly used to hold firmware.</td>
+        </tr>
+        <tr>
+            <td>F</td>
+            <td>A processor designed to accelerate tensor and machine-learning operations.</td>
+            <td>M</td>
+            <td>A storage protocol designed for fast access to nonvolatile devices over PCIe.</td>
+        </tr>
+        <tr>
+            <td>G</td>
+            <td>Converts incoming power to the voltages used by computer components.</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <h2>Part 2: Keyboard Symbol Names (Q14-Q42)</h2>
+    <p class="note">Identify the standard printable punctuation symbols on a US keyboard. Write the letter of the
+        correct name from the word bank beside each symbol. Each letter is used once. Bracket-pair names refer to both
+        the opening and closing marks. </p>
+    <h3>Symbol Name Word Bank</h3>
+    <div class="symbol-bank">
+        <div>A. Percent sign</div>
+        <div>B. Forward slash</div>
+        <div>C. Number sign / hash</div>
+        <div>D. Greater-than sign / right angle bracket</div>
+        <div>E. Tilde</div>
+        <div>F. Double quote</div>
+        <div>G. Square brackets</div>
+        <div>H. Underscore</div>
+        <div>I. Dollar sign</div>
+        <div>J. Plus sign</div>
+        <div>K. Asterisk</div>
+        <div>L. Hyphen / minus</div>
+        <div>M. Caret</div>
+        <div>N. Vertical bar / pipe</div>
+        <div>O. Equals sign</div>
+        <div>P. Single quote / apostrophe</div>
+        <div>Q. Period / dot</div>
+        <div>R. Backslash</div>
+        <div>S. Colon</div>
+        <div>T. Less-than sign / left angle bracket</div>
+        <div>U. Comma</div>
+        <div>V. Question mark</div>
+        <div>W. Curly braces</div>
+        <div>X. Parentheses</div>
+        <div>Y. Backtick / grave accent</div>
+        <div>Z. At sign</div>
+        <div>AA. Exclamation mark</div>
+        <div>AB. Ampersand</div>
+        <div>AC. Semicolon</div>
+    </div>
+    <table class="symbols">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Symbol</th>
+                <th>Letter</th>
+                <th>#</th>
+                <th>Symbol</th>
+                <th>Letter</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-q="14">14</td>
+                <td><code>~</code></td>
+                <td></td>
+                <td data-q="29">29</td>
+                <td><code>@</code></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td data-q="15">15</td>
+                <td><code>`</code></td>
+                <td></td>
+                <td data-q="30">30</td>
+                <td><code>#</code></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td data-q="16">16</td>
+                <td><code>!</code></td>
+                <td></td>
+                <td data-q="31">31</td>
+                <td><code>$</code></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td data-q="17">17</td>
+                <td><code>( )</code></td>
+                <td></td>
+                <td data-q="32">32</td>
+                <td><code>%</code></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td data-q="18">18</td>
+                <td><code>[ ]</code></td>
+                <td></td>
+                <td data-q="33">33</td>
+                <td><code>^</code></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td data-q="19">19</td>
+                <td><code>{ }</code></td>
+                <td></td>
+                <td data-q="34">34</td>
+                <td><code>&amp;</code></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td data-q="20">20</td>
+                <td><code>\</code></td>
+                <td></td>
+                <td data-q="35">35</td>
+                <td><code>*</code></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td data-q="21">21</td>
+                <td><code>/</code></td>
+                <td></td>
+                <td data-q="36">36</td>
+                <td><code>|</code></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td data-q="22">22</td>
+                <td><code>?</code></td>
+                <td></td>
+                <td data-q="37">37</td>
+                <td><code>-</code></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td data-q="23">23</td>
+                <td><code>:</code></td>
+                <td></td>
+                <td data-q="38">38</td>
+                <td><code>_</code></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td data-q="24">24</td>
+                <td><code>;</code></td>
+                <td></td>
+                <td data-q="39">39</td>
+                <td><code>=</code></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td data-q="25">25</td>
+                <td><code>'</code></td>
+                <td></td>
+                <td data-q="40">40</td>
+                <td><code>&lt;</code></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td data-q="26">26</td>
+                <td><code>"</code></td>
+                <td></td>
+                <td data-q="41">41</td>
+                <td><code>&gt;</code></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td data-q="27">27</td>
+                <td><code>,</code></td>
+                <td></td>
+                <td data-q="42">42</td>
+                <td><code>+</code></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td data-q="28">28</td>
+                <td><code>.</code></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Part 3: Python Operator Names (Q43-Q50)</h2>
+    <p class="note">Match each Python operator or assignment symbol to its name from the separate word bank. Use each
+        letter once.</p>
+    <h3>Operator Name Word Bank</h3>
+    <div class="symbol-bank">
+        <div>A. Floor division</div>
+        <div>B. Modulo (remainder)</div>
+        <div>C. Greater than or equal to</div>
+        <div>D. Not-equal comparison</div>
+        <div>E. Exponentiation</div>
+        <div>F. Less than or equal to</div>
+        <div>G. Equality comparison</div>
+        <div>H. Variable assignment (assignment operator)</div>
+    </div>
+    <table class="symbols">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Operator</th>
+                <th>Letter</th>
+                <th>#</th>
+                <th>Operator</th>
+                <th>Letter</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-q="43">43</td>
+                <td><code>&lt;=</code></td>
+                <td></td>
+                <td data-q="47">47</td>
+                <td><code>//</code></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td data-q="44">44</td>
+                <td><code>&gt;=</code></td>
+                <td></td>
+                <td data-q="48">48</td>
+                <td><code>**</code></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td data-q="45">45</td>
+                <td><code>==</code></td>
+                <td></td>
+                <td data-q="49">49</td>
+                <td><code>%</code></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td data-q="46">46</td>
+                <td><code>!=</code></td>
+                <td></td>
+                <td data-q="50">50</td>
+                <td><code>=</code></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Part 4: Math and Programming Operators (Q51-Q61)</h2>
+    <p class="note">Evaluate each expression using Python 3 operator rules. Show work in the space provided.</p>
+    <div class="q-grid-2">
+        <div class="q" data-q="51"><span class="n">51.</span> Addition: <code>18 + 7</code> = <span class="ans"></span></div>
+        <div class="q" data-q="52"><span class="n">52.</span> Subtraction: <code>30 - 12</code> = <span class="ans"></span></div>
+        <div class="q" data-q="53"><span class="n">53.</span> Multiplication: <code>6 * 7</code> = <span class="ans"></span></div>
+        <div class="q" data-q="54"><span class="n">54.</span> Division: <code>36 / 4</code> = <span class="ans"></span></div>
+        <div class="q" data-q="55"><span class="n">55.</span> Evaluate <code>17 // 5</code> = <span class="ans"></span></div>
+        <div class="q" data-q="56"><span class="n">56.</span> Modulo: <code>17 % 5</code> = <span class="ans"></span></div>
+        <div class="q" data-q="57"><span class="n">57.</span> Evaluate <code>2 ** 5</code> = <span class="ans"></span></div>
+        <div class="q" data-q="58"><span class="n">58.</span> Parentheses: <code>(3 + 4) * 2</code> = <span class="ans"></span></div>
+    </div>
+    <div class="q" data-q="59"><span class="n">59.</span> Logarithm: <code>log<sub>2</sub>(64)</code> = <span
+            class="ans"></span> because 2 raised to that power is 64.</div>
+    <div class="q" data-q="60"><span class="n">60.</span> Evaluate <code>(7 + 3) * 2 ** 3 // 5 % 7</code>. Show the
+        intermediate steps.<div class="work">Work:</div>
+    </div>
+    <div class="q" data-q="61"><span class="n">61.</span> A circular list has indices 0 through 3. Evaluate
+        <code>(3 + 1) % 4</code>. What index comes next? <span class="ans"></span>
+    </div>
+
+    <h2>Part 5: Comparison and Assignment Operators (Q62-Q69)</h2>
+    <p class="note">For Q62-Q67 only, assume each expression is evaluated independently in a Python program after
+        <code>x = 5</code>. Write True or False. Q68 and Q69 are separate questions; do not carry the value of
+        <code>x</code> into them.
+    </p>
+    <div class="q-grid-3">
+        <div class="q" data-q="62"><span class="n">62.</span> <code>x == 5</code> <span class="ans"></span></div>
+        <div class="q" data-q="63"><span class="n">63.</span> <code>x != 5</code> <span class="ans"></span></div>
+        <div class="q" data-q="64"><span class="n">64.</span> <code>x &lt; 5</code> <span class="ans"></span></div>
+        <div class="q" data-q="65"><span class="n">65.</span> <code>x &gt; 3</code> <span class="ans"></span></div>
+        <div class="q" data-q="66"><span class="n">66.</span> <code>x &lt;= 5</code> <span class="ans"></span></div>
+        <div class="q" data-q="67"><span class="n">67.</span> <code>x &gt;= 6</code> <span class="ans"></span></div>
+    </div>
+    <div class="q" data-q="68"><span class="n">68.</span> In a separate Python program, consider the statement
+        <code>score = 10</code>. What does the single equals sign do in this statement? <span class="ans wide"></span>
+    </div>
+    <div class="q" data-q="69"><span class="n">69.</span> In Python programming, explain the difference between
+        <code>=</code> and <code>==</code>, using a short Python example of each.<div class="work"></div>
+    </div>
+
+    <h2>Part 6: Multi-Target Number Conversions (Q70-Q73)</h2>
+    <p class="note">Convert each number to all three requested bases. Label bases and show work. Show work for each
+        destination.</p>
+    <div class="cv-grid">
+        <div class="q" data-q="70">
+            <h3>Decimal to Binary, Octal, and Hexadecimal</h3><span class="n">70.</span> Convert 75<sub>10</sub>.
+            <table class="cv">
+                <tr>
+                    <th>Convert to</th>
+                    <th>Answer</th>
+                </tr>
+                <tr>
+                    <td>Binary</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Octal</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Hexadecimal</td>
+                    <td></td>
+                </tr>
+            </table>
+            <div class="work">Show your work:</div>
+        </div>
+        <div class="q" data-q="71">
+            <h3>Binary to Decimal, Octal, and Hexadecimal</h3><span class="n">71.</span> Convert 10110110<sub>2</sub>.
+            <table class="cv">
+                <tr>
+                    <th>Convert to</th>
+                    <th>Answer</th>
+                </tr>
+                <tr>
+                    <td>Decimal</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Octal</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Hexadecimal</td>
+                    <td></td>
+                </tr>
+            </table>
+            <div class="work">Show your work:</div>
+        </div>
+    </div>
+    <div class="cv-grid">
+        <div class="q" data-q="72">
+            <h3>Octal to Decimal, Binary, and Hexadecimal</h3><span class="n">72.</span> Convert 145<sub>8</sub>.
+            <table class="cv">
+                <tr>
+                    <th>Convert to</th>
+                    <th>Answer</th>
+                </tr>
+                <tr>
+                    <td>Decimal</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Binary</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Hexadecimal</td>
+                    <td></td>
+                </tr>
+            </table>
+            <div class="work">Show your work:</div>
+        </div>
+        <div class="q" data-q="73">
+            <h3>Hexadecimal to Decimal, Binary, and Octal</h3><span class="n">73.</span> Convert 2F<sub>16</sub>.
+            <table class="cv">
+                <tr>
+                    <th>Convert to</th>
+                    <th>Answer</th>
+                </tr>
+                <tr>
+                    <td>Decimal</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Binary</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Octal</td>
+                    <td></td>
+                </tr>
+            </table>
+            <div class="work">Show your work:</div>
+        </div>
+    </div>
+
+    <h2>Part 7: Logic Gates, Tables, and Circuits (Q74-Q82)</h2>
+    <p class="note">Use 0 for false and 1 for true. In these tables, <code>~</code> means Boolean NOT,
+        <code>&amp;</code> means AND, <code>|</code> means OR, and <code>^</code> means XOR; these are Boolean
+        expressions, not Python integer bitwise operations. This exam uses the standard gate XNOR, meaning NOT XOR.
+    </p>
+    <div class="q" data-q="74"><span class="n">74.</span> Complete BUFFER and NOT.
+        <table class="truth">
+            <tr>
+                <th>A</th>
+                <th>BUFFER(A)</th>
+                <th>NOT A</th>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <div class="q" data-q="75"><span class="n">75.</span> Complete each two-input gate output.
+        <table class="truth">
+            <tr>
+                <th>A</th>
+                <th>B</th>
+                <th>AND</th>
+                <th>OR</th>
+                <th>NAND</th>
+                <th>NOR</th>
+                <th>XOR</th>
+                <th>XNOR</th>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>1</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <div class="q" data-q="76"><span class="n">76.</span> Name each gate. A small circle at the output indicates NOT.
+        <table class="gate-grid">
+            <tr>
+                <td>A<svg viewBox="0 0 100 50">
+                        <use href="#and" />
+                    </svg>____________</td>
+                <td>B<svg viewBox="0 0 100 50">
+                        <use href="#nand" />
+                    </svg>____________</td>
+                <td>C<svg viewBox="0 0 100 50">
+                        <use href="#or" />
+                    </svg>____________</td>
+                <td>D<svg viewBox="0 0 100 50">
+                        <use href="#nor" />
+                    </svg>____________</td>
+            </tr>
+            <tr>
+                <td>E<svg viewBox="0 0 100 50">
+                        <use href="#xor" />
+                    </svg>____________</td>
+                <td>F<svg viewBox="0 0 100 50">
+                        <use href="#xnor" />
+                    </svg>____________</td>
+                <td>G<svg viewBox="0 0 100 50">
+                        <use href="#buffer" />
+                    </svg>____________</td>
+                <td>H<svg viewBox="0 0 100 50">
+                        <use href="#not" />
+                    </svg>____________</td>
+            </tr>
+        </table>
+    </div>
+    <div class="q" data-q="77"><span class="n">77.</span> Complete the outputs for the given two-input rows.
+        <table class="truth">
+            <tr>
+                <th>A</th>
+                <th>B</th>
+                <th>~A</th>
+                <th>~B</th>
+                <th>A &amp; ~B</th>
+                <th>~A | B</th>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>1</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <div class="q" data-q="78"><span class="n">78.</span> Complete the outputs for these two-input rows.
+        <table class="truth">
+            <tr>
+                <th>A</th>
+                <th>B</th>
+                <th>A | B</th>
+                <th>A ^ B</th>
+                <th>~(A &amp; B)</th>
+                <th>~A &amp; ~B</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <div class="q" data-q="79"><span class="n">79.</span> Complete the outputs for the given three-input rows.
+        <table class="truth">
+            <tr>
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+                <th>A &amp; B</th>
+                <th>(A &amp; B) | C</th>
+                <th>A ^ B</th>
+                <th>(A ^ B) &amp; ~C</th>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>0</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <div class="q" data-q="80"><span class="n">80.</span> Complete the outputs for these three-input rows.
+        <table class="truth">
+            <tr>
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+                <th>A | B</th>
+                <th>(A | B) &amp; C</th>
+                <th>~(A &amp; B)</th>
+                <th>~A | ~B</th>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <div class="q" data-q="81"><span class="n">81.</span> For each circuit, follow the wires from the inputs through all
+        the gates. Use the given input values to determine the final output, 0 or 1. For (b)-(e), also write a Boolean
+        expression using the input letters. An expression is provided for (a) as an example; calculate its output. On an
+        AND, OR, or XOR gate, an output circle inverts the result. On a NOT triangle, the <code>~</code> and the circle
+        both indicate the same single inversion.
+        <table class="circuits">
+            <thead>
+                <tr>
+                    <th style="width:5%">#</th>
+                    <th style="width:75%">Gate circuit</th>
+                    <th style="width:20%">Input values</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>a</td>
+                    <td><svg class="circuit" viewBox="0 0 550 95" role="img"
+                            aria-label="A and B enter XOR, then its output and C enter AND, then that output and D enter OR, followed by NOT.">
+                            <use href="#xor" x="60" y="10" width="100" height="50" />
+                            <use href="#and" x="200" y="20" width="100" height="50" />
+                            <use href="#or" x="340" y="30" width="100" height="50" />
+                            <use href="#not" x="440" y="30" width="100" height="50" />
+                            <path d="M160 35H200 M185 55H200 M300 45H340 M325 65H340" stroke="#111" stroke-width="2"
+                                fill="none" />
+                            <text x="43" y="32">A</text><text x="43" y="52">B</text><text x="170" y="62">C</text><text
+                                x="310" y="72">D</text><text x="98" y="42">^</text><text x="238"
+                                y="52">&amp;</text><text x="378" y="62">|</text><text x="473" y="62">~</text>
+                        </svg></td>
+                    <td>A = 1<br>B = 0<br>C = 1<br>D = 0</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="2" class="circuit-answer">Expression: <code>~(((A ^ B) &amp; C) | D)</code> &nbsp;
+                        Output: <span class="ans"></span></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>b</td>
+                    <td><svg class="circuit" viewBox="0 0 550 95" role="img"
+                            aria-label="A and B enter AND; its output and C enter XOR, followed by NOT; that result and D enter OR.">
+                            <use href="#and" x="60" y="10" width="100" height="50" />
+                            <use href="#xor" x="200" y="20" width="100" height="50" />
+                            <use href="#not" x="300" y="20" width="100" height="50" />
+                            <use href="#or" x="440" y="30" width="100" height="50" />
+                            <path d="M160 35H200 M185 55H200 M400 45H440 M425 65H440" stroke="#111" stroke-width="2"
+                                fill="none" />
+                            <text x="43" y="32">A</text><text x="43" y="52">B</text><text x="170" y="62">C</text><text
+                                x="410" y="72">D</text><text x="98" y="42">&amp;</text><text x="238"
+                                y="52">^</text><text x="333" y="52">~</text><text x="478" y="62">|</text>
+                        </svg></td>
+                    <td>A = 1<br>B = 1<br>C = 1<br>D = 0</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="2" class="circuit-answer">Expression: <span class="ans" style="width:3.2in"></span>
+                        &nbsp; Output: <span class="ans" style="width:.6in"></span></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>c</td>
+                    <td><svg class="circuit" viewBox="0 0 560 160" role="img"
+                            aria-label="A enters NOT, then that output and B enter AND. C and D enter OR. The two results enter XOR, followed by NOT.">
+                            <use href="#not" x="50" y="10" width="100" height="50" />
+                            <use href="#and" x="180" y="20" width="100" height="50" />
+                            <use href="#or" x="180" y="100" width="100" height="50" />
+                            <use href="#xor" x="350" y="55" width="100" height="50" />
+                            <use href="#not" x="450" y="55" width="100" height="50" />
+                            <path d="M150 35H180 M165 55H180 M280 45H310V70H350 M280 125H325V90H350" stroke="#111"
+                                stroke-width="2" fill="none" />
+                            <text x="33" y="42">A</text><text x="150" y="62">B</text><text x="163" y="122">C</text><text
+                                x="163" y="142">D</text><text x="83" y="42">~</text><text x="218"
+                                y="52">&amp;</text><text x="218" y="132">|</text><text x="388" y="87">^</text><text
+                                x="483" y="87">~</text>
+                        </svg></td>
+                    <td>A = 1<br>B = 1<br>C = 0<br>D = 1</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="2" class="circuit-answer">Expression: <span class="ans" style="width:3.2in"></span>
+                        &nbsp; Output: <span class="ans" style="width:.6in"></span></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>d</td>
+                    <td><svg class="circuit" viewBox="0 0 580 170" role="img"
+                            aria-label="A and B enter AND; its output and C enter OR, followed by NOT. D enters a separate NOT gate. Those two results enter XOR.">
+                            <use href="#and" x="60" y="10" width="100" height="50" />
+                            <use href="#or" x="200" y="20" width="100" height="50" />
+                            <use href="#not" x="300" y="20" width="100" height="50" />
+                            <use href="#not" x="300" y="110" width="100" height="50" />
+                            <use href="#xor" x="465" y="65" width="100" height="50" />
+                            <path d="M160 35H200 M185 55H200 M400 45H425V80H465 M400 135H440V100H465" stroke="#111"
+                                stroke-width="2" fill="none" />
+                            <text x="43" y="32">A</text><text x="43" y="52">B</text><text x="170" y="62">C</text><text
+                                x="283" y="142">D</text><text x="98" y="42">&amp;</text><text x="238"
+                                y="52">|</text><text x="333" y="52">~</text><text x="333" y="142">~</text><text x="503"
+                                y="97">^</text>
+                        </svg></td>
+                    <td>A = 1<br>B = 1<br>C = 0<br>D = 0</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="2" class="circuit-answer">Expression: <span class="ans" style="width:3.2in"></span>
+                        &nbsp; Output: <span class="ans" style="width:.6in"></span></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>e</td>
+                    <td><svg class="circuit" viewBox="0 0 640 205" role="img"
+                            aria-label="A and B enter XOR, C enters NOT, and their outputs enter OR. D enters another NOT gate. The OR and NOT results enter AND, followed by NOT.">
+                            <use href="#xor" x="60" y="10" width="100" height="50" />
+                            <use href="#not" x="60" y="95" width="100" height="50" />
+                            <use href="#or" x="240" y="40" width="100" height="50" />
+                            <use href="#not" x="240" y="150" width="100" height="50" />
+                            <use href="#and" x="420" y="75" width="100" height="50" />
+                            <use href="#not" x="520" y="75" width="100" height="50" />
+                            <path d="M160 35H195V55H240 M160 120H210V75H240 M340 65H370V90H420 M340 175H390V110H420"
+                                stroke="#111" stroke-width="2" fill="none" />
+                            <text x="43" y="32">A</text><text x="43" y="52">B</text><text x="43" y="127">C</text><text
+                                x="223" y="182">D</text><text x="98" y="42">^</text><text x="93" y="127">~</text><text
+                                x="278" y="72">|</text><text x="273" y="182">~</text><text x="458"
+                                y="107">&amp;</text><text x="553" y="107">~</text>
+                        </svg></td>
+                    <td>A = 0<br>B = 1<br>C = 1<br>D = 0</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="2" class="circuit-answer">Expression: <span class="ans" style="width:3.2in"></span>
+                        &nbsp; Output: <span class="ans" style="width:.6in"></span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="q" data-q="82"><span class="n">82.</span> Trace the four inputs through all three layers of gates. Write
+        0 or 1 in every blank: P and Q are the first-layer outputs, R and S are the second-layer outputs, and Y1 and Y2
+        are the final outputs. A solid dot shows where a wire splits; each branch carries the same value.
+        <svg class="visual-circuit" viewBox="0 0 900 315" role="img"
+            aria-label="A equals 1 and B equals 1 enter AND to produce P. C equals 0 and D equals 1 enter XOR to produce Q. P and Q enter XOR to produce R. Q and D enter NAND to produce S. R and S enter OR to produce Y1. S also enters NOT to produce Y2.">
+            <path
+                d="M90 35H120 M90 55H120 M90 235H120 M90 255H120 M220 45H280V80H370 M220 245H310V100H370 M310 230H370 M105 255V295H345V250H370 M470 90H520V120H610 M470 240H560V140H610 M560 240H610 M710 130H725 M710 240H725"
+                stroke="#111" stroke-width="2" fill="none" />
+            <use href="#and" x="120" y="20" width="100" height="50" />
+            <use href="#xor" x="120" y="220" width="100" height="50" />
+            <use href="#xor" x="370" y="65" width="100" height="50" />
+            <use href="#nand" x="370" y="215" width="100" height="50" />
+            <use href="#or" x="610" y="105" width="100" height="50" />
+            <use href="#not" x="610" y="215" width="100" height="50" />
+            <circle cx="105" cy="255" r="4" fill="#111" />
+            <circle cx="310" cy="230" r="4" fill="#111" />
+            <circle cx="560" cy="240" r="4" fill="#111" />
+            <text x="8" y="42">A=1</text><text x="8" y="62">B=1</text><text x="8" y="242">C=0</text><text x="8"
+                y="262">D=1</text>
+            <text class="gate-label" x="158" y="52">&amp;</text><text class="gate-label" x="158" y="252">^</text><text
+                class="gate-label" x="408" y="97">^</text><text class="gate-label" x="408" y="247">&amp;</text><text
+                class="gate-label" x="648" y="137">|</text><text class="gate-label" x="643" y="247">~</text>
+            <text x="230" y="20">P = ____</text><text x="225" y="270">Q = ____</text><text x="480" y="65">R =
+                ____</text><text x="480" y="265">S = ____</text><text x="735" y="137">Y1 = ____</text><text x="735"
+                y="247">Y2 = ____</text>
+        </svg>
+    </div>
+
+    <h2>Part 9: Variable Names and Code Reading (Q83-Q88)</h2>
+    <p class="note">Use descriptive snake_case names. </p>
+    <div class="q-grid-2">
+        <div class="q" data-q="83"><span class="n">83.</span> A program stores the user's full name in
+            <code>n = "Sherlock Holmes"</code>. Suggest a better variable name and explain why it is better.<div
+                class="work"></div>
+        </div>
+        <div class="q" data-q="84"><span class="n">84.</span> What does this Python program print first and second?
+            <pre>name = "Professor"
+print("Hello")
+print(name)</pre>
+            <div class="work"></div>
+        </div>
+    </div>
+    <p class="note">For Q85-Q86, use this Python program.</p>
+    <pre>score = 4
+score = (score + 2) * 3
+score = score * score
+print(score)</pre>
+    <div class="q" data-q="85"><span class="n">85.</span> Trace the assignments and give the printed value.<div
+            class="work"></div>
+    </div>
+    <div class="q" data-q="86"><span class="n">86.</span> Which assignments overwrite a previous value of
+        <code>score</code>?<div class="work"></div>
+    </div>
+
+    <p class="note">For Q87-Q88, use this Python program.</p>
+    <pre>score = 5
+def show_score():
+    score = 9
+    print(score)
+show_score()
+print(score)</pre>
+    <div class="q-grid-2">
+        <div class="q" data-q="87"><span class="n">87.</span> What is printed inside the function and then outside it?<div
+                class="work"></div>
+        </div>
+        <div class="q" data-q="88"><span class="n">88.</span> Identify the local <code>score</code> and explain why it does
+            not change the other <code>score</code>.<div class="work"></div>
+        </div>
+    </div>
+
+
+    <h2>Part 11: Technical Writing (Q89-Q92)</h2>
+    <p class="note">Use complete sentences where requested. </p>
+    <div class="q" data-q="89"><span class="n">89.</span> For a guide helping new students obtain a campus student ID
+        card, identify the Three W's: who the readers are, what they need, and why they need it.<div
+            class="work medium"></div>
+    </div>
+    <div class="q" data-q="90"><span class="n">90.</span> Name four different products a technical writer may create.
+        Give an audience or use for each.<div class="work medium"></div>
+    </div>
+    <div class="q" data-q="91"><span class="n">91.</span> Put these file-saving steps in order: (a) confirm the file
+        appears; (b) select Save; (c) choose a folder and file name; (d) open the File menu. Assume Save opens a dialog.
+        <div class="work"></div>
+    </div>
+    <div class="q" data-q="92"><span class="n">92.</span> Git is installed, and you have a GitHub repository URL. Put
+        these steps for cloning the repository in order: (a) run <code>git clone REPOSITORY_URL</code>, replacing
+        <code>REPOSITORY_URL</code> with the actual URL; (b) open a terminal; (c) change into the folder where you want
+        the repository to be created; (d) confirm that the repository folder appears.<div class="work"></div>
+    </div>
+    <h2>Part 12: Polya's Framework (Q93)</h2>
+    <div class="q" data-q="93"><span class="n">93.</span> Name Polya's four problem-solving steps in order.<div
+            class="work"></div>
+    </div>
+
+    <h2>Part 14: Technical Writing and Pseudocode (Q94)</h2>
+    <div class="q" data-q="94"><span class="n">94.</span> Write a short paragraph for a new technical-writing intern
+        explaining why technical writing is important today. Consider how clear prompts, instructions, and references
+        help people work with tools such as large language models (LLMs).<div class="work long">Paragraph:</div>
+    </div>
+
+
+    <h2>Part 15: IPv4 and Subnet Masks (Q95-Q101)</h2>
+    <p class="note">Write the dotted-decimal mask for each prefix. A <code>/n</code> mask has n leading 1 bits out of
+        32. </p>
+    <div class="q-grid-3">
+        <div class="q" data-q="95"><span class="n">95.</span> <code>/32</code> = <span class="ans"></span></div>
+        <div class="q" data-q="96"><span class="n">96.</span> <code>/24</code> = <span class="ans"></span></div>
+        <div class="q" data-q="97"><span class="n">97.</span> <code>/16</code> = <span class="ans"></span></div>
+        <div class="q" data-q="98"><span class="n">98.</span> <code>/26</code> = <span class="ans"></span></div>
+        <div class="q" data-q="99"><span class="n">99.</span> <code>/18</code> = <span class="ans"></span></div>
+    </div>
+    <div class="q-grid-2">
+        <div class="q" data-q="100"><span class="n">100.</span> Convert <code>192.168.1.5</code> to four 8-bit binary
+            octets. Show octet-by-octet work.<div class="work medium"></div>
+        </div>
+        <div class="q" data-q="101"><span class="n">101.</span> Convert <code>00001010.00000000.00010000.11111111</code> to
+            dotted decimal. Show octet-by-octet work.<div class="work medium"></div>
+        </div>
+    </div>
+
+    <p class="note" style="text-align:center; margin-top:12px;"><b>End of exam.</b> Check that you answered each question.</p>
+</body>
+
+</html>
