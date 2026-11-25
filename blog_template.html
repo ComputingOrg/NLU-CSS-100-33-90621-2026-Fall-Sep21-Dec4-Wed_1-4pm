@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- STUDENT INSTRUCTION: Update the title to your name -->
+    <title>Jane Doe | Technical Blog</title>
+    
+    <!-- Import Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Import Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#3b82f6', // Blue-500
+                        secondary: '#1e293b', // Slate-800
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        .gradient-text {
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-grid-pattern {
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-blue-200">
+
+    <!-- Navigation -->
+    <nav class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Left: Back to Portfolio + Student Brand -->
+                <div class="flex items-center gap-4">
+                    <a href="index.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-primary bg-slate-100 hover:bg-blue-50 border border-slate-200 hover:border-blue-200 px-3 py-1.5 rounded-lg transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                        </svg>
+                        <span>Back to Portfolio</span>
+                    </a>
+
+                    <div class="h-5 w-px bg-slate-200 hidden sm:block"></div>
+
+                    <a href="index.html" class="font-bold text-xl tracking-tight text-secondary">
+                        <!-- STUDENT INSTRUCTION: Update your initials or logo here -->
+                        JD<span class="text-primary">.dev</span>
+                    </a>
+                </div>
+
+                <!-- Right: Navigation Links -->
+                <div class="flex items-center space-x-6 md:space-x-8">
+                    <a href="index.html#courses" class="hidden md:inline text-slate-600 hover:text-primary transition font-medium text-sm uppercase tracking-wider">Projects</a>
+                    <a href="blog.html" class="text-primary font-bold text-sm uppercase tracking-wider">Blog</a>
+                    <a href="index.html#contact" class="hidden md:inline text-slate-600 hover:text-primary transition font-medium text-sm uppercase tracking-wider">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Header -->
+    <header class="relative py-16 md:py-20 overflow-hidden bg-grid-pattern border-b border-slate-200">
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 rounded-full bg-blue-100 opacity-50 blur-3xl pointer-events-none"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <span class="inline-block py-1 px-3 rounded-full bg-blue-50 text-primary text-xs font-bold uppercase tracking-wider mb-4 border border-blue-100">
+                CSS:100 Technical Writing &amp; Dev Log
+            </span>
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-secondary mb-4">
+                Engineering Notes &amp; <span class="gradient-text">Reflections</span>
+            </h1>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                <!-- STUDENT INSTRUCTION: Customize your blog tagline -->
+                Documenting what I learn about computational thinking, Git workflows, debugging, and clear technical communication.
+            </p>
+        </div>
+    </header>
+
+    <!-- Blog Feed -->
+    <main class="flex-grow py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+
+            <!-- =====================================================================
+            STUDENT INSTRUCTION: TO ADD A NEW BLOG POST
+            1. Copy the <article> block below (from <article> to </article>).
+            2. Paste it right above the first existing post so newest posts appear first.
+            3. Update the id (e.g., id="post-3"), date, read time, title, paragraphs, and tags.
+            ====================================================================== -->
+
+            <!-- BLOG POST 2 (Most Recent) -->
+            <article id="post-2" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-10 hover:shadow-md transition">
+                <div class="flex flex-wrap items-center gap-3 text-xs font-semibold text-slate-500 mb-3">
+                    <time datetime="2026-10-14" class="text-primary uppercase tracking-wider">October 14, 2026</time>
+                    <span>&bull;</span>
+                    <span>3 min read</span>
+                    <span>&bull;</span>
+                    <span class="bg-slate-100 text-slate-600 px-2.5 py-0.5 rounded-full">Git &amp; Collaboration</span>
+                </div>
+
+                <h2 class="text-2xl md:text-3xl font-bold text-secondary mb-4">
+                    Writing Commit Messages Your Future Self Will Thank You For
+                </h2>
+
+                <div class="space-y-4 text-slate-600 leading-relaxed">
+                    <p>
+                        When I first started using Git, most of my commit messages looked like <code class="bg-slate-100 text-slate-800 px-1.5 py-0.5 rounded text-sm font-mono">"fixed stuff"</code> or <code class="bg-slate-100 text-slate-800 px-1.5 py-0.5 rounded text-sm font-mono">"update html"</code>. While working on the Corporate Directory Integration project in CSS:100, I quickly learned why vague commit histories break down on real engineering teams.
+                    </p>
+                    <p>
+                        A strong commit message answers two questions: <strong>what</strong> changed and <strong>why</strong> it was necessary. Using the imperative mood keeps logs consistent and easy to scan:
+                    </p>
+                    <pre class="bg-slate-900 text-slate-100 rounded-xl p-4 text-sm font-mono overflow-x-auto"><code>git commit -m "Add student profile card to CSS:100 directory"</code></pre>
+                    <p>
+                        Treating every commit like a miniature piece of documentation makes code reviews faster and debugging far less stressful.
+                    </p>
+                </div>
+
+                <div class="mt-6 pt-6 border-t border-slate-100 flex flex-wrap gap-2">
+                    <span class="text-xs font-medium bg-blue-50 text-primary px-3 py-1 rounded-full">#Git</span>
+                    <span class="text-xs font-medium bg-blue-50 text-primary px-3 py-1 rounded-full">#TechnicalWriting</span>
+                    <span class="text-xs font-medium bg-blue-50 text-primary px-3 py-1 rounded-full">#CSS100</span>
+                </div>
+            </article>
+
+            <!-- BLOG POST 1 -->
+            <article id="post-1" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-10 hover:shadow-md transition">
+                <div class="flex flex-wrap items-center gap-3 text-xs font-semibold text-slate-500 mb-3">
+                    <time datetime="2026-09-22" class="text-primary uppercase tracking-wider">September 22, 2026</time>
+                    <span>&bull;</span>
+                    <span>4 min read</span>
+                    <span>&bull;</span>
+                    <span class="bg-slate-100 text-slate-600 px-2.5 py-0.5 rounded-full">Computational Thinking</span>
+                </div>
+
+                <h2 class="text-2xl md:text-3xl font-bold text-secondary mb-4">
+                    Breaking Big Problems Into Small HTML &amp; CSS Components
+                </h2>
+
+                <div class="space-y-4 text-slate-600 leading-relaxed">
+                    <p>
+                        Staring at a blank editor when building a webpage from scratch can feel overwhelming. Applying <strong>decomposition</strong>—one of the core pillars of computational thinking—turned a daunting portfolio assignment into manageable steps.
+                    </p>
+                    <p>
+                        Instead of styling everything at once, I sketched the page as four independent blocks: a sticky navigation bar, a two-column hero header, a coursework grid, and a footer. Building and testing one section at a time prevented layout bugs from cascading across the whole page.
+                    </p>
+                </div>
+
+                <div class="mt-6 pt-6 border-t border-slate-100 flex flex-wrap gap-2">
+                    <span class="text-xs font-medium bg-blue-50 text-primary px-3 py-1 rounded-full">#HTML5</span>
+                    <span class="text-xs font-medium bg-blue-50 text-primary px-3 py-1 rounded-full">#TailwindCSS</span>
+                    <span class="text-xs font-medium bg-blue-50 text-primary px-3 py-1 rounded-full">#ComputationalThinking</span>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-slate-400 py-10 text-center border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="flex justify-center gap-6 mb-4 text-sm font-medium">
+                <a href="index.html" class="text-slate-300 hover:text-white transition">Portfolio Home</a>
+                <span>&bull;</span>
+                <a href="index.html#courses" class="text-slate-300 hover:text-white transition">Projects</a>
+                <span>&bull;</span>
+                <a href="index.html#contact" class="text-slate-300 hover:text-white transition">Contact</a>
+            </div>
+            <div class="text-sm">
+                &copy; <script>document.write(new Date().getFullYear())</script> Jane Doe. Built as part of CSS:100.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
